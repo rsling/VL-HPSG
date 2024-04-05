@@ -1,0 +1,91 @@
+\def\GRAPHPATH{localgraphics}
+
+\ifdefined\HANDOUT
+  \documentclass[handout,aspectratio=1610,dvipsnames]{beamer}
+  \def\GRAPHPATH{graphics}
+\else
+  \documentclass[aspectratio=1610,dvipsnames]{beamer}
+\fi
+
+\input{localpackages.tex}
+\input{localcommands.tex}
+
+\ifdefined\TITLE
+  \title[Formale Syntax | \StrSubstitute{\TITLE}{+}{ }]{Formale Syntax\\\StrSubstitute{\TITLE}{+}{ }}
+\else
+  \title[Formale Syntax]{Formale Syntax}
+\fi
+
+\author{Roland Schäfer}
+\institute[FSU Jena]{Institut für Germanistische Sprachwissenschaft\\Friedrich-Schiller-Universität Jena}
+\date[HPSG]{\grau{\scriptsize Stets aktuelle Fassungen: \url{https://github.com/rsling/VL-Formale-Syntax}\\
+Basiert auf Folien von Stefan Müller: \url{https://hpsg.hu-berlin.de/~stefan/Lehre/S2021/hpsg.html}}}
+
+\begin{document}
+
+\begingroup
+  \setbeamertemplate{navigation symbols}{}
+  \begin{frame}[noframenumbering,plain]
+   \titlepage
+  \end{frame}
+\endgroup
+
+\ifdefined\TITLE
+  \input{includes/\TITLE}
+\else
+  \section[Grammatik]{Grammatik}
+  \let\woopsi\section\let\section\subsection\let\subsection\subsubsection
+  \input{includes/01.+Einleitung.tex}
+  \let\subsection\section\let\section\woopsi
+
+  \section{Wo sind wir?}
+
+  \begin{frame}
+    {Formale Syntax | Plan}
+    \begin{enumerate}
+      \item Einleitung und Phrasenstrukturgrammatiken 
+    \end{enumerate}
+    \Halbzeile
+    \centering 
+    \url{https://hpsg.hu-berlin.de/~stefan/Pub/hpsg-lehrbuch.html}
+  \end{frame}
+\fi
+
+
+\makeatletter
+\setcounter{lastpagemainpart}{\the\c@framenumber}
+\makeatother
+
+\appendix
+
+\begin{frame}[allowframebreaks]
+  {Literatur}
+  \renewcommand*{\bibfont}{\footnotesize}
+  \setbeamertemplate{bibliography item}{}
+  \printbibliography
+\end{frame}
+
+\begin{frame}
+  {Autor}
+  \begin{block}{Kontakt}
+    Prof.\ Dr.\ Roland Schäfer\\
+    Institut für Germanistische Sprachwissenschaft\\
+    Friedrich-Schiller-Universität Jena\\
+    Fürstengraben 30\\
+    07743 Jena\\[\baselineskip]
+    \url{https://rolandschaefer.net}\\
+    \texttt{roland.schaefer@uni-jena.de}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  {Lizenz}
+  \begin{block}{Creative Commons BY-SA-3.0-DE}
+    Dieses Werk ist unter einer Creative Commons Lizenz vom Typ \textit{Namensnennung - Weitergabe unter gleichen Bedingungen 3.0 Deutschland} zugänglich.
+    Um eine Kopie dieser Lizenz einzusehen, konsultieren Sie \url{http://creativecommons.org/licenses/by-sa/3.0/de/} oder wenden Sie sich brieflich an Creative Commons, Postfach 1866, Mountain View, California, 94042, USA.
+  \end{block}
+\end{frame}
+
+\mode<beamer>{\setcounter{framenumber}{\thelastpagemainpart}}
+
+\end{document}

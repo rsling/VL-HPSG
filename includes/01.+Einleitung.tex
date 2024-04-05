@@ -1,0 +1,877 @@
+
+\begin{frame}
+  {Ziele}
+  \onslide<+->
+  \onslide<+->
+  Worum geht es heute?\\
+  \Zeile
+  \begin{itemize}
+    \item Vermittlung grundlegender Vorstellungen über deutsche Syntax
+    \item Vorstellung für die Daten, Zusammenhänge und Komplexität
+    \item Einführung in Grundannahmen in der HPSG
+    \item Befähigung zum Schreiben formaler Grammatiken
+  \end{itemize}
+  \Zeile
+  \centering 
+  \grau{\citet[Kapitel~1]{MuellerLehrbuch} bzw.\ \citet[Kapitel~1]{MuellerGTBuch}\\
+    Englische Version des Grammatiktheoriebuches: \citet[Kapitel~1]{MuellerGT-Eng}}
+\end{frame}
+
+
+
+\section{Wozu (formale) Syntax?}
+
+\begin{frame}
+  {Wozu Syntax?}
+  \onslide<+->
+  \begin{itemize}[<+->]
+    \item \alert{Zeichen} | Form-Bedeutungs-Paare \citep{Saussure16a-Fr}
+    \item Wörter, Wortgruppen, Sätze
+    \item Sprache | \rot{keine} (endliche) \rot{Aufzählung} von Wortfolgen\\
+      \grau{Endlichkeit von Sprache bei Annahme einer maximalen Satzlänge}
+      \begin{exe}
+        \ex Dieser Satz geht weiter und weiter und weiter und weiter \ldots
+        \ex {}[Ein Satz ist ein Satz] ist ein Satz.
+      \end{exe}
+      \Halbzeile
+    \item Auf jeden Fall \alert{sehr viele Sätze}, Unendlichkeitsproblem als Scheinfrage
+    \item \alert{Kompetenz} | (implizites) Wissen um grammatische Regularitäten
+    \item \alert{Performanz} | Nutzung des Wissens, Sprachproduktion
+      \Halbzeile
+    \item \alert{Kreativität} | Sätze bilden, die man nie zuvor gehört hat
+  \end{itemize}
+\end{frame}
+ 
+ 
+\begin{frame}
+  {Die Kinder im Rumpedorf}
+  \onslide<+->
+  \onslide<+->
+  Schon Kindern kann man ein Spiel um Kompetenz und Performanz zumuten!\\
+  \Zeile
+  \onslide<+->
+  \begin{quote}
+    Und wir beeilten uns, den Jungen zu erzählen, wir hätten von Anfang an gewußt, daß es nur eine
+    Erfindung von Lasse gewesen sei. Und da sagte Lasse, die Jungen hätten gewußt, daß wir gewußt
+    hätten, es sei nur eine Erfindung von ihm. Das war natürlich gelogen, aber vorsichtshalber sagten
+    wir, wir hätten gewußt, die Jungen hätten gewußt, daß wir gewußt hätten, es sei nur eine Erfindung
+    von Lasse. Und da sagten die Jungen -- ja -- jetzt schaffe ich es nicht mehr aufzuzählen, aber es
+    waren so viele "`gewußt"', daß man ganz verwirrt davon werden konnte, wenn man es hörte.
+  \end{quote}
+  \Zeile
+  \begin{itemize}[<+->]
+    \item \alert{Grammatikalität} der Sätze | Einwandfrei feststellbar
+    \item \alert{Akzeptabilität} der Sätze | Vermindert durch \rot{Performanzeffekte}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  {Wozu Syntax? Bedeutung aus Bestandteilen ermitteln}
+  \onslide<+->
+  \onslide<+->
+  Bedeutung einer Äußerung aus den Bedeutungen ihrer Teile bestimmen\\
+  \Viertelzeile
+  \begin{exe}
+    \ex Der Mann kennt den Kollegen.
+  \end{exe}
+  \Halbzeile
+  \alert{Syntax} | Art und Weise der Kombination, Strukturierung\\
+  \Viertelzeile
+  \begin{exe}
+    \ex
+    \begin{xlist}
+      \ex Die Frau kennt die Kolleginnen.
+      \ex Die Frau kennen die Kolleginnen.
+    \end{xlist}
+    \ex
+    \begin{xlist}
+      \ex Die Frau schläft.
+      \ex Die Kolleginnen schlafen.
+    \end{xlist}
+  \end{exe}
+  \Halbzeile
+  \onslide<+->
+  \begin{block}
+    {Das Frege-Prinzip (Gottlob Frege}
+    Die Bedeutung eines Satzes ergibt sich aus der Bedeutung seiner Konstituenten\\
+    und der Art ihrer Kombination.
+  \end{block}
+\end{frame}
+ 
+
+\begin{frame}
+  {Warum formal?}
+  \begin{quote}\small
+    Precisely constructed models for linguistic structure can play an
+    important role, both negative and positive, in the process of discovery 
+    itself. By pushing a precise but inadequate formulation to
+    an unacceptable conclusion, we can often \alert{expose the exact source
+    of this inadequacy and, consequently, gain a deeper understanding}
+    of the linguistic data. More positively, a formalized theory may 
+    \alert{automatically provide solutions for many problems other than those
+    for which it was explicitly designed}. Obscure and intuition-bound
+    notions can neither lead to absurd conclusions nor provide new and
+    correct ones, and hence they fail to be useful in two important respects. 
+    I think that some of those linguists who have questioned
+    the value of precise and technical development of linguistic theory
+    have failed to recognize the productive potential in the method
+    of rigorously stating a proposed theory and applying it strictly to
+    linguistic material with no attempt to avoid unacceptable conclusions by ad hoc adjustments or loose formulation.
+\citep[S.\,5]{Chomsky57a}
+  \end{quote}
+  \onslide<+->
+  \Halbzeile
+  \begin{quote}\small
+    As is frequently pointed out but cannot be overemphasized, an important goal
+    of formalization in linguistics is to \alert{enable subsequent researchers to see the defects
+    of an analysis as clearly as its merits}; only then can progress be made efficiently.
+    \citep[S.\,322]{Dowty79a}
+  \end{quote}
+\end{frame}
+
+
+\section{Konstituenz}
+
+\begin{frame}
+  {Einteilung in Einheiten}
+  \onslide<+->
+  \onslide<+->
+  \alert{Parataxe} | Einbettung von ganzen Satzstrukturen\\
+  \Viertelzeile
+  \begin{exe}
+    \ex dass Max glaubt, [dass Julius weiß, [dass Otto behauptet, [dass Karl vermutet, [dass Richard bestätigt, [dass Friederike lacht]]]]]
+  \end{exe}
+  \onslide<+->
+  \Zeile
+  Parataxe als Spezialfall | \alert{Konstitueten in Konstituenten}\\
+  \Viertelzeile
+  \begin{exe}
+    \ex {}[das Haus [des Autors [von Zettel Traum [den ich 1993 gelesen habe]]]]
+    \ex {}[[den][ich][1993][[gelesen]habe]]
+  \end{exe}
+\end{frame}
+
+\begin{frame}
+  {Naive Konstituenzanalyse}
+  \onslide<+->
+  \onslide<+->
+  \centering
+  \scalebox{0.8}{\begin{forest}
+    [NP
+      [Artikel
+        [das]
+      ]
+      [N$'$
+        [N
+          [Haus]
+        ]
+        [NP
+          [Artikel
+            [des]
+          ]
+          [N$'$
+            [N
+              [Autors]
+            ]
+            [PP
+              [P
+                [von]
+              ]
+              [NP
+                [NP
+                  [Zettels Traum]
+                ]
+                [Relativsatz
+                  [den \ldots\ habe]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{forest}}
+\end{frame}
+
+
+\begin{frame}
+  {Konstituententests}
+  \onslide<+->
+  \onslide<+->
+  Welche \alert{Konstituententests} kennen Sie?\\
+  \Zeile 
+  \begin{itemize}[<+->]
+    \item Substituierbarkeit\slash Pronominalisierungstest\slash Fragetest
+    \item Weglaßtest
+    \item Verschiebetest (Umstelltest)\slash Vorfeldtest
+    \item Koordinationstest
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  {Konstituententests I}
+  \begin{description}
+  \item[Substituierbarkeit]
+    Ausstauschbare Wortfolgen als potenzielle Konstituenten
+    \begin{exe}
+      \ex Er kennt \orongsch{den Mann}.
+      \ex Er kennt \orongsch{eine Frau}.
+    \end{exe}
+    \Zeile
+    \onslide<+->
+  \item[Pronominalisierungstest]
+    Dasselbe, aber spezifisch mit pronominalen Ein-Wort-Folgen
+    \begin{exe}
+      \ex \orongsch{Der Mann} schläft.
+      \ex \orongsch{Er} schläft.
+    \end{exe}
+  \end{description}
+\end{frame}
+
+\begin{frame}
+  {Konstituententests II}
+  \begin{description}
+    \item[Fragetest]
+    Erfragbarkeit von Konstituenten
+      \begin{exe}
+        \ex \orongsch{Der Mann} arbeitet.
+        \ex \orongsch{Wer} arbeitet?
+      \end{exe}
+      \onslide<+->
+      \Halbzeile
+  \item[Verschiebetest] 
+   Umstellbarkeit von Konstituenten 
+      \begin{exe}
+        \ex weil \orongsch{keiner} \gruen{diese Frau} kennt.
+        \ex weil \gruen{diese Frau} \orongsch{keiner} kennt.
+      \end{exe}
+      \onslide<+->
+      \Halbzeile
+  \item[Koordinationstest]
+    Konstituenten als koordinierbar
+      \begin{exe}
+        \ex \alert{[}\orongsch{[Der Mann]} \alert{und} \orongsch{[die Frau]}\alert{]} arbeiten.
+      \end{exe}
+    \end{description}
+\end{frame}
+
+
+\section{Köpfe}
+
+
+
+\begin{frame}
+  {Köpfe}
+  \onslide<+->
+  \onslide<+->
+  \alert{Kopf} | Festlegung der syntaktisch relevanten \alert{kategorialen Merkmale der Phrase}\\
+  \onslide<+->
+  \Halbzeile
+  \begin{exe}
+    \ex \alert{Träumt} er?
+    \ex \alert{Erwartet} er einen dreiprozentigen Anstieg?
+    \ex \alert{in} diesem Haus
+    \ex ein \alert{Mann}
+  \end{exe}
+  \onslide<+->
+  \Halbzeile
+  \begin{itemize}[<+->]
+    \item \alert{Projektion} | Kombination eines Kopfes mit anderem Material
+    \item \alert{Maximalprojektion} | Vollständige Projektion
+    \item \alert{Satz} | Maximalprojektion eines finiten Verbs
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  {Naive Konstituenzanalyse mit Markierung der Köpfe}
+  \onslide<+->
+  \onslide<+->
+  \centering
+  \scalebox{0.8}{\begin{forest}
+    [NP, name=NP2, blue
+      [Artikel
+        [das]
+      ]
+      [N$'$, name=N2b, blue
+        [N, blue, name=N2a
+          [Haus, blue]
+        ]
+        [NP, name=NP1, green
+          [Artikel
+            [des]
+          ]
+          [N$'$, green, name=N1b
+            [N, green, name=N1a
+              [Autors, green]
+            ]
+            [PP, name=PP, orange
+              [P, name=P, orange
+                [von, orange]
+              ]
+              [NP, red, name=NP3b
+                [NP, red, name=NP3a
+                  [Zettels Traum, red]
+                ]
+                [Relativsatz
+                  [den \ldots\ habe]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+      {\draw [->, bend left=45, orange, thick] (P.north) to (PP.west);}
+      {\draw [->, bend left=45, green, thick] (N1a.north) to (N1b.west);}
+      {\draw [->, bend right=45, green, thick] (N1b.north) to (NP1.east);}
+      {\draw [->, bend left=45, blue, thick] (N2a.north) to (N2b.west);}
+      {\draw [->, bend right=45, blue, thick] (N2b.north) to (NP2.east);}
+      {\draw [->, bend left=45, red, thick] (NP3a.north) to (NP3b.west);}
+    ]
+  \end{forest}}
+\end{frame}
+
+
+\begin{frame}
+  {Generalisierung durch Phrasenbildung}
+  \onslide<+->
+  Der \alert{interne Aufbau} einer Phrase ist für den Kontext \alert{irrelevant}:\\
+  \onslide<+->
+  \Viertelzeile
+  \begin{exe}
+    \ex er
+    \ex der Mann
+    \ex der Mann aus Stuttgart
+    \ex der Mann aus Stuttgart, den wir kennen
+  \end{exe}
+  \onslide<+->
+  \Halbzeile
+  Bestimmte \alert{Merkmale} des Kopfs sind aber \alert{kontextrelevant}:\\
+  \begin{exe}
+   \ex[]{Der Kollege liest einen Aufsatz.} 
+   \ex[*]{Die Kollegen liest einen Aufsatz.} 
+   \ex[*]{ Des Kollegen liest einen Aufsatz.} 
+  \end{exe} 
+\end{frame}
+
+
+\begin{frame}
+  {Naive Konstituenzanalyse mit Projektion von Kopfmerkmalen}
+  \onslide<+->
+  \onslide<+->
+  \centering
+  \scalebox{0.6}{\begin{forest}
+    [NP\\\footnotesize Nom Sg Neut, name=NP2, blue
+      [Artikel
+        [das]
+      ]
+      [N$'$\\\footnotesize Nom Sg Neut, name=N2b, blue
+        [{N\\\footnotesize Nom Sg Neut}, blue, name=N2a
+          [Haus, blue]
+        ]
+        [{NP\\\footnotesize Gen Sg Mask}, name=NP1, green
+          [Artikel
+            [des]
+          ]
+          [{N$'$\\\footnotesize Gen Sg Mask}, green, name=N1b
+            [{N\\\footnotesize Gen Sg Mask}, green, name=N1a
+              [Autors, green]
+            ]
+            [{PP\\\footnotesize ?}, name=PP, orange
+              [{P\\\footnotesize ?}, name=P, orange
+                [von, orange]
+              ]
+              [{NP\\\footnotesize Dat Sg Mask}, red, name=NP3b
+                [{NP\\\footnotesize Dat Sg Mask}, red, name=NP3a
+                  [Zettels Traum, red]
+                ]
+                [Relativsatz
+                  [den \ldots\ habe]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+      {\draw [->, bend left=45, orange, thick] (P.north) to (PP.west);}
+      {\draw [->, bend left=45, green, thick] (N1a.north) to (N1b.west);}
+      {\draw [->, bend right=45, green, thick] (N1b.north) to (NP1.east);}
+      {\draw [->, bend left=45, blue, thick] (N2a.north) to (N2b.west);}
+      {\draw [->, bend right=45, blue, thick] (N2b.north) to (NP2.east);}
+      {\draw [->, bend left=45, red, thick] (NP3a.north) to (NP3b.west);}
+    ]
+  \end{forest}}
+\end{frame}
+
+
+\section{Argumente und Adjunkte}
+
+\begin{frame}
+  {Valenz und logische Argumente}
+  \onslide<+->
+  \onslide<+->
+  Nicht alle Phrasen, die vom Verb abhängen, stehen in derselben Art Relation zu ihm.\\
+  \Zeile
+  \begin{itemize}[<+->]
+    \item Konstituenten | Verschiedenartige Beziehungen zu ihrem Kopf
+    \item Semantische Beteiligte -- \alert{Aktanten} -- als \alert{feste Teile der Verbbedeutung}
+    \item Semantik von \textit{sehen} | Immer ein \alert{Sehender}, ein \alert{Gesehenes}
+      \Viertelzeile
+      \begin{exe}
+       \ex Dani sieht den Chaoten.
+      \end{exe}
+    \item \alert{Logische Argumente von \textit{sehen}} | Dani und der Chaot
+    \item Valenz | Abbildung logischer Argumente auf grammatische Argumente
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  {Optionale Argumente}
+  \onslide<+->
+  \onslide<+->
+  Semantische Argumente | Nicht immer syntaktisch erforderlich\\
+  \onslide<+->
+  \Halbzeile
+    \begin{exe}
+      \ex Er wartet \alert{auf den Installateur}.
+      \ex Er wartet.
+    \end{exe}
+  \onslide<+->
+  \Zeile
+  Bei \alert{Nominalisierung} | Alle Argumente optional\\
+  \onslide<+->
+  \Halbzeile
+    \begin{exe}
+      \ex \gruen{Arno} \alert{liest} \orongsch{diese Bücher}.
+      \ex \alert{das Lesen} \orongsch{dieser Bücher} \gruen{durch Arno}
+      \ex \alert{das Lesen} \orongsch{dieser Bücher} 
+      \ex \alert{das Lesen} 
+    \end{exe}
+\end{frame}
+
+
+
+\begin{frame}
+  {Syntaktische Argumente, die keine logischen sind}
+  \onslide<+->
+  \onslide<+->
+  Oben waren alle \alert{syntaktischen Argumente} auch \gruen{logische Argumente}.\\
+  \Halbzeile
+  \begin{exe}
+    \ex \alert{Dani} sieht \alert{den Chaoten}.
+  \end{exe}
+  \onslide<+->
+  \Zeile
+  \orongsch{Syntaktische Argumente}, die keine logischen sind:\\
+  \Halbzeile
+  \onslide<+->
+  \begin{exe}
+    \ex \orongsch{Es} regnet.
+    \ex Conny erholt \orongsch{sich}.
+  \end{exe}
+\end{frame}
+
+\begin{frame}
+  {Adjunkte}
+  \onslide<+->
+  \onslide<+->
+  \alert{Adjunkte} | Keine verbgebundene, sondern \alert{selbst mitgebrachte} Rolle\\
+  \onslide<+->
+  \Halbzeile
+  \begin{exe}
+    \ex \alert{Dani} sieht \alert{den Chaoten} \orongsch{bellend} \rot{auf der Brücke}.
+  \end{exe}
+  \onslide<+->
+  \Zeile
+  Deutliche Unterschiede zwischen Argumenten und Adjunkten\\
+  \Halbzeile
+  \begin{itemize}[<+->]
+    \item \alert{Sehende und Gesehener} | Fester Teil einer \textit{sehen}-Situation
+    \item \rot{Ort} | Teil so ziemlich jedes Geschehens, nicht \textit{sehen}-spezifisch
+    \item \orongsch{Verhalten des Beteiligten} | Erst recht nicht \textit{sehen}-spezifisch
+  \end{itemize}
+\end{frame}
+ 
+\begin{frame}
+  {Andere Bezeichnungen}
+  \onslide<+->
+  \onslide<+->
+  Üblicher Terminologie-Wildwuchs in der Linguistik\\
+  \Zeile
+  \begin{itemize}[<+->]
+    \item Argument = \alert{Ergänzung}
+    \item Adjunkt = \alert{(freie) Angabe}
+      \Halbzeile
+    \item Argumente | Beim Verb aufgeteilt in \alert{Subjekte} und \alert{Komplemente} 
+    \item \alert{Aktant} Subjekte und Objekte (nicht Prädikative und Adverbiale)
+      \Halbzeile
+    \item \alert{Adverbial} | Angabe beim Verb
+      \begin{itemize}
+        \item Raum (Lage, Richtung/Ziel, Herkunft, Weg)
+        \item Zeit (Zeitpunkt, Anfang, Ende, Dauer)
+        \item Grund (inkl.\ Gegengrund, Bedingung)
+        \item Art und Weise
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\section{Grammatische Funktionen}
+
+\begin{frame}
+  {Grammatische Funktionen (eigentlich Relationen)}
+  \onslide<+->
+  \onslide<+->
+  Grammatische Funktionen\slash Relationen sind oft nicht unabhängig definierbar!\\
+  \Zeile
+  \begin{itemize}[<+->]
+    \item Typen von Argumenten\slash Adjunkten mit spezifischen Eigenschaften
+      \Halbzeile
+    \item \alert{Subjekt} | Siehe nächste Folien
+    \item \alert{Objekt}\slash \alert{Komplement} | Nicht-Nominativ-Argumente
+    \item \alert{Adverb}\slash \alert{Adverbiale Bestimmung} | Angabe des Verbs
+  \end{itemize}
+\end{frame}
+
+\subsection{Subjekt}
+
+\begin{frame}
+  {Subjekt}
+  \onslide<+->
+  \onslide<+->
+  Für \alert{deutsche Subjekte} benannte definitorische Kriterien:\\
+  \Halbzeile
+  \begin{enumerate}[<+->]
+    \item \alert{Kongruenz} mit dem finiten Verb
+    \item \alert{Nominativ} in nichtkopulativen Sätzen
+    \item Weglassbarkeit in \alert{Infinitivkonstruktionen} (Kontrolle)
+    \item Weglassbarkeit in \alert{Imperativsätzen}
+  \end{enumerate}
+  \Zeile
+  \onslide<+->
+  \citet{Reis82} | Nur (2) relevant!
+\end{frame}
+
+
+\begin{frame}
+  {Dative sind keine Subjekte}
+  \onslide<+->
+  \onslide<+->
+  Kongruenz:\\
+  \onslide<+->
+  \Viertelzeile
+  \begin{exe}
+    \ex[]{Er hilft den Männern.}
+    \ex[]{Den Männern wurde geholfen.}
+    \ex[*]{Den Männern wurden geholfen.}
+  \end{exe}
+  \onslide<+->
+  \Halbzeile
+  Keine Kontrolle in Infinitivkonstruktionen:\\
+  \onslide<+->
+  \Viertelzeile
+  \begin{exe}
+   \ex[]{Klaus behauptet, den Männern zu helfen.}
+   \ex[]{Klaus behauptet, dass er den Männern hilft.}
+   \ex[]{Klaus behauptet, seine Familie zu lieben.}
+   \ex[]{Seine Familie behauptet, geliebt zu werden.}
+   \ex[*]{Die Männer behaupten, geholfen zu werden.}
+   \ex[*]{Die Männer behaupten, elegant getanzt zu werden.}
+  \end{exe}
+\end{frame}
+
+
+\begin{frame}
+  {Dative sind keine Subjekte}
+  \onslide<+->
+  \onslide<+->
+  Weglassbarkeit in Imperativen:\\
+  \Halbzeile
+  \onslide<+->
+  \begin{exe}
+    \ex[]{Fürchte dich nicht!}
+    \ex[*]{Graue nicht!}
+    \ex[]{Werd einmal unterstützt und \ldots}
+    \ex[*]{Werd einmal geholfen und \ldots}
+  \end{exe}
+\end{frame}
+
+\section{Phrasenstrukturgrammatiken}
+
+\begin{frame}
+  {Phrasenstrukturen}
+  \centering 
+  \begin{tabular}{@{}l@{\hspace{1cm}}l@{}}
+  \scalebox{.75}{%
+  \begin{forest}
+    [S
+      [NP [er] ]
+      [NP
+        [Det [das] ]
+        [N [Buch] ] 
+      ]
+      [NP
+        [Det [dem] ]
+        [N [Mann] ] 
+      ]
+      [V [gibt] ]
+    ]
+  \end{forest}} &
+  \scalebox{.75111111}{%
+  \begin{forest}
+    [V
+      [NP [er] ]
+      [V
+        [NP
+          [Det [das] ]
+          [N [Buch] ] ]
+        [V
+          [NP
+            [Det [dem] ]
+            [N [Mann] ] ]
+          [V [gibt] ] ] ] ]
+  \end{forest}}
+  \\
+  \\
+  \onslide<+->
+    \begin{tabular}{@{~}l@{ }l@{}}
+      NP & $\to$ Det, N            \\
+      S  & $\to$ NP, NP, NP, V  \\
+    \end{tabular} & \begin{tabular}{@{~}l@{ }l@{}}
+      NP & $\to$ Det, N  \\
+      V  & $\to$ NP, V\\
+    \end{tabular}\\
+  \end{tabular}
+\end{frame}
+
+
+% \begin{frame}
+%   {Beispielableitung bei Annahme flacher Strukturen}
+% 
+%   \vfill
+% 
+%   \bigskip
+%   \parskip0pt
+%   \begin{tabular}[t]{@{}l@{ }l}
+%   \highlight{NP}<5,8> & \highlight{$\to$ Det N}<5,8>\\          
+%   \highlight{S}<10>  & \highlight{$\to$ NP NP NP V}<10>
+%   \end{tabular}\hspace{2cm}%
+%   \begin{tabular}[t]{@{}l@{ }l}
+%   \highlight{NP}<2> & \highlight{$\to$ er}<2>\\
+%   \highlight{Det}<3>  & \highlight{$\to$ das}<3>\\
+%   \highlight{Det}<6>  & \highlight{$\to$ dem}<6>\\
+%   \end{tabular}\hspace{8mm}
+%   \begin{tabular}[t]{@{}l@{ }l}
+%   \highlight{N}<4> & \highlight{$\to$ Buch}<4>\\
+%   \highlight{N}<7> & \highlight{$\to$ Mann}<7>\\
+%   \highlight{V}<9> & \highlight{$\to$ gibt}<9>\\
+%   \end{tabular}
+%   \vfill
+% 
+%   \begin{tabular}{@{}llllll@{\hspace{2.5cm}}l}
+%   er            & das          & Buch          & dem          & Mann & gibt                \onslide<+->\\
+%   \highlight{NP}<2> & das          & Buch          & dem          & Mann & gibt & \only<handout>{NP $\to$ er}  \onslide<+->\\
+%   NP            & \highlight{Det}<3> & Buch          & dem          & Mann & gibt & \only<handout>{Det $\to$ das}  \onslide<+->\\
+%   NP            & Det            & \highlight{N}<4>  & dem          & Mann & gibt & \only<handout>{N $\to$ Buch} \onslide<+->\\
+%   NP            &              & \highlight{NP}<5> & dem          & Mann & gibt & \only<handout>{NP $\to$ Det N}\onslide<+->\\
+%   NP            &              & NP            & \highlight{Det}<6> & Mann & gibt & \only<handout>{Det $\to$ dem}  \onslide<+->\\
+%   NP            &              & NP            & Det            & \highlight{N}<7>    & gibt & \only<handout>{N $\to$ Mann} \onslide<+->\\
+%   NP            &              & NP            &              & \highlight{NP}<8>       & gibt & \only<handout>{NP $\to$ Det N}\onslide<+->\\
+%   NP            &              & NP            &              & NP       & \highlight{V}<9>   & \only<handout>{V $\to$ gibt}  \onslide<+->\\
+%                 &              &               &              &      & \highlight{S}<10>   & \only<handout>{S $\to$ NP NP NP V}\\
+%   \end{tabular}
+% 
+%   \vfill
+% \end{frame}
+% 
+% \begin{frame}
+%   {Von der Grammatik beschriebene Sätze}
+%   \begin{itemize}
+%   \item die Grammatik ist zu ungenau:\\
+%   \begin{tabular}{@{}l@{ }l}
+%   NP & $\to$ Det N\\
+%   S  & $\to$ NP NP NP V\\
+%   \end{tabular}
+%   \begin{exe}
+%     \ex[]{
+%   er das Buch dem Mann gibt
+%   \end{frame}
+%     \ex[*]{
+%   ich das Buch dem Mann gibt\\
+%   \onslide<+->
+%   (Subjekt"=Verb"=Kongruenz {\em ich\/}, {\em gibt\/})}
+%   \onslide<+->
+%     \ex[*]{
+%   er das Buch den Mann gibt\\\onslide<+->
+%   (Kasusanforderungen des Verbs {\em gibt\/} verlangt Dativ)
+%   \end{frame}
+%   \onslide<+->
+%     \ex[*]{
+%   er den Buch dem Mann gibt\\\onslide<+->
+%   (Determinator"=Nomen"=Kongruenz {\em den\/}, {\em Buch\/})
+%   \end{frame}
+%   \end{exe}
+%   \end{itemize}
+% \end{frame}
+% 
+% 
+% \begin{frame}
+%   {Subjekt"=Verb"=Kongruenz (I)}
+%   \begin{itemize}
+%   \item Übereinstimmung in Person (1, 2, 3) und Numerus (sg, pl)
+%   \begin{exe}
+%     \ex Ich schlafe. (1, sg)
+%     \ex Du schläfst.  (2, sg)
+%     \ex Er schläft.  (3, sg)
+%     \ex Wir schlafen. (1, pl)
+%     \ex Ihr schlaft.  (2, pl)
+%     \ex Sie schlafen. (3,pl)
+%   \end{exe}
+%   \item Wie drückt man das in Regeln aus?
+%   \end{itemize}
+% \end{frame}
+% 
+% 
+% \begin{frame}
+%   {Subjekt"=Verb"=Kongruenz (II)}
+%   \begin{itemize}
+%   \item Verfeinerung der verwedenten Symbole\\
+%               aus S $\to$ NP NP NP V wird\\[2ex]
+%   \begin{tabular}{@{}l@{ }l}
+%   S  & $\to$ NP\_1\_sg NP NP V\_1\_sg\\
+%   S  & $\to$ NP\_2\_sg NP NP V\_2\_sg\\
+%   S  & $\to$ NP\_3\_sg NP NP V\_3\_sg\\
+%   S  & $\to$ NP\_1\_pl NP NP V\_1\_pl\\
+%   S  & $\to$ NP\_2\_pl NP NP V\_2\_pl\\
+%   S  & $\to$ NP\_3\_pl NP NP V\_3\_pl\\
+%   \end{tabular}
+% 
+%   \item sechs Symbole für Nominalphrasen, sechs für Verben
+%   \item sechs Regeln statt einer
+%   \end{itemize}
+% \end{frame}
+% 
+% 
+% \begin{frame}
+%   {Kasuszuweisung durch das Verb}
+%   \begin{itemize}
+%   \item Kasus muß repräsentiert sein:
+%   \begin{tabular}{@{}l@{ }l}
+%   S  & $\to$ NP\_1\_sg\_nom NP\_dat NP\_acc V\_1\_sg\_ditransitiv\\
+%   S  & $\to$ NP\_2\_sg\_nom NP\_dat NP\_acc V\_2\_sg\_ditransitiv\\
+%   S  & $\to$ NP\_3\_sg\_nom NP\_dat NP\_acc V\_3\_sg\_ditransitiv\\
+%   S  & $\to$ NP\_1\_pl\_nom NP\_dat NP\_acc V\_1\_pl\_ditransitiv\\
+%   S  & $\to$ NP\_2\_pl\_nom NP\_dat NP\_acc V\_2\_pl\_ditransitiv\\
+%   S  & $\to$ NP\_3\_pl\_nom NP\_dat NP\_acc V\_3\_pl\_ditransitiv\\
+%   \end{tabular}
+%   \item insgesamt 3 * 2 * 4 = 24 neue Kategorien für NP
+%   \item 3 * 2 * x  Kategorien für V (x = Anzahl der Valenzmuster)
+%   \end{itemize}
+% \end{frame}
+% 
+% 
+% \begin{frame}
+%   {Determinator"=Nomen"=Kongruenz}
+%   \begin{itemize}
+%   \item Übereinstimmung in Genus (fem, mas, neu), Numerus (sg, pl) und\\
+%         Kasus (nom, gen, dat, acc)
+%   \begin{exe}
+%     \ex der Mann, die Frau, das Buch (Genus)
+%     \ex das Buch, die Bücher (Numerus)
+%     \ex des Buches, dem Buch (Kasus)
+%   \end{exe}
+%   \onslide<+->
+%   \item aus NP $\to$ Det N wird\\[2ex]
+%   \resizebox{\linewidth}{!}{
+%   \begin{tabular}{@{}l@{ }l@{\hspace{4mm}}l@{ }l}
+%   NP\_3\_sg\_nom  & $\to$ Det\_fem\_sg\_nom N\_fem\_sg\_nom & NP\_gen  & $\to$ Det\_fem\_sg\_gen N\_fem\_sg\_gen\\
+%   NP\_3\_sg\_nom  & $\to$ Det\_mas\_sg\_nom N\_mas\_sg\_nom & NP\_gen  & $\to$ Det\_mas\_sg\_gen N\_mas\_sg\_gen\\
+%   NP\_3\_sg\_nom  & $\to$ Det\_neu\_sg\_nom N\_neu\_sg\_nom & NP\_gen  & $\to$ Det\_neu\_sg\_gen N\_neu\_sg\_gen\\
+%   NP\_3\_pl\_nom  & $\to$ Det\_fem\_pl\_nom N\_fem\_pl\_nom & NP\_gen  & $\to$ Det\_fem\_pl\_gen N\_fem\_pl\_gen\\
+%   NP\_3\_pl\_nom  & $\to$ Det\_mas\_pl\_nom N\_mas\_pl\_nom & NP\_gen  & $\to$ Det\_mas\_pl\_gen N\_mas\_pl\_gen\\
+%   NP\_3\_pl\_nom  & $\to$ Det\_neu\_pl\_nom N\_neu\_pl\_nom & NP\_gen  & $\to$ Det\_neu\_pl\_gen N\_neu\_pl\_gen\\[2mm]
+%   \ldots & \hspaceThis{$\to$} Dativ                                                             & \ldots & \hspaceThis{$\to$} Akkusativ\\[2mm]
+%   \end{tabular}
+%   }
+%   \item 24 Symbole für Determinatoren, 24 Symbole für Nomen
+%   \item 24 Regeln statt einer
+%   \end{itemize}
+% \end{frame}
+% 
+% \begin{frame}
+%   {Probleme dieses Ansatzes}
+%   \begin{itemize}
+%   \item Gernalisierungen werden nicht erfaßt.
+%   \item weder in Regeln noch in Kategoriesymbolen
+%         \begin{itemize}
+%         \item Wo kann eine NP oder NP\_nom stehen?\\
+%               Nicht wo kann eine NP\_3\_sg\_nom stehen?
+%         \item Gemeinsamkeiten der Regeln sind nicht offensichtlich.
+%         \end{itemize}
+%   \onslide<+->
+%   \item Lösung: Merkmale mit Werten und Identität von Werten\\
+%         Kategoriesymbol: NP Merkmal: Per, Num, Kas, \ldots\\
+% 
+%   Wir erhalten \zb die Regeln:\\
+% 
+%   \begin{tabular}{@{}l@{ }l}
+%   NP(3,sg,nom)  & $\to$ Det(fem,sg,nom) N(fem,sg,nom)\\
+%   NP(3,sg,nom)  & $\to$ Det(mas,sg,nom) N(mas,sg,nom)\\
+%   \end{tabular}
+%   \end{itemize}
+% \end{frame}
+% 
+% 
+% \begin{frame}
+%   {Merkmale und Regelschemata (I)}
+%   \begin{itemize}
+%   \item Regeln mit speziellen Werten zu Regelschemata verallgemeinern:
+%   \medskip
+%   \begin{tabular}{@{}l@{ }l@{ }l}
+%   NP(\blau<3>{3},\blau<2>{Num},\blau<2>{Kas}) & $\to$ & Det(\gruen<2>{Gen},\blau<2>{Num},\blau<2>{Kas}) N(\gruen<2>{Gen},\blau<2>{Num},\blau<2>{Kas})\\
+%   \end{tabular}
+%   \onslide<+->
+%   \item Gen-, Num- und Kas-Werte sind egal,\\
+%         Hauptsache sie stimmen überein (identische Werte)
+%   \onslide<+->
+%   \item Der Wert des Personenmerkmals (erste Stelle in NP(3,Num,Kas))\\
+%    ist durch die Regel festgelegt: 3.
+%   \end{itemize}
+% \end{frame}
+% 
+% 
+% \begin{frame}
+%   {Merkmale und Regelschemata (II)}
+%   \begin{itemize}
+%   \item Regeln mit speziellen Werten zu Regelschemata verallgemeinern:
+%   \medskip
+%   \begin{tabular}{@{}l@{ }l@{ }l}
+%   NP({3},{Num},{Kas}) & $\to$ & Det(Gen,{Num},{Kas}) N(Gen,{Num},{Kas})\\
+%   S  & $\to$ & NP(\blau<1>{Per1},\blau<1>{Num1},\blau<3>{nom})\\
+%      &       & NP(Per2,Num2,\blau<3>{dat})\\
+%      &       & NP(Per3,Num3,\blau<3>{akk})\\
+%      &       & V(\blau<1>{Per1},\blau<1>{Num1})\\\\
+%   \end{tabular}
+%   \item Per1 und Num1 sind beim Verb und Subjekt gleich.
+%   \onslide<+->
+%   \item Bei anderen NPen sind die Werte egal.\\
+%         (Schreibweise für irrelevante Werte: `\_')
+%   \onslide<+->
+%   \item Die Kasus der NPen sind in der zweiten Regel festgelegt.
+%   \end{itemize}
+% \end{frame}
+% 
+% 
+% \begin{frame}
+%   {\xbar-Theorie}
+% 
+% \xbar-Theorie wird in vielen verschiedenen Frameworks angenommen:\\
+% \begin{itemize}
+% \item Government \& Binding (GB): \citew*{Chomsky81a}
+% \item Lexical Functional Grammar (LFG): \citew{Bresnan82a-ed,Bresnan2001a}
+% \item Generalized Phrase Structure Grammar (GPSG):\\
+%       \citew*{GKPS85a}
+% \end{itemize}
+% 
+% \end{frame}
+
