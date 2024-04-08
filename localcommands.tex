@@ -125,7 +125,7 @@
 \newcommand{\ORiii}{\Bewegtes{3}}
 \newcommand{\ORiv}{\Bewegtes{4}}
 \newcommand{\ORv}{\Bewegtes{5}}
-
+\newcommand{\goesto}{→~}
 
 % Beamer ==============================================================
 
@@ -240,16 +240,31 @@
 \forestset{
   narroof/.style={roof, inner xsep=-0.25em, rounded corners},
   forky/.style={forked edge, fork sep-=7.5pt},
-  bluetree/.style={for tree={trueblue}, for children={edge=trueblue}},
+  bluetree/.style={for tree={trueblue}, for descendants={edge=trueblue}},
   orongschtree/.style={for tree={orongsch}, for children={edge=orongsch}},
   rottree/.style={for tree={rot}, for children={edge=rot}},
   gruentree/.style={for tree={gruen}, for children={edge=gruen}},
   tuerkistree/.style={for tree={tuerkis}, for children={edge=tuerkis}},
   brauntree/.style={for tree={braun}, for children={edge=braun}},
   grautree/.style={for tree={grau}, for children={edge=grau}}, 
+  whitetree/.style={for tree={white}, for descendants={edge=white}}, 
+  blacktree/.style={for tree={black}, for descendants={edge=black}}, 
   gruennode/.style={gruen, edge=gruen},
   graunode/.style={grau, edge=grau},
 }
+
+\forestset{
+  invisible/.style={opacity=0,text opacity=0},
+  visible on/.style={alt={#1{}{invisible}}},
+  alt/.code args={<#1>#2#3}{%
+    \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}}
+  },
+  highlight on/.style={{alt=#1{highlight}{}}},
+  white on/.style={{alt=#1{whitetree}{}}},
+  black on/.style={{alt=#1{blacktree}{}}},
+  blue on/.style={{alt=#1{bluetree}{}}},
+}
+
 
 
 % Drawing sonority diagrams =========================================== 

@@ -12,7 +12,7 @@ FULL = Komplett
 SUFFSUFF = .pdf
 BIBSUFF = .bbl
 OUTDIR = output
-BIBFILE = /Users/roland/Workingcopies/Bibtex/rs.bib
+BIBFILE = biblio.bib
 
 # TeX Sources to watch.
 SOURCEDIR = includes/
