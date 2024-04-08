@@ -5,14 +5,15 @@
   \onslide<+->
   Worum geht es heute?\\
   \Zeile
-  \begin{itemize}
+  \begin{itemize}[<+->]
     \item Vermittlung grundlegender Vorstellungen über deutsche Syntax
     \item Vorstellung für die Daten, Zusammenhänge und Komplexität
     \item Einführung in Grundannahmen in der HPSG
     \item Befähigung zum Schreiben formaler Grammatiken
   \end{itemize}
   \Zeile
-  \centering 
+  \centering
+  \onslide<+->
   \grau{\citet[Kapitel~1]{MuellerLehrbuch} bzw.\ \citet[Kapitel~1]{MuellerGTBuch}\\
     Englische Version des Grammatiktheoriebuches: \citet[Kapitel~1]{MuellerGT-Eng}}
 \end{frame}
@@ -44,7 +45,7 @@
  
  
 \begin{frame}
-  {Die Kinder im Rumpeldorf (Astrid Lindgren)}
+  {Die Kinder im Randaledorf (Astrid Lindgren)}
   \onslide<+->
   \onslide<+->
   Schon Kindern kann man ein Spiel um Kompetenz und Performanz zumuten!\\
@@ -71,18 +72,22 @@
   \onslide<+->
   Bedeutung einer Äußerung aus den Bedeutungen ihrer Teile bestimmen\\
   \Viertelzeile
+  \onslide<+->
   \begin{exe}
     \ex Der Mann kennt den Kollegen.
   \end{exe}
   \Halbzeile
+  \onslide<+->
   \alert{Syntax} | Art und Weise der Kombination, Strukturierung\\
   \Viertelzeile
+  \onslide<+->
   \begin{exe}
     \ex
     \begin{xlist}
       \ex Die Frau kennt die Kolleginnen.
       \ex Die Frau kennen die Kolleginnen.
     \end{xlist}
+    \onslide<+->
     \ex
     \begin{xlist}
       \ex Die Frau schläft.
@@ -101,6 +106,8 @@
 
 \begin{frame}
   {Warum formal?}
+  \onslide<+->
+  \onslide<+->
   \begin{quote}\small
     Precisely constructed models for linguistic structure can play an
     important role, both negative and positive, in the process of discovery 
@@ -118,7 +125,7 @@
     of rigorously stating a proposed theory and applying it strictly to
     linguistic material with no attempt to avoid unacceptable conclusions by ad hoc adjustments or loose formulation.
 \citep[S.\,5]{Chomsky57a}
-  \end{quote}
+  \end{quote}   
   \onslide<+->
   \Halbzeile
   \begin{quote}\small
@@ -191,12 +198,14 @@
   \onslide<+->
   \alert{Parataxe} | Einbettung von ganzen Satzstrukturen\\
   \Viertelzeile
+  \onslide<+->
   \begin{exe}
     \ex dass Max glaubt, [dass Julius weiß, [dass Otto behauptet, [dass Karl vermutet, [dass Richard bestätigt, [dass Friederike lacht]]]]]
   \end{exe}
   \onslide<+->
   \Zeile
   Parataxe als Spezialfall | \alert{Konstitueten in Konstituenten}\\
+  \onslide<+->
   \Viertelzeile
   \begin{exe}
     \ex {}[das Haus [des Autors [von Zettel Traum [den ich 1993 gelesen habe]]]]
@@ -264,9 +273,12 @@
 
 \begin{frame}
   {Konstituententests I}
+  \onslide<+->
+  \onslide<+->
   \begin{description}
   \item[Substituierbarkeit]
     Ausstauschbare Wortfolgen als potenzielle Konstituenten
+    \onslide<+->
     \begin{exe}
       \ex Er kennt \orongsch{den Mann}.
       \ex Er kennt \orongsch{eine Frau}.
@@ -275,6 +287,7 @@
     \onslide<+->
   \item[Pronominalisierungstest]
     Dasselbe, aber spezifisch mit pronominalen Ein-Wort-Folgen
+    \onslide<+->
     \begin{exe}
       \ex \orongsch{Der Mann} schläft.
       \ex \orongsch{Er} schläft.
@@ -284,9 +297,12 @@
 
 \begin{frame}
   {Konstituententests II}
+  \onslide<+->
+  \onslide<+->
   \begin{description}
     \item[Fragetest]
     Erfragbarkeit von Konstituenten
+    \onslide<+->
       \begin{exe}
         \ex \orongsch{Der Mann} arbeitet.
         \ex \orongsch{Wer} arbeitet?
@@ -295,14 +311,16 @@
       \Halbzeile
   \item[Verschiebetest] 
    Umstellbarkeit von Konstituenten 
+   \onslide<+->
       \begin{exe}
         \ex weil \orongsch{keiner} \gruen{diese Frau} kennt.
         \ex weil \gruen{diese Frau} \orongsch{keiner} kennt.
       \end{exe}
-      \onslide<+->
       \Halbzeile
+      \onslide<+->
   \item[Koordinationstest]
     Konstituenten als koordinierbar
+    \onslide<+->
       \begin{exe}
         \ex \alert{[}\orongsch{[Der Mann]} \alert{und} \orongsch{[die Frau]}\alert{]} arbeiten.
       \end{exe}
@@ -399,6 +417,7 @@
   \onslide<+->
   \Halbzeile
   Bestimmte \alert{Merkmale} des Kopfs sind aber \alert{kontextrelevant}:\\
+  \onslide<+->
   \begin{exe}
    \ex[]{Der Kollege liest einen Aufsatz.} 
    \ex[*]{Die Kollegen liest einen Aufsatz.} 
@@ -508,6 +527,7 @@
   \onslide<+->
   \onslide<+->
   Oben waren alle \alert{syntaktischen Argumente} auch \gruen{logische Argumente}.\\
+  \onslide<+->
   \Halbzeile
   \begin{exe}
     \ex \alert{Dani} sieht \alert{den Chaoten}.
@@ -967,7 +987,7 @@
   {Merkmale und Regelschemata}
   \onslide<+->
   \onslide<+->
-  Regelschemata mit \alert{variablen} und ggf.\ \rot{festen Werten}\\
+  Regelschemata mit \alert{variablen Werten} und ggf.\ \rot{festen Werten}\\
   \onslide<+->
   \Zeile
   \centering 
