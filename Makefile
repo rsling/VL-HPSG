@@ -57,13 +57,15 @@ $(OUTDIR)/%$(SLIDESUFF)$(PROJECT)$(SUFFSUFF): main.tex $(SOURCEDIR)%.tex $(OUTDI
 
 # Phony shit.
 
-.PHONY: handout01 slides01 allhandouts allslides all clean realclean edit
+.PHONY: handout01 slides01 handout02 slides02 allhandouts allslides all clean realclean edit
 
 handout01: $(OUTDIR)/01.+Phrasenstruktur+und+Phrasenstrukturgrammatik$(HANDOUTSUFF)$(PROJECT)$(SUFFSUFF)
+handout02: $(OUTDIR)/02.+Merkmalstrukturen+und+Merkmalbeschreibungen$(HANDOUTSUFF)$(PROJECT)$(SUFFSUFF)
 
-allhandouts: handout01
+allhandouts: handout01 handout02
 
 slides01: $(OUTDIR)/01.+Phrasenstruktur+und+Phrasenstrukturgrammatik$(SLIDESUFF)$(PROJECT)$(SUFFSUFF)
+slides02: $(OUTDIR)/02.+Merkmalstrukturen+und+Merkmalbeschreibungen$(SLIDESUFF)$(PROJECT)$(SUFFSUFF)
 
 allslides: slides01
 

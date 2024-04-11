@@ -1,0 +1,152 @@
+
+\begin{frame}
+  {Ziele}
+  \onslide<+->
+  \onslide<+->
+  Worum geht es heute?\\
+  \Zeile
+  \begin{itemize}[<+->]
+    \item Systematisierung von Merkmalen in Grammatiken
+    \item Strukturierte\slash hierarchische Mermale
+    \item Unifikationvon Merkmalstrukturen
+    \item Merkmalstrukturen vs.\ Merkmalbeschreibungen
+  \end{itemize}
+  \Zeile
+  \centering
+  \onslide<+->
+  \grau{\citet[Kapitel~2]{MuellerLehrbuch}}
+\end{frame}
+
+
+\begin{frame}
+  {Vorteil von Merkmalstrukturen}
+  \onslide<+->
+  \onslide<+->
+  Problem mit einfachen \alert{Phrasenstrukturgrammatiken}\\
+  \Halbzeile
+  \begin{itemize}[<+->]
+    \item \alert{Symbolinflation} | Selbst für einfachte Valenz-\slash Kongruenzphänomene
+    \item Viele Regeln und viele Kategorien
+  \end{itemize}
+  \onslide<+->
+  \Zeile
+  \alert{Merkmalstrukturen} wie in HPSG\\
+  \Halbzeile
+  \begin{itemize}[<+->]
+    \item \alert{Komplexe Symbole}, dadurch weniger Symbole
+    \item Extrem einfache \alert{Regeln} (Kombinatorik)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  {Merkmalstrukturen und Merkmalbeschreibungen}
+  \onslide<+->
+  \onslide<+->
+  \alert{Merkmalstrukturen} modellieren linguistische Objekte.\\
+  \Halbzeile
+  \begin{itemize}[<+->]
+    \item Merkmal-Wert-Struktur
+    \item Attribut-Wert-Struktur
+    \item \emph{Feature structure}
+  \end{itemize}
+  \onslide<+->
+  \Zeile
+  Wir nutzen \alert{Merkmalsbeschreibungen}, um über Merkmalstrukturen zu sprechen.\\
+  \Halbzeile
+  \begin{itemize}[<+->]
+    \item \emph{Attribute-value matrix}
+    \item \emph{Feature matrix}
+  \end{itemize}
+  \onslide<+->
+  \Zeile
+  \centering 
+  \grau{\footnotesize\citet{Shieber86a}, \citet{ps}, \citet{Johnson88},\citet{Carpenter92a}, \citet{King94a}, \citet{Richter2004a-u,Richter2021a}}
+\end{frame}
+
+\begin{frame}
+  {AVM-Format}
+  \onslide<+->
+  \onslide<+->
+  Einfache Merkmalbeschreibung\\
+  \onslide<+->
+  \Viertelzeile
+  \alert{\begin{avm}
+    \[ attribut & wert \]
+  \end{avm}}\\
+  \onslide<+->
+  \Halbzeile
+  Mehrere Attribut-Wert-Paare in einer Struktur\\
+  \onslide<+->
+  \Viertelzeile
+  \alert{\begin{avm}
+    \[ attribut1 & wert1 \\
+      attribut2 & wert2 \\
+      \ldots & \ldots
+    \]
+    \end{avm}}\\
+    \onslide<+->
+    \Halbzeile
+    AVMs können wieder Werte von Attributen sein!\\
+    \alert{\begin{avm}
+      \[ attribut1a & wert1a \\
+         attribut1b & 
+                     \[ attribut2a & wert2a \\
+                        attribut2b & wert2b \]
+      \]
+    \end{avm}
+    }
+\end{frame}
+
+\begin{frame}
+  {Wörter in Merkmalen beschreiben | Phone}
+  \onslide<+->
+  \onslide<+->
+  \textsc{phone} oder \textsc{graphen} | Aussprache bzw. Schreibung\\
+  \onslide<+->
+  \Halbzeile
+  \alert{\begin{avm}
+    \[ graphen & \textit{Tisch} \]
+  \end{avm}}\\
+  \onslide<+->
+  \Zeile
+  Aber reicht diese Datenstruktur?\\
+  \Viertelzeile
+  \begin{itemize}[<+->]
+    \item \textit{Tisch} | Wieder nur ein \alert{Symbol}
+    \item Phonetik\slash Phonologie | \alert{Ketten} Phonen\slash Phonemen\\
+      \grau{Bei \citet{Schaefer2018a} und anderen: Segmente}
+    \item Phonologische Grammatik | Zugriff auf einzelne Segmente\\
+      \grau{Auslautverhärtung | Zugriff auf letztes Segment einer Silbe}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  {Listen}
+  \onslide<+->
+  \onslide<+->
+  Lösung für \textsc{graph(en)} oder \textsc{phon(e)} | \alert{Geordnete Listen}\\
+  \onslide<+->
+  \Halbzeile
+  \alert{\begin{avm}
+    \[ graph & \<\it T,i,s,c,h\> \]
+  \end{avm}}\\
+  \onslide<+->
+  \Zeile
+  Auf einer Liste stehen eigentlich auch Merkmalbeschreibungen.\\
+  \onslide<+->
+  \Viertelzeile
+  \scalebox{0.8}{\begin{avm}
+    \[ phon &  \<\[ art & plosiv \\ ort & alveolar \],
+    \[ art & vokal \\ position & vorn \\ höhe & hoch \\ rundung & nein \],
+    \[ art & frikativ \\ ort & alveolar \]
+  \> \]
+  \end{avm}}\\
+  \onslide<+->
+  \Zeile
+  Falsche Kurzschreibweise in typischer HPSG\\
+  \onslide<+->
+  \Viertelzeile
+  \orongsch{\begin{avm}
+    \[ phon & \textit{Tisch} \]
+  \end{avm}}
+\end{frame}
