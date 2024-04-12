@@ -6,9 +6,9 @@
   Worum geht es heute?\\
   \Zeile
   \begin{itemize}[<+->]
-    \item Systematisierung von Merkmalen in Grammatiken
-    \item Strukturierte\slash hierarchische Mermale
-    \item Unifikationvon Merkmalstrukturen
+    \item Repräsentation von Merkmalen und ihren Werten in Grammatiken
+    \item Strukturierte\slash hierarchische Merkmalstrukturen
+    \item Unifikation von Merkmalstrukturen
     \item Merkmalstrukturen vs.\ Merkmalbeschreibungen
   \end{itemize}
   \Zeile
@@ -25,7 +25,7 @@
   Problem mit einfachen \alert{Phrasenstrukturgrammatiken}\\
   \Halbzeile
   \begin{itemize}[<+->]
-    \item \alert{Symbolinflation} | Selbst für einfachte Valenz-\slash Kongruenzphänomene
+    \item \alert{Symbolinflation} | Selbst für einfachete Valenz-\slash Kongruenzphänomene
     \item Viele Regeln und viele Kategorien
   \end{itemize}
   \onslide<+->
@@ -74,7 +74,7 @@
     \[ attribut & wert \]
   \end{avm}}\\
   \onslide<+->
-  \Halbzeile
+  \Zeile
   Mehrere Attribut-Wert-Paare in einer Struktur\\
   \onslide<+->
   \Viertelzeile
@@ -85,8 +85,8 @@
     \]
     \end{avm}}\\
     \onslide<+->
-    \Halbzeile
-    AVMs können wieder Werte von Attributen sein!\\
+    \Zeile
+    Komplexe Merkmale können Werte von Attributen sein!\\
     \alert{\begin{avm}
       \[ attribut1a & wert1a \\
          attribut1b & 
@@ -112,7 +112,7 @@
   Aber reicht diese Datenstruktur?\\
   \Viertelzeile
   \begin{itemize}[<+->]
-    \item \textit{Tisch} | Wieder nur ein \alert{Symbol}
+    \item \textit{Tisch} | Sieht aus wie ein \alert{Symbol} ohne Struktur
     \item Phonetik\slash Phonologie | \alert{Ketten} Phonen\slash Phonemen\\
       \grau{Bei \citet{Schaefer2018a} und anderen: Segmente}
     \item Phonologische Grammatik | Zugriff auf einzelne Segmente\\
@@ -143,10 +143,334 @@
   \end{avm}}\\
   \onslide<+->
   \Zeile
-  Falsche Kurzschreibweise in typischer HPSG\\
+  Strenggenommen falsche Kurzschreibweisen in typischer HPSG\\
   \onslide<+->
   \Viertelzeile
   \orongsch{\begin{avm}
     \[ phon & \textit{Tisch} \]
+  \end{avm}}\\
+  \Viertelzeile
+  \onslide<+->
+  \orongsch{\begin{avm}
+    \[ phon & \<\rm\it Tisch\> \]
   \end{avm}}
+\end{frame}
+
+\begin{frame}
+  {Morpholosyntaktische Merkmale}
+  \onslide<+->
+  \onslide<+->
+  Lösung für Probleme mit Genus usw.\ in PSGs von letzter Woche\\
+  \onslide<+->
+  \Viertelzeile
+  \scalebox{0.8}{\begin{avm}
+    \[ graphen & \textit{Tisch} \\
+      \alert{genus} & \alert{maskulin} \\
+      \alert{numerus} & \alert{singular} \\
+      \alert{kasus} & \alert{nominativ}
+    \]
+  \end{avm}}\\
+  \onslide<+->
+  \Halbzeile
+  Andere Merkmalausstattungen = andere sprachliche Zeichen\\
+  \onslide<+->
+  \Viertelzeile
+  \scalebox{0.6}{\begin{avm}
+    \[ graphen & \textit{Tisch} \\
+      wortart & nomen \\
+      genus & maskulin \\
+      numerus & singular \\
+      \orongsch{kasus} & \orongsch{akkusativ}
+    \]
+  \end{avm}}\onslide<+->
+  \scalebox{0.6}{\begin{avm}
+    \[ graphen & \textit{Tisch} \\
+      wortart & nomen \\
+      genus & maskulin \\
+      numerus & singular \\
+      \orongsch{kasus} & \orongsch{dativ}
+    \]
+  \end{avm}}\onslide<+->
+  \scalebox{0.6}{\begin{avm}
+    \[ graphen & \textit{Tisch} \\
+      wortart & nomen \\
+      genus & maskulin \\
+      numerus & singular \\
+      \orongsch{kasus} & \orongsch{genitiv}
+    \]
+  \end{avm}}\\
+  \Halbzeile
+  \onslide<+->
+  Abgekürzte Schreibweise mit \gruen{\textit{oder} bzw. $\vee$}\\
+  \onslide<+->
+  \Viertelzeile
+  \scalebox{0.8}{\begin{avm}
+    \[ graphen & \textit{Tisch} \\
+      wortart & nomen \\
+      genus & maskulin \\
+      numerus & singular \\
+      \gruen{kasus} & \gruen{nominativ $\vee$ akkusativ $\vee$ dativ $\vee$ genitiv}
+    \]
+  \end{avm}}
+\end{frame}
+
+\begin{frame}
+  {Dasselbe für eine Verbform}
+  \onslide<+->
+  \onslide<+->
+  Verben | Teilweise dieselben, teilweise andere Merkmale verglichen mit Nomina\\
+  \onslide<+->
+  \Viertelzeile
+  \begin{avm}
+    \[ graphen & \textit{sieht} \\
+      wortart & verb \\
+      numerus & singular \\
+      person & 3 
+    \]
+  \end{avm}\\
+  \onslide<+->
+  \Zeile
+  Syntaktisch relevant auch \alert{Finitheit} bzw.\ \gruen{Status} \\
+  \Viertelzeile
+  \onslide<+->
+  \begin{avm}
+    \[ graphen & \textit{sieht} \\
+      wortart & verb \\
+      numerus & singular \\
+      person & 3 \\
+      \alert{finit} & \alert{ja} \\
+    \]
+  \end{avm}
+  \onslide<+->
+  \begin{avm}
+    \[ graphen & \textit{gesehen} \\
+      wortart & verb \\
+      \alert{finit} & \alert{nein} \\
+      \gruen{status} & \gruen{3} \\
+    \]
+  \end{avm}
+\end{frame}
+
+\begin{frame}
+  {Getypte Strukturen}
+  \onslide<+->
+  \onslide<+->
+  Nicht alle Wörter haben alle Merkmale. | \alert{Typen} und \alert{Beschränkungen} über Typen
+  \onslide<+->
+  \Zeile
+  \begin{avm}
+    \[ \asort{\alert{nomen}}
+    graphen & \textit{Tischs} \\
+    genus & maskulin \\
+    numerus & singular \\
+    kasus & genitiv \\
+  \]
+  \end{avm}\\
+  \onslide<+->
+  \begin{avm}
+    \[ \asort{\alert{finites-verb}}
+    graphen & \textit{sieht} \\
+    numerus & singular \\
+    person & 3 \\
+    tempus & präsens \\
+    modus & indikativ
+  \]
+  \end{avm}
+  \onslide<+->
+  \begin{avm}
+    \[ \asort{\alert{infinites-verb}}
+    graphen & \textit{gesehen} \\
+    status & 1 
+  \]
+  \end{avm}
+\end{frame}
+
+\begin{frame}
+  {Typenhierarchien}
+  \onslide<+->
+  \onslide<+->
+  Typen sind sehr wichtig in HPSG und bilden \alert{Hierachien}. Denkbares Beispiel:\\
+  \onslide<+->
+  \Zeile
+  \centering 
+  \scalebox{0.7}{\begin{forest}
+    [ wort
+      [nomen
+        [eigenname]
+        [appellativum
+          [zählsubstantiv]
+          [stoffsubstantiv]
+        ]
+      ]
+      [verb
+        [finites-verb]
+        [infinites-verb]
+      ]
+    ]
+  \end{forest}}
+
+  \Zeile
+  \raggedright
+  \begin{itemize}[<+->]
+    \item Typen sind die eigentlichen \alert{Wortarten} in HPSG.
+    \item \alert{Monotonizität} | \alert{Untertypen} erbt alle Merkmale\slash Beschränkungen ihrer \alert{Obertypen}.
+    \item \alert{Mehrfachvererbung} | Ein Typ kann \alert{mehrere Obertypen} haben.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  {Valenz}
+  \onslide<+->
+  \onslide<+->
+  Letzte Woche in PSGs | Valenz doppelt in \alert{Kategorien} und \orongsch{Regeln} kodiert\\
+  \Halbzeile
+  \begin{itemize}[<+->]
+    \item[ ] \orongsch{Regel} für Satz mit intransitivem Verb\\
+      \footnotesize S \goesto NP(Per, Num, nom) \alert{V\_itr}(Per, Num)
+    \item[ ] \orongsch{Regel} für Satz mit transivitem Verb\\
+      \footnotesize S \goesto NP(Per1, Num1, nom) NP(Per2, Num2, akk) \alert{V\_tr}(Per1, Num1)
+    \item[ ] \orongsch{Regel} für Satz mit ditransitivem Verb\\
+      \footnotesize S \goesto NP(Per1, Num1, nom) NP(Per2, Num2, dat) NP(Per3, Num3, akk) \alert{V\_dtr}(Per1, Num1)
+  \end{itemize}
+  \onslide<+->
+  \Zeile
+  \alert{Typische Definition von Valenz allerdings}\\
+  \onslide<+->
+  Die \alert{Liste} der Ergänzungen eines Worts.\\
+\end{frame}
+
+\begin{frame}
+  {Valenz als Liste}
+  \onslide<+->
+  \onslide<+->
+  Valenz | \alert{Liste von Merkmalsbeschreibungen}\\
+  \onslide<+->
+  \Halbzeile
+  \begin{avm}
+    \[ \asort{finites-verb}
+      graphen & \textit{sieht} \\
+      numerus & singular \\
+      person & 3 \\
+      tempus & präsens \\
+      modus & indikativ \\
+      \alert{valenz} & \alert{\< \[ \asort{nomen} \], \[ \asort{nomen} \]\>}
+    \]
+  \end{avm}
+\end{frame}
+
+\begin{frame}
+  {Hinreichende Beschreibung}
+  \onslide<+->
+  \onslide<+->
+  Valenzliste | Hinreichend eingrenzende Beschreibung der Ergänzungen des Verbs\\
+  \onslide<+->
+  \Halbzeile
+  \begin{avm}
+    \[ \asort{finites-verb}
+      graphen & \textit{sieht} \\
+      numerus & singular \\
+      person & 3 \\
+      tempus & präsens \\
+      modus & indikativ \\
+      \alert{valenz} & \alert{\< \[ \asort{nomen}
+                                    numerus & singular \\
+                                    person & 3 \\
+                                    kasus & nom \], \[ \asort{nomen}
+                                                        kasus & akkusativ \]\>}
+    \]
+  \end{avm}
+\end{frame}
+
+
+\begin{frame}
+  {Subjekt-Verb-Kongruenz und Strukturteilung}
+  \onslide<+->
+  \onslide<+->
+  \alert{Übereinstimmung von Merkmalen} | Hart verdrahtet mit \gruen{Strukturteilung}\\
+  \onslide<+->
+  \Halbzeile
+  \scalebox{0.8}{\begin{avm}
+    \[ \asort{finites-verb}
+      graphen & \textit{sieht} \\
+      numerus & \alt<1-3>{\alert{singular}}{\gruen{\@1 singular}} \\
+      person & \alt<1-3>{\alert{3}}{\gruen{\@2 3}} \\
+      tempus & präsens \\
+      modus & indikativ \\
+      valenz & \< \[ \asort{nomen}
+        numerus & \alt<1-3>{\alert{singular}}{\gruen{\@1}} \\
+        person & \alt<1-3>{\alert{3}}{\gruen{\@2}} \\
+                     kasus & nom \], \[ \asort{nomen}
+                                         kasus & akkusativ \]\>
+    \]
+  \end{avm}}\\
+  \onslide<+->
+  \Zeile 
+  \gruen{Strukturteilung bedeutet Token-Identität von Werten,} \rot{nicht Kopie}!
+\end{frame}
+
+\begin{frame}
+  {Beispiel für Valenz einer Präposition}
+  \onslide<+->
+  \onslide<+->
+  Valenz von Präpositionen | NP in einem bestimmten Kasus\\
+  \onslide<+->
+  \Halbzeile
+  \begin{avm}
+    \[ \asort{präposition} 
+    graphen & \textit{wegen} \\
+    valenz & \< \[ \asort{nomen} 
+                kasus & genitiv \] \>
+  \]
+  \end{avm}\\
+  \Zeile
+  \begin{itemize}[<+->]
+    \item Was ist mit \alert{argumentmarkierenden Präpositionen}\slash Präpositionalobjekten?\\
+      \grau{\textit{leiden unter}, \textit{abhängen von}, \textit{glauben an} usw.}
+    \item Was ist mit \alert{Wechselpräpositionen} mit Akkusativ oder Dativ?\\
+      \grau{\textit{unter}, \textit{neben}, \textit{über} usw.}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  {Beispieleintrag für einen Determinierer}
+  \onslide<+->
+  \onslide<+->
+  Kongruenzmerkmale in der NP auch beim Determinierer\\
+  \onslide<+->
+  \Zeile 
+  \begin{avm}
+    \[ \asort{determinierer} 
+    graphen & \textit{des} \\
+    genus & maskulin \\
+    numerus & singular \\
+    kasus & genitiv \\
+  \]
+  \end{avm}
+\end{frame}
+
+\begin{frame}
+  {Determinierer in der NP}
+  \onslide<+->
+  \onslide<+->
+  DP oder NP? | \alert{Für Deutsch ist eine NP-Analyse näherliegend.}\\
+  \onslide<+->
+  \Zeile
+  \begin{avm}
+    \[ \asort{nomen}
+    graphen & \textit{Tischs} \\
+    genus & \alt<1-5>{maskulin}{\gruen{\@1 maskulin}} \\
+    numerus & \alt<1-5>{singular}{\gruen{\@2 singular}} \\
+    kasus & \alt<1-5>{genitiv}{\gruen{\@3 genitiv}} \\
+    \alt<5->{\gruen{valenz} & \gruen{\<\[ \asort{determinierer} 
+                             genus & \ \@1 \\
+                             numerus & \@2 \\
+                             kasus & \ \@3
+                           \]\>}}{}
+  \]
+  \end{avm}\\
+  \onslide<+->
+  \Zeile
+  Wie kann man \alert{Notwendigkeit von} und \alert{Kongruenz mit Determinierern} kodieren?
+  \onslide<+->
+  \onslide<+->
 \end{frame}
