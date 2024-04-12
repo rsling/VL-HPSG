@@ -1,4 +1,6 @@
 
+\section{Einleitung}
+
 \begin{frame}
   {Ziele}
   \onslide<+->
@@ -17,6 +19,30 @@
   \grau{\citet[Kapitel~2]{MuellerLehrbuch}}
 \end{frame}
 
+\begin{frame}
+  {Warnung}
+  \onslide<+->
+  \onslide<+->
+  \centering 
+  \LARGE
+  \rot{Merken Sie sich die Strukturen von heute\\nicht als "`korrekte Modellierung"'\\
+  des Deutschen in HPSG!}\\
+  \Zeile
+  \onslide<+->
+  \normalsize
+  Wir nehmen heute einige Vereinfachungen und Didaktisierungen vor,\\
+  denn es geht darum, grundlegende Repräsentationen\slash Prinzipien einzuführen.\\
+  \Zeile
+  \onslide<+->
+  Völlig abwegig sind die Strukturen dieser Lektion aber auch nicht.\\
+  \Zeile
+  \onslide<+->
+  Generell haben Sie mehr davon, wenn Sie in jeder Woche zu verstehen versuchen,\\
+  warum sich bestimmte Repräsentationen wieder ändern, als wenn Sie von Anfang an\\
+  nur wissen wollen, wie das Endergebnis in den Prüfungen aussehen wird.
+\end{frame}
+
+\section{Merkmalstrukturen}
 
 \begin{frame}
   {Vorteil von Merkmalstrukturen}
@@ -143,7 +169,7 @@
   \end{avm}}\\
   \onslide<+->
   \Zeile
-  Strenggenommen falsche Kurzschreibweisen in typischer HPSG\\
+  Strenggenommen falsche Kurzschreibweisen für \textsc{phon} in typischer HPSG\\
   \onslide<+->
   \Viertelzeile
   \orongsch{\begin{avm}
@@ -224,8 +250,8 @@
   \begin{avm}
     \[ graphen & \textit{sieht} \\
       wortart & verb \\
+      person & dritte \\
       numerus & singular \\
-      person & 3 
     \]
   \end{avm}\\
   \onslide<+->
@@ -236,8 +262,8 @@
   \begin{avm}
     \[ graphen & \textit{sieht} \\
       wortart & verb \\
+      person & dritte \\
       numerus & singular \\
-      person & 3 \\
       \alert{finit} & \alert{ja} \\
     \]
   \end{avm}
@@ -250,6 +276,8 @@
     \]
   \end{avm}
 \end{frame}
+
+\section{Typen}
 
 \begin{frame}
   {Getypte Strukturen}
@@ -270,8 +298,8 @@
   \begin{avm}
     \[ \asort{\alert{finites-verb}}
     graphen & \textit{sieht} \\
+    person & dritte \\
     numerus & singular \\
-    person & 3 \\
     tempus & präsens \\
     modus & indikativ
   \]
@@ -315,8 +343,11 @@
     \item Typen sind die eigentlichen \alert{Wortarten} in HPSG.
     \item \alert{Monotonizität} | \alert{Untertypen} erbt alle Merkmale\slash Beschränkungen ihrer \alert{Obertypen}.
     \item \alert{Mehrfachvererbung} | Ein Typ kann \alert{mehrere Obertypen} haben.
+    \item \grau{Keine Sorge! Dazu kommen wir noch im Detail.}
   \end{itemize}
 \end{frame}
+
+\section{Strukturteilung}
 
 \begin{frame}
   {Valenz}
@@ -349,8 +380,8 @@
   \begin{avm}
     \[ \asort{finites-verb}
       graphen & \textit{sieht} \\
+      person & dritte \\
       numerus & singular \\
-      person & 3 \\
       tempus & präsens \\
       modus & indikativ \\
       \alert{valenz} & \alert{\< \[ \asort{nomen} \], \[ \asort{nomen} \]\>}
@@ -368,44 +399,44 @@
   \begin{avm}
     \[ \asort{finites-verb}
       graphen & \textit{sieht} \\
+      person & dritte \\
       numerus & singular \\
-      person & 3 \\
       tempus & präsens \\
       modus & indikativ \\
       \alert{valenz} & \alert{\< \[ \asort{nomen}
+                                    person & dritte \\
                                     numerus & singular \\
-                                    person & 3 \\
                                     kasus & nom \], \[ \asort{nomen}
                                                         kasus & akkusativ \]\>}
     \]
   \end{avm}
 \end{frame}
 
-
 \begin{frame}
   {Subjekt-Verb-Kongruenz und Strukturteilung}
   \onslide<+->
   \onslide<+->
-  \alert{Übereinstimmung von Merkmalen} | Hart verdrahtet mit \gruen{Strukturteilung}\\
+  \alert{Übereinstimmung von Merkmalen} | Hart verdrahtet durch \gruen{Strukturteilung}\\
   \onslide<+->
   \Halbzeile
   \scalebox{0.8}{\begin{avm}
     \[ \asort{finites-verb}
       graphen & \textit{sieht} \\
-      numerus & \alt<1-3>{\alert{singular}}{\gruen{\@1 singular}} \\
-      person & \alt<1-3>{\alert{3}}{\gruen{\@2 3}} \\
+      person & \alt<1-3>{\alert{dritte}}{\gruen{\@1 dritte}} \\
+      numerus & \alt<1-3>{\alert{singular}}{\gruen{\@2 singular}} \\
       tempus & präsens \\
       modus & indikativ \\
       valenz & \< \[ \asort{nomen}
-        numerus & \alt<1-3>{\alert{singular}}{\gruen{\@1}} \\
-        person & \alt<1-3>{\alert{3}}{\gruen{\@2}} \\
+        person & \alt<1-3>{\alert{dritte}}{\gruen{\@1}} \\
+        numerus & \alt<1-3>{\alert{singular}}{\gruen{\@2}} \\
                      kasus & nom \], \[ \asort{nomen}
                                          kasus & akkusativ \]\>
     \]
   \end{avm}}\\
   \onslide<+->
   \Zeile 
-  \gruen{Strukturteilung bedeutet Token-Identität von Werten,} \rot{nicht Kopie}!
+  \gruen{Strukturteilung bedeutet Token-Identität von Werten,} \rot{nicht Kopie}!\\
+  Man kann sich die Nummern als \alert{Zeiger} auf dieselbe Datenstruktur vorstellen.
 \end{frame}
 
 \begin{frame}
@@ -430,6 +461,8 @@
       \grau{\textit{unter}, \textit{neben}, \textit{über} usw.}
   \end{itemize}
 \end{frame}
+
+\section{Phrasen und Kopfmerkmale}
 
 \begin{frame}
   {Beispieleintrag für einen Determinierer}
@@ -458,6 +491,7 @@
   \begin{avm}
     \[ \asort{nomen}
     graphen & \textit{Tischs} \\
+    person & dritte \\
     genus & \alt<1-5>{maskulin}{\gruen{\@1 maskulin}} \\
     numerus & \alt<1-5>{singular}{\gruen{\@2 singular}} \\
     kasus & \alt<1-5>{genitiv}{\gruen{\@3 genitiv}} \\
@@ -473,4 +507,370 @@
   Wie kann man \alert{Notwendigkeit von} und \alert{Kongruenz mit Determinierern} kodieren?
   \onslide<+->
   \onslide<+->
+\end{frame}
+
+\newcommand{\AvmA}{%
+  \begin{avm}
+    \[ \asort{nomen}
+    graphen & \textit{Tischs} \\
+    person & \gruen{\@1 dritte} \\
+    genus & \gruen{\@2 maskulin} \\
+    numerus & \gruen{\@3 singular} \\
+    kasus & \gruen{\@4 genitiv} \\
+    valenz & \<\[ \asort{determinierer} 
+      genus & \ \gruen{\@2} \\
+      numerus & \gruen{\@3} \\
+      kasus & \ \gruen{\@4}
+                           \]\>
+  \]
+  \end{avm}%
+}
+
+\newcommand{\AvmB}{%
+  \begin{avm}
+    \[ \asort{determinierer}
+      graphen & \textit{des} \\
+       genus & \gruen{\@2} \\
+       numerus & \gruen{\@3} \\
+       kasus & \gruen{\@4} \\
+       valenz & \<\>
+    \]
+  \end{avm}
+}
+
+\newcommand{\AvmC}{%
+  \begin{avm}
+    \[ \asort{nomen} 
+      graphen & \textit{des Tischs} \\
+      person & \gruen{\@1} \\ 
+      genus & \gruen{\@2} \\
+      numerus & \gruen{\@3} \\
+      kasus & \gruen{\@4} \\ 
+  \]
+  \end{avm}
+}
+
+\begin{frame}
+  {NP mit Kongruenz als Baum}
+  \onslide<+->
+  \onslide<+->
+  \orongsch{In HPSG gibt es eigentlich keine Bäume.} Zur Illustration aber hilfreich:\\
+  \onslide<+->
+  \Zeile
+  \centering
+  \begin{forest}
+    [ \scalebox{0.6}{\AvmC}
+      [ \scalebox{0.6}{\AvmB} ]
+      [ \scalebox{0.6}{\AvmA} ]
+    ]
+  \end{forest}
+\end{frame}
+
+\begin{frame}
+  {Offene Probleme}
+  \onslide<+->
+  \onslide<+->
+  Wir haben jetzt so getan, \orongsch{als hätten wir schon eine Syntax}!\\
+  \Zeile 
+  \begin{itemize}[<+->]
+    \item Eigentlich \alert{nur Lexikoneinträge}
+    \item Fehlende \alert{Regeln für Kombinationsmechanismus}
+    \item NP auf der letzten Folie | Nur eine grobe Idee, wo wir hin wollen
+    \item \alert{Projektionsebenen} (N vs.\ NP) nicht unterscheidbar
+    \item Also auch keine Identifikation von \alert{Köpfen}
+    \item Identifikation der \alert{Merkmale, die vom Kopf zur Phrase projizieren}
+    \item Zusammenbau von \textit{des Tischs} aus \textit{des} und \textit{Tischs}
+  \end{itemize}
+\end{frame}
+
+\newcommand{\AvmAb}{%
+  \begin{avm}
+    \[ \asort{nomen}
+    graphen & \textit{Tischs} \\
+    \alert{kopf} & \alert{\[ 
+      person & \@1 dritte \\
+      genus & \@2 maskulin \\
+      numerus & \@3 singular \\
+      kasus & \@4 genitiv
+    \]} \\
+    valenz & \<\[ \asort{determinierer}
+      kopf & \[ genus & \ \@2 \\
+        numerus & \@3 \\
+        kasus & \ \@4
+      \]
+      \]\>
+  \]
+  \end{avm}%
+}
+
+\newcommand{\AvmBb}{%
+  \begin{avm}
+    \[ \asort{determinierer}
+      graphen & \textit{des} \\
+      \alert{kopf} & \alert{\[ 
+         genus & \@2 \\
+         numerus & \@3 \\
+         kasus & \@4
+       \]} \\
+       valenz & \<\>
+    \]
+  \end{avm}
+}
+
+\newcommand{\AvmCb}{%
+  \begin{avm}
+    \[ \asort{nomen} 
+      graphen & \textit{des Tischs} \\
+      \alert{kopf} & \alert{\[
+        person & \@1 \\
+        genus & \@2 \\
+        numerus & \@3 \\
+        kasus & \@4 
+      \]}
+  \]
+  \end{avm}
+}
+
+
+\begin{frame}
+  {Kopfmerkmale}
+  \onslide<+->
+  \onslide<+->
+  \alert{Bündel der Merkmale}, die vom Kopf zur Phrase projizieren\\
+  \onslide<+->
+  \Halbzeile
+  \centering
+  \begin{forest}
+    [ \alt<1-3>{\scalebox{0.6}{\AvmC}}{\scalebox{0.6}{\AvmCb}}
+      [\alt<1-3>{\scalebox{0.6}{\AvmB}}{\scalebox{0.6}{\AvmBb}}]
+      [\alt<1-3>{\scalebox{0.6}{\AvmA}}{\scalebox{0.6}{\AvmAb}}]
+    ]
+  \end{forest}
+  \onslide<+->
+\end{frame}
+
+\newcommand{\AvmAc}{%
+  \begin{avm}
+    \[ \asort{nomen}
+    graphen & \textit{Tischs} \\
+    kopf & \gruen{\@5} \[ 
+      person & \@1 dritte \\
+      genus & \@2 maskulin \\
+      numerus & \@3 singular \\
+      kasus & \@4 genitiv
+    \] \\
+    valenz & \<\[ \asort{determinierer}
+      kopf & \gruen{\@6} 
+      \]\>
+  \]
+  \end{avm}%
+}
+
+\newcommand{\AvmBc}{%
+  \begin{avm}
+    \[ \asort{determinierer}
+      graphen & \textit{des} \\
+      kopf & \gruen{\@6} \[ genus & \ \@2 \\
+        numerus & \@3 \\
+        kasus & \ \@4
+      \]\\
+       valenz & \<\>
+    \]
+  \end{avm}
+}
+
+\newcommand{\AvmCc}{%
+  \begin{avm}
+    \[ \asort{nomen} 
+      graphen & \textit{des Tischs} \\
+      kopf & \gruen{\@5} 
+  \]
+  \end{avm}
+}
+
+\begin{frame}
+  {Projizierte Kopfmerkmale}
+  \onslide<+->
+  \onslide<+->
+  Durch Merkmalbündel | Optimale Struktur finden\slash \alert{Generalisierungen abbilden}\\
+  \onslide<+->
+  \Halbzeile
+  \centering
+  \begin{forest}
+    [ \alt<1-3>{\scalebox{0.6}{\AvmCb}}{\scalebox{0.6}{\AvmCc}}
+      [\alt<1-3>{\scalebox{0.6}{\AvmBb}}{\scalebox{0.6}{\AvmBc}}]
+      [\alt<1-3>{\scalebox{0.6}{\AvmAb}}{\scalebox{0.6}{\AvmAc}}]
+    ]
+  \end{forest}
+  \onslide<+->
+\end{frame}
+
+\newcommand{\AvmAd}{%
+  \begin{avm}
+    \[ \asort{\orongsch{wort}}
+    graphen & \textit{Tischs} \\
+    kopf & \gruen{\@5} \[ 
+      \asort{\orongsch{nomen}}
+      person & \@1 dritte \\
+      genus & \@2 maskulin \\
+      numerus & \@3 singular \\
+      kasus & \@4 genitiv
+    \] \\
+    valenz & \<\[ \asort{\orongsch{wort}}
+      kopf & \gruen{\@6} 
+      \]\>
+  \]
+  \end{avm}%
+}
+
+\newcommand{\AvmBd}{%
+  \begin{avm}
+    \[ \asort{\orongsch{wort}}
+      graphen & \textit{des} \\
+      kopf & \gruen{\@6} \[
+        \asort{\orongsch{determinierer}}
+        genus & \ \@2 \\
+        numerus & \@3 \\
+        kasus & \ \@4
+      \]\\
+       valenz & \<\>
+    \]
+  \end{avm}
+}
+
+\newcommand{\AvmCd}{%
+  \begin{avm}
+    \[ \asort{\orongsch{phrase}} 
+      graphen & \textit{des Tischs} \\
+      kopf & \gruen{\@5} 
+  \]
+  \end{avm}
+}
+
+
+\begin{frame}
+  {\textsc{head}-Typen}
+  \onslide<+->
+  \onslide<+->
+  Wortartenspezifisch sind die \orongsch{\textsc{head}-Bündel}, nicht die \orongsch{Wörter\slash Phrasen}.\\
+  \onslide<+->
+  \Halbzeile
+  \centering
+  \begin{forest}
+    [ \alt<1-3>{\scalebox{0.6}{\AvmCc}}{\scalebox{0.6}{\AvmCd}}
+      [\alt<1-3>{\scalebox{0.6}{\AvmBc}}{\scalebox{0.6}{\AvmBd}}]
+      [\alt<1-3>{\scalebox{0.6}{\AvmAc}}{\scalebox{0.6}{\AvmAd}}]
+    ]
+  \end{forest}
+  \onslide<+->
+\end{frame}
+
+\section{Unifikation}
+
+\begin{frame}
+  {Zusammenlegen von Informationen}
+  \onslide<+->
+  \onslide<+->
+  Beispiel | Lexikalische Spezifikation der Valenz einer Präposition\\
+  \Viertelzeile
+  \onslide<+->
+  \scalebox{0.5}{\begin{avm}
+    \[ \asort{wort} 
+    graphen & \textit{wegen} \\
+    kopf & \[ \asort{präposition} \] \\
+    valenz & \< \gruen{\[ 
+      kopf & \@1 \[ \asort{nomen}
+          kasus & genitiv 
+        \]
+      \]} \>
+  \]
+  \end{avm}}\\
+  \onslide<+->
+  \Zeile
+  Die NP kommt mit viel mehr Information daher.\\
+  \onslide<+->
+  \Viertelzeile
+  \scalebox{0.5}{\begin{avm}
+    \[ \asort{phrase} 
+      graphen & \textit{des Tischs} \\
+      kopf    & \gruen{\@1} \[ \asort{\gruen{nomen}}
+                   person & dritte \\
+                   genus & maskulin \\
+                   numerus & singular \\
+                   \gruen{kasus} & \gruen{genitiv}
+                 \] \\
+      valenz & \<\> \\
+    \]
+  \end{avm}}\\
+  \onslide<+->
+  \Zeile
+  Die Informationen unter \mybox{1} sind aber kompatibel und \alert{unifizieren} daher.
+\end{frame}
+
+\begin{frame}
+  {Unifikation}
+  \onslide<+->
+  \onslide<+->
+  Bedingungen für Unifikation von zwei Merkmalstrukturen A und B\\
+  \Zeile
+  \begin{itemize}[<+->]
+    \item A und B enthalten \alert{keine widersprüchlichen Informationen}.\\
+      \Viertelzeile
+      \onslide<+->
+      \grau{%
+        \scalebox{0.8}{\begin{avm}
+          \[ kasus & nominativ \]
+        \end{avm}} und %
+        \scalebox{0.8}{\begin{avm}
+          \[ kasus & akkusativ \]
+        \end{avm}} unifizieren nicht.}
+      \Halbzeile
+    \item Aus nicht widersprüchlichen Informationen wird die \alert{Vereinigungsmenge} gebildet.
+      \Halbzeile
+    \item A kann mehr Informationen enthalten als B oder umgekehrt.\\
+      \Viertelzeile
+      \onslide<+->
+      \grau{%
+        \scalebox{0.8}{\begin{avm}
+          \[ kasus & nominativ \\ person & dritte \]
+        \end{avm}} und %
+        \scalebox{0.8}{\begin{avm}
+          \[ kasus & nominativ \]
+        \end{avm}} unifizieren zu %
+        \scalebox{0.8}{\begin{avm}
+          \[ kasus & nominativ \\ person & dritte \]
+        \end{avm}}}
+      \Halbzeile
+    \item A und B können beide mehr Informationen enthalten als die jeweils andere.\\
+      \Viertelzeile
+      \onslide<+->
+      \grau{%
+        \scalebox{0.8}{\begin{avm}
+          \[ kasus & nominativ \\ person & dritte \]
+        \end{avm}} und %
+        \scalebox{0.8}{\begin{avm}
+          \[ kasus & nominativ \\ numerus & singular \]
+        \end{avm}} unifizieren zu %
+        \scalebox{0.8}{\begin{avm}
+          \[ kasus & nominativ \\ person & dritte \\ numerus & singular \]
+        \end{avm}}}
+  \end{itemize}
+\end{frame}
+
+\section{Nächste Woche}
+
+\begin{frame}
+  {Vorbereitung}
+  \onslide<+->
+  \onslide<+->
+  \centering 
+  \large
+  Nächste Woche geht es um Valenz und Valenzabbindung.\\
+  \onslide<+->
+  \Zeile
+  \rot{Sie sollten dringend vorher aus dem HPSG-Buch\\
+  Abschnitt 3.1 und Kapitel 4 lesen!}\\
+    \onslide<+->
+    \Viertelzeile
+  Das sind gerade mal 15 Seiten.
 \end{frame}
