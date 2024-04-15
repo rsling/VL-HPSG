@@ -89,6 +89,7 @@
 \newcommand{\Sub}[1]{\ensuremath{_{\text{#1}}}}
 \newcommand{\Up}[1]{\ensuremath{^{\text{#1}}}}
 \newcommand{\UpSub}[2]{\ensuremath{^{\text{#1}}_{\text{#2}}}}
+\newcommand{\Prm}{\ensuremath{'}}
 \newcommand{\Spur}[1]{t\Sub{#1}}
 \newcommand{\Ti}{\Spur{1}}
 \newcommand{\Tii}{\Spur{2}}
@@ -148,6 +149,9 @@
 }
 \renewcommand<>{\gruen}[1]{%
   \alt#2{\beameroriginal{\gruen}{#1}}{#1}%
+}
+\renewcommand<>{\whyte}[1]{%
+  \alt#2{\beameroriginal{\whyte}{#1}}{#1}%
 }
 
 \setbeamercolor{alerted text}{fg=trueblue}

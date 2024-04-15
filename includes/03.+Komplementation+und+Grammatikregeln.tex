@@ -1,0 +1,766 @@
+\section{Einleitung}
+
+\begin{frame}
+  {Konzepte von letzter Woche}
+  Wir systematisieren jetzt folgende Konzepte weiter:\\
+  \Zeile
+  \begin{itemize}[<+->]
+    \item \alert{Merkmalbündel} gemäß Anforderungen aus den Daten (\textsc{head})
+    \item \alert{Getypte Merkmalstrukturen} zur Kodierung von Generalisierungen
+    \item \alert{Typenhierarchien} als Wortarten auf Steroiden
+    \item \alert{Listen von Merkmalstrukturen} zur Repräsentation von \alert{Valenz}
+    \item \alert{Strukturteilung} zur Modellierung von Kongruenz und Valenz
+  \end{itemize}
+\end{frame}
+
+\section{Ohne Bäume, ohne Transformationen}
+
+\begin{frame}
+  {Status von Phrasenstrukturbäumen}
+  \onslide<+->
+  \onslide<+->
+  Bäume als anschauliche Darstellung von Konstituenz\\
+  \onslide<+->
+  \Halbzeile
+  \centering
+  \begin{forest}
+    [CP
+      [C
+        [\it dass]
+      ]
+      [VP
+        [NP
+          [\it Matthias]
+        ]
+        [V$'$
+          [NP
+            [\it Doro]
+          ]
+          [V
+            [\it besucht]
+          ]
+        ]
+      ]
+    ]
+  \end{forest}\\
+  \onslide<+->
+  \Zeile
+  Sprache besteht aber \rot{immer nur aus Oberfläche}!\\
+  \onslide<+->
+  \Viertelzeile
+  \grau{Natürlich kann man beliebige Behauptungen über Bäume im Gehirn hinzuerfinden.}
+\end{frame}
+
+\begin{frame}
+  {Theorien ohne zusätzliche Strukturartefakte}
+  \onslide<+->
+  \onslide<+->
+  HPSG | \alert{Struktur von Wörtern und Wortsequenzen}\\
+  \onslide<+->
+  \Zeile
+  \centering 
+  \scalebox{0.6}{\begin{tabular}[h]{cccc}
+    \multicolumn{4}{c}{ %
+    \visible<7->{%
+      \resizebox{0.62\textwidth}{!}{
+        \begin{avm}
+          \[ phon & dass~Matthias~Doro~besucht \\
+            head & \[ \asort{comp} \]
+          \]
+        \end{avm}} %
+      }} \\
+    \visible<6->{%
+    & \multicolumn{3}{c}{ %
+      \resizebox{0.455\textwidth}{!}{\begin{avm}
+        \[ phon & Matthias~Doro~besucht \\
+          head & \[ \asort{verb} \]
+        \]
+      \end{avm}} %
+    } \\}
+    \visible<5->{%
+    & & \multicolumn{2}{c}{ %
+      \resizebox{0.29\textwidth}{!}{\begin{avm}
+        \[ phon & Doro~besucht \\
+          head & \[ \asort{verb} \]
+        \]
+      \end{avm}} %
+    }\\}
+    \visible<4->{%
+    \resizebox{0.13\textwidth}{!}{\begin{avm}
+      \[ phon & dass \\
+        head & \[ \asort{comp} \]
+      \]
+    \end{avm}} & %
+    \resizebox{0.13\textwidth}{!}{\begin{avm}
+      \[ phon & Matthias \\
+        head & \[ \asort{noun} \]
+
+      \]
+    \end{avm}} & %
+    \resizebox{0.13\textwidth}{!}{\begin{avm}
+      \[ phon & Doro  \\
+        head & \[ \asort{noun} \]
+
+      \]
+    \end{avm}} & %
+    \resizebox{0.13\textwidth}{!}{\begin{avm}
+      \[ phon & besucht  \\
+        head & \[ \asort{verb} \]
+
+      \]
+    \end{avm}} \\}
+    \visible<3->{\textit{dass} & \textit{Matthias} & \textit{Doro} & \textit{besucht} \\}
+  \end{tabular}}\\
+  \onslide<8->
+  \Zeile
+  Die größeren Strukturen sind die \alert{direkten Repräsentationen der Wortketten}.\\
+  \onslide<9->
+  \Viertelzeile
+  Die Grammatik muss spezifizieren, unter welchen Bedingungen sie \alert{wohlgeformt} sind.
+\end{frame}
+
+\begin{frame}
+  {Phrasen in HPSG}
+  \onslide<+->
+  \onslide<+->
+  Strukturen mit \alert{Kopf- und Nicht-Kopf-Bündeln}\\
+  \onslide<+->
+  \Zeile
+  \centering
+  \begin{tabular}[h]{p{0.3\textwidth}p{0.05\textwidth}c}
+    %
+    \only<3-4>{\scalebox{0.8}{\begin{forest}
+      [ , whitetree 
+        [
+          [
+            [ dass Matthias Doro besucht, blacktree ]
+          ]
+        ]
+      ]
+    \end{forest}}} %
+    %
+    \only<5-6>{\scalebox{0.8}{\begin{forest}
+      [  , whitetree
+        [ , blacktree
+          [dass, tier=t]
+          [
+            [Matthias Doro besucht, narroof, tier=t]
+          ]
+        ]
+      ]
+    \end{forest}}} %
+    %
+    \only<7-8>{\scalebox{0.8}{\begin{forest}
+      [
+        [dass, tier=t]
+        [
+          [Matthias, tier=t]
+          [
+            [Doro besucht, narroof, tier=t]
+          ]
+        ]
+      ]
+    \end{forest}}} %
+    %
+    \only<9->{\scalebox{0.8}{\begin{forest}
+      [
+        [dass, tier=t]
+        [
+          [Matthias, tier=t]
+          [
+            [Doro, tier=t]
+            [besucht, tier=t]
+          ]
+        ]
+      ]
+    \end{forest}}} %
+    && %
+    \scalebox{0.7}{\begin{avm}
+      \[ phon & dass~Matthias~Doro~besucht \\
+        \whyte<1-3>{hd-dtr} & \whyte<1-3>{\[ phon & dass \]} \\
+        \whyte<1-4>{non-hd-dtr} & \whyte<1-4>{\[ phon & Matthias~Doro~besucht \\
+                         \whyte<1-5>{non-hd-dtr} & \whyte<1-5>{\[ phon & Matthias \]} \\
+                         \whyte<1-6>{hd-dtr} & \whyte<1-6>{\[ phon & Doro~besucht \\
+                           \whyte<1-7>{non-hd-dtr} & \whyte<1-7>{\[ phon & Doro \]} \\
+                           \whyte<1-8>{hd-dtr} & \whyte<1-8>{\[ phon & besucht \]} \\
+                         \]} \\
+                       \]}
+      \]
+    \end{avm}} \\
+  \end{tabular} \\
+  \onslide<+->
+  \onslide<+->
+  \onslide<+->
+  \onslide<+->
+  \onslide<+->
+  \onslide<+->
+  \onslide<+->
+  \Zeile
+  \grau{\footnotesize Wir tun erst einmal so, als wäre die Wortstellung bei der Verbindung der Wörter egal.}
+\end{frame}
+
+\begin{frame}
+  {Bewegungstransformationen}
+  \onslide<+->
+  \onslide<+->
+  \alert{Bewegung} | Erklärt \alert{Abhängigkeiten} zwischen Positionen in Strukturen.\\
+  \grau{\footnotesize\textit{Transformationen} sagt man seit der GB-Theorie nicht mehr. Technisch gesehen sind es Transformationen.}\\
+  \onslide<+->
+  \Zeile
+  \centering
+  \begin{tabular}{cc}
+    \scalebox{0.8}{\begin{forest}
+      [CP
+        [C$'$
+          [C
+            [\it dass, rottree]
+          ]
+          [VP
+            [NP
+              [\it Matthias, bluetree]
+            ]
+            [V$'$
+              [NP
+                [\it Doro]
+              ]
+              [V
+                [\it besucht, gruentree]
+              ]
+            ]
+          ]
+        ]
+      ]
+    \end{forest}} & %
+    \visible<4->{\scalebox{0.8}{\begin{forest}
+      [CP
+        [NP
+            [\it Matthias\Sub{2}, bluetree, name=Matthias]
+        ]
+        [C$'$
+          [C
+            [\it besucht\Sub{1}, gruentree, name=besucht]
+          ]
+          [VP
+            [t\Sub{2}, bluetree, name=t2]
+            [V$'$
+              [NP
+                [\it Doro]
+              ]
+              [V
+                [t\Sub{1}, gruentree, name=t1]
+              ]
+            ]
+          ]
+        ]
+      ]
+      {\draw [<->, bend left=70, gruen, thick] (t1.south) to (besucht.south);}
+      {\draw [<->, bend left=70, trueblue, thick] (t2.south) to (Matthias.south);}
+    \end{forest}}} \\
+  \end{tabular}
+\end{frame}
+
+
+\begin{frame}
+  {Theorien ohne Transformationen im weiteren Sinn}
+  \onslide<+->
+  \onslide<+->
+  HPSG | \alert{Die gleichen Abhängigkeiten ohne Bewegung}, dafür mit \alert{Strukturteilung}\\
+  \grau{\footnotesize Nicht unbedingt ohne leere Elemente!}\\
+  \onslide<+->
+  \Zeile
+  \centering 
+  \begin{tabular}[h]{cp{0.05\textwidth}c}
+    \scalebox{0.6}{\begin{forest}
+      [ VP
+        [NP
+          [\it \alt<1-4>{Matthias}{\alert{Matthias\Sub{1}}}]
+        ]
+        [VP
+          [V
+            [\it \alt<1-4>{besucht}{\gruen{besucht\Sub{2}}}]
+          ]
+          [VP
+            [NP
+              [\it Doro]
+            ]
+            [V
+              [\alt<1-4>{$\emptyset$}{\alert{t\Sub{1}}}]
+              [\alt<1-4>{$\emptyset$}{\gruen{t\Sub{2}}}]
+            ]
+          ]
+        ]
+      ]
+    \end{forest}} && % 
+    \onslide<+->\alt<1-4>{%
+    \scalebox{0.55}{\begin{avm}
+      \[ phon & Matthias~besucht~Doro \\
+        non-hd-dtr & \[ phon & Matthias \] \\
+        hd-dtr & \[ phon & besucht~Doro \\
+          hd-dtr & \[ phon & besucht \] \\
+          non-hd-dtr & \[ phon & Doro \\
+            non-hd-dtr & \[ phon & Doro \] \\
+            hd-dtr & \[ phon & \<\> \\
+              non-hd-dtr & \[ phon & \<\> \] \\
+              hd-dtr & \[ phon & \<\> \]
+            \]
+          \]
+        \]
+      \]
+    \end{avm}}}{%
+    \scalebox{0.55}{\begin{avm}
+      \[ phon & Matthias~besucht~Doro \\
+        non-hd-dtr & \alert{\[ phon & Matthias \\ 
+          some-features & \@1
+        \]} \\
+        hd-dtr & \[ phon & besucht~Doro \\
+          hd-dtr & \gruen{\[ phon & besucht \\
+          some-features & \@2 \]} \\
+          non-hd-dtr & \[ phon & Doro \\
+            non-hd-dtr & \[ phon & Doro \] \\
+            hd-dtr & \[ phon & \<\> \\
+              non-hd-dtr & \alert{\[ phon & \<\> \\
+              some-features & \@1 \]} \\
+              hd-dtr & \gruen{\[ phon & \<\> \\
+              some-features & \@2 \]}
+            \]
+          \]
+        \]
+      \]
+    \end{avm}}%
+    }\\
+  \end{tabular}  \\
+  \Zeile
+  \onslide<+->
+  \onslide<+->
+  \rot{Wenn die Spuren an den richtigen Positionen sind, braucht man keine Transformation!}\\
+  \grau{\footnotesize Die Bewegung ins Vorfeld geht auch ohne Spur. Das kommt alles noch.}
+\end{frame}
+
+\section{Valenz}
+
+\begin{frame}
+  {Valenz als Liste von Merkmalbeschreibungen | Präpositionen}
+  \onslide<+->
+  \onslide<+->
+  Valenz bzw.\ \gruen{\textsc{subcat(egorisation)}} einer Präposition\\
+  \onslide<+->
+  \Zeile
+  \begin{avm}
+    \[
+      phon & \alert{wegen} \\
+    head & \[ \asort{prep} \] \\
+    \gruen{subcat} & \gruen{\< \[ 
+      head & \[ \asort{noun} 
+      case & gen \] \] \>}
+  \]
+  \end{avm}\\
+  \onslide<+->
+  \Zeile
+  Die Präposition \textit{wegen} verbindet sich mit \alert{einem nominalen Element im Genitiv}.
+\end{frame}
+
+\begin{frame}
+  {Valenz von Nomen}
+  \onslide<+->
+  \onslide<+->
+  Zur Erinnerung | \alert{NP-Analyse} (nicht DP)\\
+  \onslide<+->
+  \centering 
+  \Zeile
+  \scalebox{0.7}{\begin{avm}
+    \[ phon & \alert{Telefon} \\
+      head & \[ \asort{\orongsch{count-noun}}
+        gen & \@1 neut \\
+        num & \@2 sg \\
+        case & \@3 nom $\vee$ acc $\vee$ dat\\
+      \] \\
+      \gruen{subcat} & \gruen{\< %
+        \[ head & \[ \asort{det} %
+          gen & \@1 \\
+          num & \@2 \\
+          case & \@3 \\
+        \] \] %
+      \>}
+    \]
+  \end{avm}}\onslide<+->\hspace{3em}\scalebox{0.7}{\begin{avm}
+    \[ phon & \alert{Saft} \\
+      head & \[ \asort{\orongsch{mass-noun}} \] \\
+      \gruen{subcat} & \gruen{\<\>} \\
+    \]
+  \end{avm}}\onslide<+->\hspace{3em}\scalebox{0.7}{\begin{avm}
+    \[ phon & \alert{Saft} \\
+      head & \[ \asort{\orongsch{sort-noun}} 
+        gen & \@1 masc \\
+        num & \@2 sg \\
+        case & \@3 nom $\vee$ acc $\vee$ dat\\
+      \] \\
+      \gruen{subcat} & \gruen{\< %
+        \[ head & \[ \asort{det} %
+          gen & \@1 \\
+          num & \@2 \\
+          case & \@3 \\
+        \] \] %
+      \>}
+    \]
+  \end{avm}}\\
+  \onslide<+->
+  \Zeile
+  \footnotesize Idealerweise möchte man das Stoffnomen \textit{Saft} mit dem sortalen Nomen lexikalisch in Beziehung setzen.\\
+  \grau{Das können sogenannte \textit{Lexikonregeln}. Kommt alles noch.}
+\end{frame}
+
+\begin{frame}
+  {Valenz von Verben}
+  \onslide<+->
+  \onslide<+->
+  Beispiele für verbale Valenz\\
+  \onslide<+->
+  \Zeile
+  \centering 
+  \scalebox{0.7}{%
+    \begin{avm}
+      \[ phon & \alert{schläft} \\
+        head & \[ \asort{verb} 
+          vform & fin \\
+          per & \@1 3 \\
+          num & \@2 sg \\
+        \] \\
+        \gruen{subcat} & \gruen{\<
+          \[ head & \[ \asort{noun} 
+            per & \@1 \\
+            num & \@2 \\
+            case & nom \\
+          \] \]
+        \>} \\
+      \]
+    \end{avm}%
+  }%
+  \onslide<+->\hspace{2em}%
+  \scalebox{0.7}{%
+    \begin{avm}
+      \[ phon & \alert{testet} \\
+        head & \[ \asort{verb} 
+          vform & fin \\
+          per & \@1 3 \\
+          num & \@2 sg \\
+        \] \\
+        \gruen{subcat} & \gruen{\<
+          \[ head & \[ \asort{noun} 
+            per & \@1 \\
+            num & \@2 \\
+            case & nom \\
+          \] \],
+          \[ head & \[ \asort{noun} 
+            case & acc \\
+          \] \]
+        \>} \\
+      \]
+    \end{avm}%
+  }\\
+  \Zeile
+  \onslide<+->
+  \footnotesize Übrigens: \alert{Kongruenz} ist Strukturteilung zwischen \textsc{head}-Merkmalen von Kopf und Nicht-Kopf,\\
+  \alert{Valenz} zwischen \textsc{subcat} des Kopfs und \textsc{head} des Nicht-Kopfs.\\
+  \grau{Diese Formulierung dient nur der Veranschaulichung.}
+\end{frame}
+
+\section{Komplementation}
+
+\newcommand{\AvmDreiA}{%
+  \begin{avm}
+    \[ phon & testet \\
+      head & \[ \asort{verb} 
+        vform & fin \\
+      \] \\
+      subcat & \<
+       \[ head & \[ \asort{noun} 
+          case & nom \\
+        \] \],
+        \alert{\@1 \[ head & \[ \asort{noun} 
+          case & acc \\
+        \] \]}
+      \> \\
+    \]
+  \end{avm}%
+}
+
+\newcommand{\AvmDreiB}{%
+  \begin{avm}
+    \alert{\@1 \[ phon & einen Verstärker \\
+      head & \[ \asort{noun} 
+        case & acc \]
+      \]}
+  \end{avm}
+}
+
+\newcommand{\AvmDreiC}{%
+  \begin{avm}
+    \gruen{\@2 \[ phon & Jörg \\
+      head & \[ \asort{noun} 
+       case & nom $\vee$ acc $\vee$ dat \]
+     \]}
+  \end{avm}
+}
+
+\newcommand{\AvmDreiAa}{%
+  \begin{avm}
+    \[ phon & testet einen Verstärker \\
+      head & \[ \asort{verb} 
+        vform & fin \\
+      \] \\
+      subcat & \<
+      \gruen{\@2 \[ head & \[ \asort{noun} 
+          case & nom \\
+        \] \]}
+      \> \\
+    \]
+  \end{avm}%
+}
+
+\newcommand{\AvmDreiAb}{%
+  \begin{avm}
+    \[ phon & Jörg testet einen Verstärker \\
+      head & \[ \asort{verb} 
+        vform & fin \\
+      \] \\
+      subcat & \<\> \\
+    \]
+  \end{avm}%
+}
+
+\begin{frame}
+  {Wie steuert Valenz den Phrasenaufbau?}
+  \onslide<+->
+  \onslide<+->
+  Die \textsc{subcat}-Liste wird bei Kombination mit Komplementen \alert{reduziert}.\\
+  \grau{\footnotesize Die Bäume dienen nur der Veranschaulichung. Kongruenz wird aus Platzgründen nicht dargestellt.}\\
+  \onslide<+->
+  \Halbzeile
+  \centering
+  \only<3>{\begin{forest}
+    [VP
+      [NP, gruentree [\it Jörg, narroof]]
+      [{V$'$}
+        [NP, bluetree [\it einen Verstärker, narroof]]
+        [V [\it testet]]
+      ]
+    ]
+  \end{forest}}%
+  \only<4>{\begin{forest}
+    [{V$\langle\rangle$}
+      [NP, gruentree [\it Jörg, narroof] ]
+      [{V$\langle$\gruen{NP\Sub{nom}}$\rangle$}
+        [NP, bluetree [\it einen Verstärker, narroof]]
+        [{V$\langle$\gruen{NP\Sub{nom}}, \alert{NP\Sub{acc}}$\rangle$} [\it testet]]
+      ]
+    ]
+  \end{forest}}%
+  \only<5>{\begin{forest}
+    [{V$\langle\rangle$}
+      [NP, gruentree [\it Jörg, narroof] ]
+      [{V$\langle$\gruen{NP\Sub{nom}}$\rangle$}
+        [NP, bluetree [\it einen Verstärker, narroof]]
+        [\scalebox{0.45}{\AvmDreiA}]
+      ]
+    ]
+  \end{forest}}
+  \only<6>{\begin{forest}
+    [{V$\langle\rangle$}
+      [NP, gruentree [\it Jörg, narroof] ]
+      [{V$\langle$\gruen{NP\Sub{nom}}$\rangle$}
+        [\scalebox{0.45}{\AvmDreiB}]
+        [\scalebox{0.45}{\AvmDreiA}]
+      ]
+    ]
+  \end{forest}}
+  \only<7>{\begin{forest}
+    [{V$\langle\rangle$}
+      [NP, gruentree [\it Jörg, narroof] ]
+      [\scalebox{0.45}{\AvmDreiAa}
+        [\scalebox{0.45}{\AvmDreiB}]
+        [\scalebox{0.45}{\AvmDreiA}]
+      ]
+    ]
+  \end{forest}}
+  \only<8>{\begin{forest}
+    [{V$\langle\rangle$}
+      [\scalebox{0.45}{\AvmDreiC}]
+      [\scalebox{0.45}{\AvmDreiAa}
+        [\scalebox{0.45}{\AvmDreiB}]
+        [\scalebox{0.45}{\AvmDreiA}]
+      ]
+    ]
+  \end{forest}}
+  \only<9>{\begin{forest}
+    [\scalebox{0.45}{\AvmDreiAb}
+      [\scalebox{0.45}{\AvmDreiC}]
+      [\scalebox{0.45}{\AvmDreiAa}
+        [\scalebox{0.45}{\AvmDreiB}]
+        [\scalebox{0.45}{\AvmDreiA}]
+      ]
+    ]
+  \end{forest}}
+\end{frame}
+
+\begin{frame}
+  {Beispielsatz als Merkmalbeschreibung}
+  \onslide<+->
+  \onslide<+->
+  Die Bäume sind nur ein Konstrukt, die Merkmalstrukturen real.\\
+  \onslide<+->
+  \Halbzeile
+  \centering 
+  \scalebox{0.6}{\begin{avm}
+    \[ phon & Jörg einen Verstärker testet \\
+      \rot{head} & \rot{\@3} \\
+      subcat & \<\> \\
+      non-hd-dtr & \gruen{\@2 \[ phon & Jörg \\
+        head & \[ \asort{noun} case & nom \]
+      \]} \\
+      \rot{hd-dtr} & \[ phon & einen Verstärker testet \\
+        \rot{head} & \rot{\@3} \\
+        subcat & \<\gruen{\@2}\> \\
+        non-hd-dtr & \alert{\@1 \[ phon & einen Verstärker \\
+          head & \[ \asort{noun} case & acc \]
+        \]} \\
+        \rot{hd-dtr} & \[ phon & testet \\
+          \rot{head} & \rot{\@3 \[ \asort{verb} vform & fin \]} \\
+          subcat & \<\gruen{\@2}, \alert{\@1}\> \\
+        \] \\
+      \] \\
+    \]
+  \end{avm}}
+\end{frame}
+
+\begin{frame}
+  {Projektionsstatus}
+  \onslide<+->
+  \onslide<+->
+  Was macht eine \alert{Phrase zu einer Phrase}?\\
+  \grau{\footnotesize Betrachtet im Gegensatz zu Kopf und Bar-Ebene \ldots}\\
+  \Zeile
+  \begin{itemize}[<+->]
+    \item Köpfe X\Up{0} | \alert{Volle Valenz}
+    \item Bar-Ebene X\Prm | \alert{Reduzierte Valenz}
+    \item Phrase XP | \alert{Vollständig abgebundene Valenz}
+      \Halbzeile
+    \item Verhindert \textit{* dass Jörg Auto repariert} usw.
+  \end{itemize}
+  \onslide<+->
+  \Zeile
+  \begin{block}
+    {Maximalprojektionen in HPSG}
+    Strukturen mit leerer \textsc{subcat}-Liste sind Maximalprojektionen.
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  {Phrasenstatus anzeigen}
+  \onslide<+->
+  \onslide<+->
+  Auch die NPs müssen \orongsch{\textsc{subcat}-empty} sein.\\
+  \onslide<+->
+  \Halbzeile
+  \centering 
+  \scalebox{0.6}{\begin{avm}
+    \[ phon & Jörg einen Verstärker testet \\
+      \rot{head} & \rot{\@3} \\
+      subcat & \<\> \\
+      non-hd-dtr & \gruen{\@2 \[ phon & Jörg \\
+        head & \[ \asort{noun} case & nom \] \\
+        \orongsch{subcat} & \orongsch{\<\>} \\
+      \]} \\
+      \rot{hd-dtr} & \[ phon & einen Verstärker testet \\
+        \rot{head} & \rot{\@3} \\
+        subcat & \<\gruen{\@2}\> \\
+        non-hd-dtr & \alert{\@1 \[ phon & einen Verstärker \\
+          head & \[ \asort{noun} case & acc \] \\
+          \orongsch{subcat} & \orongsch{\<\>} \\
+        \]} \\
+        \rot{hd-dtr} & \[ phon & testet \\
+          \rot{head} & \rot{\@3 \[ \asort{verb} vform & fin \]} \\
+          subcat & \<\gruen{\@2}, \alert{\@1}\> \\
+        \] \\
+      \] \\
+    \]
+  \end{avm}}
+\end{frame}
+
+\begin{frame}
+  {Einige Punkte zur Beachtung}
+  \onslide<+->
+  \onslide<+->
+  \centering 
+  \begin{tabular}[h]{cc}
+    \begin{minipage}{0.35\textwidth}
+      \scalebox{0.5}{\begin{avm}
+        \[ phon & Jörg einen Verstärker testet \\
+          \rot{head} & \rot{\@3} \\
+          subcat & \<\> \\
+          non-hd-dtr & \gruen{\@2 \[ phon & Jörg \\
+            head & \[ \asort{noun} case & nom \] \\
+            \orongsch{subcat} & \orongsch{\<\>} \\
+          \]} \\
+          \rot{hd-dtr} & \[ phon & einen Verstärker testet \\
+            \rot{head} & \rot{\@3} \\
+            subcat & \<\gruen{\@2}\> \\
+            non-hd-dtr & \alert{\@1 \[ phon & einen Verstärker \\
+              head & \[ \asort{noun} case & acc \] \\
+              \orongsch{subcat} & \orongsch{\<\>} \\
+            \]} \\
+            \rot{hd-dtr} & \[ phon & testet \\
+              \rot{head} & \rot{\@3 \[ \asort{verb} vform & fin \]} \\
+              subcat & \<\gruen{\@2}, \alert{\@1}\> \\
+            \] \\
+          \] \\
+        \]
+      \end{avm}}
+    \end{minipage} & %
+    \begin{minipage}{0.55\textwidth}
+      \begin{itemize}[<+->]
+        \item Einträge auf der lexikalischen \textsc{subcat}\\
+          des Verbs | Minimale Spezifikation\\
+          der Komplemente (\textsc{case}, evtl.\ Kongruenz)
+        \item Über \textsc{phon} zum Beispiel keine Vorgaben
+        \item Konkrete NPs | \alert{Unifizikation} mit\\
+          dieser Information
+          \Viertelzeile
+        \item In der großen Struktur | Unter \alert{\mybox{1}} und \gruen{\mybox{2}}\\
+          \alert{überall die volle Information}
+          \Viertelzeile
+        \item Falls nicht unifizierbar | Keine\\
+          größere Struktur bzw. kein grammatischer\\
+          Satz, keine grammatische VP usw.
+      \end{itemize} 
+    \end{minipage} \\
+  \end{tabular}
+\end{frame}
+
+\section{Grammatikregeln}
+
+\begin{frame}
+  {Listenverknüpfung}
+  \onslide<+->
+  \onslide<+->
+  Wir haben immer noch keine \alert{Regel} für die Komplementabbindung!\\
+  \Zeile
+  \begin{itemize}[<+->]
+    \item Bei der Verbindung von Kopf \mybox{1} Komplement \mybox{2}
+      \begin{itemize}[<+->]
+        \item Unifikation des \alert{letzten Elements der \textsc{subcat} von \mybox{1}} mit \mybox{2}
+        \item Resultierende Phrase | Kopfmerkmale kopiert von \textsc{hd-dtr}
+        \item Resultierende Phrase | \textsc{subcat} von \mybox{1} \alert{ohne das letzte Element}
+        \item \textsc{phon}-Werte der Phrase | \alert{Aneinandergehängte \textsc{phon}-Werte} der Töchter
+      \end{itemize}
+      \Halbzeile
+    \item Teilung der \textsc{subcat} in \alert{letztes Element} und \alert{Rest der Liste davor}
+    \item \alert{"`Rest der Liste"' möglicherweise leer} (z.\,B.\ bei Abbindung des Subjekts)
+      \Halbzeile
+    \item \alert{Konkatenationsoperator $\oplus$}
+        \begin{itemize}[<+->]
+          \item Verknüpft zwei Listen L\Sub{1} und L\Sub{2} zu neuer Liste L\Sub{3}: \alert{$L_3=L_1\oplus L_2$}
+          \item L\Sub{3} enthält alle Elemente von L\Sub{1} gefolgt von allen Elementen von L\Sub{2}
+          \item L\Sub{1} und\slash oder L\Sub{2} möglicherweise leer
+        \end{itemize}
+  \end{itemize}
+\end{frame}
