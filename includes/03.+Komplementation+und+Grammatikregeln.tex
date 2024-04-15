@@ -2,6 +2,8 @@
 
 \begin{frame}
   {Konzepte von letzter Woche}
+  \onslide<+->
+  \onslide<+->
   Wir systematisieren jetzt folgende Konzepte weiter:\\
   \Zeile
   \begin{itemize}[<+->]
@@ -11,6 +13,10 @@
     \item \alert{Listen von Merkmalstrukturen} zur Repräsentation von \alert{Valenz}
     \item \alert{Strukturteilung} zur Modellierung von Kongruenz und Valenz
   \end{itemize}
+  \Zeile
+  \onslide<+->
+  \centering 
+  \grau{\citet[Kapitel~3.1~und~4]{MuellerLehrbuch3}}
 \end{frame}
 
 \section{Ohne Bäume, ohne Transformationen}
@@ -129,7 +135,7 @@
   \centering
   \begin{tabular}[h]{p{0.3\textwidth}p{0.05\textwidth}c}
     %
-    \only<3-4>{\scalebox{0.8}{\begin{forest}
+    \only<3-4|handout:0>{\scalebox{0.8}{\begin{forest}
       [ , whitetree 
         [
           [
@@ -139,7 +145,7 @@
       ]
     \end{forest}}} %
     %
-    \only<5-6>{\scalebox{0.8}{\begin{forest}
+    \only<5-6|handout:0>{\scalebox{0.8}{\begin{forest}
       [  , whitetree
         [ , blacktree
           [dass, tier=t]
@@ -150,7 +156,7 @@
       ]
     \end{forest}}} %
     %
-    \only<7-8>{\scalebox{0.8}{\begin{forest}
+    \only<7-8|handout:0>{\scalebox{0.8}{\begin{forest}
       [
         [dass, tier=t]
         [
@@ -177,12 +183,12 @@
     && %
     \scalebox{0.7}{\begin{avm}
       \[ phon & dass~Matthias~Doro~besucht \\
-        \whyte<1-3>{hd-dtr} & \whyte<1-3>{\[ phon & dass \]} \\
-        \whyte<1-4>{non-hd-dtr} & \whyte<1-4>{\[ phon & Matthias~Doro~besucht \\
-                         \whyte<1-5>{non-hd-dtr} & \whyte<1-5>{\[ phon & Matthias \]} \\
-                         \whyte<1-6>{hd-dtr} & \whyte<1-6>{\[ phon & Doro~besucht \\
-                           \whyte<1-7>{non-hd-dtr} & \whyte<1-7>{\[ phon & Doro \]} \\
-                           \whyte<1-8>{hd-dtr} & \whyte<1-8>{\[ phon & besucht \]} \\
+        \whyte<1-3|handout:0>{hd-dtr} & \whyte<1-3|handout:0>{\[ phon & dass \]} \\
+        \whyte<1-4|handout:0>{non-hd-dtr} & \whyte<1-4|handout:0>{\[ phon & Matthias~Doro~besucht \\
+                         \whyte<1-5|handout:0>{non-hd-dtr} & \whyte<1-5|handout:0>{\[ phon & Matthias \]} \\
+                         \whyte<1-6|handout:0>{hd-dtr} & \whyte<1-6|handout:0>{\[ phon & Doro~besucht \\
+                           \whyte<1-7|handout:0>{non-hd-dtr} & \whyte<1-7|handout:0>{\[ phon & Doro \]} \\
+                           \whyte<1-8|handout:0>{hd-dtr} & \whyte<1-8|handout:0>{\[ phon & besucht \]} \\
                          \]} \\
                        \]}
       \]
@@ -265,7 +271,7 @@
   \onslide<+->
   \onslide<+->
   HPSG | \alert{Die gleichen Abhängigkeiten ohne Bewegung}, dafür mit \alert{Strukturteilung}\\
-  \grau{\footnotesize Nicht unbedingt ohne leere Elemente!}\\
+  \grau{\footnotesize Aber nicht unbedingt ohne leere Elemente!}\\
   \onslide<+->
   \Zeile
   \centering 
@@ -273,25 +279,25 @@
     \scalebox{0.6}{\begin{forest}
       [ VP
         [NP
-          [\it \alt<1-4>{Matthias}{\alert{Matthias\Sub{1}}}]
+          [\it \alt<1-4|handout:0>{Matthias}{\alert{Matthias\Sub{1}}}]
         ]
         [VP
           [V
-            [\it \alt<1-4>{besucht}{\gruen{besucht\Sub{2}}}]
+            [\it \alt<1-4|handout:0>{besucht}{\gruen{besucht\Sub{2}}}]
           ]
           [VP
             [NP
               [\it Doro]
             ]
             [V
-              [\alt<1-4>{$\emptyset$}{\alert{t\Sub{1}}}]
-              [\alt<1-4>{$\emptyset$}{\gruen{t\Sub{2}}}]
+              [\alt<1-4|handout:0>{$\emptyset$}{\alert{t\Sub{1}}}]
+              [\alt<1-4|handout:0>{$\emptyset$}{\gruen{t\Sub{2}}}]
             ]
           ]
         ]
       ]
     \end{forest}} && % 
-    \onslide<+->\alt<1-4>{%
+    \onslide<+->\alt<1-4|handout:0>{%
     \scalebox{0.55}{\begin{avm}
       \[ phon & Matthias~besucht~Doro \\
         non-hd-dtr & \[ phon & Matthias \] \\
@@ -333,7 +339,7 @@
   \onslide<+->
   \onslide<+->
   \rot{Wenn die Spuren an den richtigen Positionen sind, braucht man keine Transformation!}\\
-  \grau{\footnotesize Die Bewegung ins Vorfeld geht auch ohne Spur. Das kommt alles noch.}
+  \grau{\footnotesize Die Bewegung ins Vorfeld geht ohne Spur. Das kommt alles noch und sieht dann deutlich anders aus.}
 \end{frame}
 
 \section{Valenz}
@@ -367,7 +373,7 @@
   \onslide<+->
   \centering 
   \Zeile
-  \scalebox{0.7}{\begin{avm}
+  \scalebox{0.6}{\begin{avm}
     \[ phon & \alert{Telefon} \\
       head & \[ \asort{\orongsch{count-noun}}
         gen & \@1 neut \\
@@ -382,12 +388,16 @@
         \] \] %
       \>}
     \]
-  \end{avm}}\onslide<+->\hspace{3em}\scalebox{0.7}{\begin{avm}
+  \end{avm}}\onslide<+->\hspace{3em}\scalebox{0.6}{\begin{avm}
     \[ phon & \alert{Saft} \\
-      head & \[ \asort{\orongsch{mass-noun}} \] \\
+      head & \[ \asort{\orongsch{mass-noun}}
+        gen & \@1 masc \\
+        num & \@2 sg \\
+        case & \@3 nom $\vee$ acc $\vee$ dat\\
+      \] \\
       \gruen{subcat} & \gruen{\<\>} \\
     \]
-  \end{avm}}\onslide<+->\hspace{3em}\scalebox{0.7}{\begin{avm}
+  \end{avm}}\onslide<+->\hspace{3em}\scalebox{0.6}{\begin{avm}
     \[ phon & \alert{Saft} \\
       head & \[ \asort{\orongsch{sort-noun}} 
         gen & \@1 masc \\
@@ -537,7 +547,7 @@
   \onslide<+->
   \Halbzeile
   \centering
-  \only<3>{\begin{forest}
+  \only<3|handout:0>{\begin{forest}
     [VP
       [NP, gruentree [\it Jörg, narroof]]
       [{V$'$}
@@ -546,7 +556,7 @@
       ]
     ]
   \end{forest}}%
-  \only<4>{\begin{forest}
+  \only<4|handout:0>{\begin{forest}
     [{V$\langle\rangle$}
       [NP, gruentree [\it Jörg, narroof] ]
       [{V$\langle$\gruen{NP\Sub{nom}}$\rangle$}
@@ -555,7 +565,7 @@
       ]
     ]
   \end{forest}}%
-  \only<5>{\begin{forest}
+  \only<5|handout:0>{\begin{forest}
     [{V$\langle\rangle$}
       [NP, gruentree [\it Jörg, narroof] ]
       [{V$\langle$\gruen{NP\Sub{nom}}$\rangle$}
@@ -564,7 +574,7 @@
       ]
     ]
   \end{forest}}
-  \only<6>{\begin{forest}
+  \only<6|handout:0>{\begin{forest}
     [{V$\langle\rangle$}
       [NP, gruentree [\it Jörg, narroof] ]
       [{V$\langle$\gruen{NP\Sub{nom}}$\rangle$}
@@ -573,7 +583,7 @@
       ]
     ]
   \end{forest}}
-  \only<7>{\begin{forest}
+  \only<7|handout:0>{\begin{forest}
     [{V$\langle\rangle$}
       [NP, gruentree [\it Jörg, narroof] ]
       [\scalebox{0.45}{\AvmDreiAa}
@@ -582,7 +592,7 @@
       ]
     ]
   \end{forest}}
-  \only<8>{\begin{forest}
+  \only<8|handout:0>{\begin{forest}
     [{V$\langle\rangle$}
       [\scalebox{0.45}{\AvmDreiC}]
       [\scalebox{0.45}{\AvmDreiAa}
@@ -603,7 +613,7 @@
 \end{frame}
 
 \begin{frame}
-  {Beispielsatz als Merkmalbeschreibung}
+  {Derselbe Beispielsatz als Merkmalbeschreibung}
   \onslide<+->
   \onslide<+->
   Die Bäume sind nur ein Konstrukt, die Merkmalstrukturen real.\\
@@ -644,7 +654,7 @@
     \item Bar-Ebene X\Prm | \alert{Reduzierte Valenz}
     \item Phrase XP | \alert{Vollständig abgebundene Valenz}
       \Halbzeile
-    \item Verhindert \textit{* dass Jörg Auto repariert} usw.
+    \item Verhindert \rot{*\textit{dass Jörg Auto repariert}} usw.
   \end{itemize}
   \onslide<+->
   \Zeile
@@ -664,22 +674,22 @@
   \centering 
   \scalebox{0.6}{\begin{avm}
     \[ phon & Jörg einen Verstärker testet \\
-      \rot{head} & \rot{\@3} \\
+      head & \@3 \\
       subcat & \<\> \\
-      non-hd-dtr & \gruen{\@2 \[ phon & Jörg \\
+      non-hd-dtr & \@2 \[ phon & Jörg \\
         head & \[ \asort{noun} case & nom \] \\
         \orongsch{subcat} & \orongsch{\<\>} \\
-      \]} \\
-      \rot{hd-dtr} & \[ phon & einen Verstärker testet \\
-        \rot{head} & \rot{\@3} \\
-        subcat & \<\gruen{\@2}\> \\
-        non-hd-dtr & \alert{\@1 \[ phon & einen Verstärker \\
+      \] \\
+      hd-dtr & \[ phon & einen Verstärker testet \\
+        head & \@3 \\
+        subcat & \<\@2\> \\
+        non-hd-dtr & \@1 \[ phon & einen Verstärker \\
           head & \[ \asort{noun} case & acc \] \\
           \orongsch{subcat} & \orongsch{\<\>} \\
-        \]} \\
-        \rot{hd-dtr} & \[ phon & testet \\
-          \rot{head} & \rot{\@3 \[ \asort{verb} vform & fin \]} \\
-          subcat & \<\gruen{\@2}, \alert{\@1}\> \\
+        \] \\
+        hd-dtr & \[ phon & testet \\
+          head & \@3 \[ \asort{verb} vform & fin \] \\
+          subcat & \<\@2, \@1\> \\
         \] \\
       \] \\
     \]
@@ -722,7 +732,7 @@
           des Verbs | Minimale Spezifikation\\
           der Komplemente (\textsc{case}, evtl.\ Kongruenz)
         \item Über \textsc{phon} zum Beispiel keine Vorgaben
-        \item Konkrete NPs | \alert{Unifizikation} mit\\
+        \item Konkrete NPs | \alert{Unifikation} mit\\
           dieser Information
           \Viertelzeile
         \item In der großen Struktur | Unter \alert{\mybox{1}} und \gruen{\mybox{2}}\\
@@ -763,4 +773,172 @@
           \item L\Sub{1} und\slash oder L\Sub{2} möglicherweise leer
         \end{itemize}
   \end{itemize}
+\end{frame}
+
+\begin{frame}
+  {Zusammenbau von \textsc{phon}-Listen}
+  \onslide<+->
+  \onslide<+->
+  Listen von Phonemketten\slash Segmentketten können wir konkatenieren.\\
+  \onslide<+->
+  \Halbzeile
+      \scalebox{0.5}{\begin{avm}
+        \[ phon & \alert{\@{12}} $\oplus$ \orongsch{\@{11}} $\oplus$ \gruen{\@{10}} \\
+          head & \@3 \\
+          subcat & \<\> \\
+          non-hd-dtr & \@2 \[ phon & \alert{\@{12} \<\rm\it Jörg\>} \\
+            head & \[ \asort{noun} case & nom \] \\
+            subcat & \<\> \\
+          \] \\
+          hd-dtr & \[ phon & \orongsch{\@{11}} $\oplus$ \gruen{\@{10}} \\
+            head & \@3 \\
+            subcat & \<\@2\> \\
+            non-hd-dtr & \@1 \[ phon & \orongsch{\@{11} \<\rm\it einen, Verstärker\>} \\
+              head & \[ \asort{noun} case & acc \] \\
+              subcat & \<\> \\
+            \] \\
+            hd-dtr & \[ phon & \gruen{\@{10} \<\rm\it testet\>} \\
+              head & \@3 \[ \asort{verb} vform & fin \] \\
+              subcat & \<\@2, \@1\> \\
+            \] \\
+          \] \\
+        \]
+      \end{avm}}\\
+      \Halbzeile
+      \centering 
+      \grau{\footnotesize Darüber sprechen wir in Zusammenhang mit Wortstellung nochmal.}
+\end{frame}
+
+
+\begin{frame}
+  {Reduktion von \textsc{subcat}-Listen}
+  \onslide<+->
+  \onslide<+->
+  Im Ergebnis ist die untenstehende Beschreibung äquivalent zur vorherigen.\\
+  \onslide<+->
+  \Halbzeile
+      \scalebox{0.5}{\begin{avm}
+        \[ phon & \@{12} $\oplus$ \@{11} $\oplus$ \@{10} \\
+          head & \@3 \\
+          subcat & \orongsch{\<\>} \\
+          non-hd-dtr & \gruen{\@2 \[ phon & Jörg \\
+            head & \[ \asort{noun} case & nom \] \\
+            subcat & \<\> \\
+          \]} \\
+          hd-dtr & \[ phon & \@{11} $\oplus$ \@{10} \\
+            head & \@3 \\
+            subcat & \orongsch{\<\>}\ $\oplus$ \<\gruen{\@2}\> \\
+            non-hd-dtr & \alert{\@1 \[ phon & \@{11} \<\rm\it einen, Verstärker\> \\
+              head & \[ \asort{noun} case & acc \] \\
+              subcat & \<\> \\
+            \]} \\
+            hd-dtr & \[ phon & \@{10} \<\rm\it testet\> \\
+              head & \@3 \[ \asort{verb} vform & fin \] \\
+              subcat & \<\gruen{\@2}\>\ $\oplus$ \<\alert{\@1}\> \\
+            \] \\
+          \] \\
+        \]
+      \end{avm}}
+\end{frame}
+
+\begin{frame}
+  {Dominanzregel für Komplementierung}
+  \onslide<+->
+  \onslide<+->
+  \Zeile
+  \centering 
+  \raisebox{-1.5\baselineskip}{\textit{head-argument-phrase}\ $\Rightarrow$\ }%
+  \begin{avm}
+    \[ subcat & \@1 \\
+       hd-dtr|subcat & \@1\ $\oplus$\ \<\@2\> \\
+       non-hd-dtr & \@2 
+     \]
+  \end{avm}\\
+  \Zeile
+  \raggedright
+  \begin{itemize}[<+->]
+    \item \alert{Implikationsregel} | Für alle Zeichen vom Typ \textit{hd-arg-phrase} gilt \ldots
+    \item Wichtig: \mybox{1} ist die "`restliche"' Valenzliste, \rot{\mybox{2} ist keine Liste}!
+    \item \alert{Wenn \mybox{1} leer ist}, ist die betreffende \textit{hd-arg-phrase} eine Maximalprojektion.
+    \item \alert{Das Pipe-Zeichen |} kürzt Pfade durch Merkmalsbeschreibungen ab.\\
+      \Viertelzeile
+      \grau{\raisebox{-0.25\baselineskip}{\begin{avm}
+        \[ hd-dtr|subcat & \@1\ $\oplus$\ \<\@2\> \]
+      \end{avm}}~\raisebox{-0.5\baselineskip}{=}~%
+      \begin{avm}
+        \[ hd-dtr & \[ subcat & \@1\ $\oplus$\ \<\@2\> \] \]
+      \end{avm}}
+      \Viertelzeile
+    \item Achtung: \rot{Normalerweise (auch bei \citealt{MuellerLehrbuch3}) ist \textsc{non-hd-dtrs} eine Liste},\\
+      wir brauchen aber immer \alert{nur eine Nicht-Kopf-Tochter}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  {Regel für Weitergabe der Kopfmerkmale}
+  \onslide<+->
+  \onslide<+->
+  Das \alert{Kopfmerkmalprinzip}\\
+  \grau{\footnotesize Es werden noch andere Phrasentypen mit Kopf eingeführt werden.}\\
+  \onslide<+->
+  \Zeile
+  \centering 
+  \raisebox{-0.5\baselineskip}{\textit{headed-phrase}\ $\Rightarrow$\ }%
+  \begin{avm}
+    \[ head & \@1 \\
+       hd-dtr|head & \@1 \\
+     \]
+  \end{avm}\\
+  \Zeile
+  \raggedright
+  \begin{itemize}[<+->]
+    \item Das gilt für alle \textit{headed-phrases} \alert{inkl.\ aller Untertypen}.
+    \item Wichtig: Es darf nichts in die \textsc{head}-Merkmale, das nicht\\
+      an die Projektion nach oben weitergegeben werden darf\slash soll.
+    \item Die Valenz bzw.\ \rot{\textsc{subcat} darf also kein Kopfmerkmal sein}.\\
+      \grau{Sonst hätte jede Projektionsstufe dieselbe Valenz wie der Kopf.}
+      \Halbzeile
+    \item Konsequenz | \alert{Die Kopfmerkmale von Nicht-Kopf-Töchtern werden nicht weitergegeben!}
+    \item \small Das entspricht der Generalisierung, dass die syntaktischen Eigenschaften von Nicht-Köpfen\\
+      für die Syntax über die direkt einschließende Phrase hinaus irrelevant sind.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  {Typhierarchie für \textit{sign}}
+  \onslide<+->
+  \onslide<+->
+  Die Typenhierarchie wird beim Grammatikschreiben immer komplexer.\\
+  \onslide<+->
+  \Zeile
+  \centering 
+  \begin{forest}
+    typehierarchy
+  [sign
+    [word]
+    [phrase
+      [non-headed-phrase]
+      [headed-phrase
+        [\ldots]
+        [head-argument-phrase]
+        [\ldots]]]]
+  \end{forest}
+\end{frame}
+
+\section{Nächste Woche}
+
+\begin{frame}
+  {Vorbereitung}
+  \onslide<+->
+  \onslide<+->
+  \centering 
+  \large
+  Nächste Woche reden wir über Verbsemantik und thematische Rollen.\\
+  \onslide<+->
+  \Zeile
+  \rot{Sie sollten dringend vorher aus dem HPSG-Buch\\
+  Kapitel 5 lesen!}\\
+  \onslide<+->
+  \Viertelzeile
+  Das sind gerade mal neun Seiten.
 \end{frame}
