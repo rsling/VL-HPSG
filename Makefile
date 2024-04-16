@@ -57,19 +57,21 @@ $(OUTDIR)/%$(SLIDESUFF)$(PROJECT)$(SUFFSUFF): main.tex $(SOURCEDIR)%.tex $(OUTDI
 
 # Phony shit.
 
-.PHONY: handout01 slides01 handout02 slides02 handout03 slides03 allhandouts allslides all clean realclean edit
+.PHONY: handout01 slides01 handout02 slides02 handout03 slides03 handout04 slides04 allhandouts allslides all clean realclean edit
 
 handout01: $(OUTDIR)/01.+Phrasenstruktur+und+Phrasenstrukturgrammatik$(HANDOUTSUFF)$(PROJECT)$(SUFFSUFF)
 handout02: $(OUTDIR)/02.+Merkmalstrukturen+und+Merkmalbeschreibungen$(HANDOUTSUFF)$(PROJECT)$(SUFFSUFF)
 handout03: $(OUTDIR)/03.+Komplementation+und+Grammatikregeln$(HANDOUTSUFF)$(PROJECT)$(SUFFSUFF)
+handout04: $(OUTDIR)/04.+Verbsemantik+und+Linking$(HANDOUTSUFF)$(PROJECT)$(SUFFSUFF)
 
-allhandouts: handout01 handout02 handout03
+allhandouts: handout01 handout02 handout03 handout04
 
 slides01: $(OUTDIR)/01.+Phrasenstruktur+und+Phrasenstrukturgrammatik$(SLIDESUFF)$(PROJECT)$(SUFFSUFF)
 slides02: $(OUTDIR)/02.+Merkmalstrukturen+und+Merkmalbeschreibungen$(SLIDESUFF)$(PROJECT)$(SUFFSUFF)
 slides03: $(OUTDIR)/03.+Komplementation+und+Grammatikregeln$(SLIDESUFF)$(PROJECT)$(SUFFSUFF)
+slides04: $(OUTDIR)/04.+Verbsemantik+und+Linking$(SLIDESUFF)$(PROJECT)$(SUFFSUFF)
 
-allslides: slides01 slides02 slides03
+allslides: slides01 slides02 slides03 slides04
 
 complete: $(OUTDIR)/$(PROJECT)$(HANDOUTSUFF)$(FULL)$(SUFFSUFF)
 
