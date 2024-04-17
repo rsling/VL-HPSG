@@ -183,8 +183,8 @@
     \item Situationstyp: \alert{lesen} (V-Beitrag)
     \item Beteiligt: \alert{Objekt $x$ mit Eigenschaft \textit{Kollege}} (NP-Beitrag)
     \item Beteiligt: \alert{Objekt $y$ mit Eigenschaft \textit{Buch}} (NP-Beitrag)
-    \item Rolle: \alert{Agens: $x$} (V-Beitrag/Linking)
-    \item Rolle: \alert{Patiens: $y$} (V-Beitrag/Linking)
+    \item Rolle: \alert{Agens: $x$} (V-Beitrag\slash Linking)
+    \item Rolle: \alert{Patiens: $y$} (V-Beitrag\slash Linking)
       \Halbzeile
     \item \grau{\footnotesize\textit{Objekt} ist hier im weitesten Sinn zu verstehen: Alles, über das man individualisiert sprechen kann.}
     \item \grau{\footnotesize In Konstruktionsgrammatik sind die Rollen der Beitrag einer Konstruktion. Aha.}
@@ -244,8 +244,8 @@
             \]
           \> \\
           \alert{cont} & \alert{\[
-            restr & \< \[ \asort{lesen-rel} agens & \@1\\
-              patiens & \@2 \]\> 
+            restr & \< \[ \asort{lesen-rel} agent & \@1\\
+              patient & \@2 \]\> 
         \]}
         \]
       \end{avm}}
@@ -304,7 +304,7 @@
   \onslide<+->
   \onslide<+->
   Weil einige es lieber "`gleich in richtig"' hätten, hier einmal die Geometrie,\\
-  auf die es rausläuft für \alert{Phonologie (\textsc{phon})}, \gruen{Syntax (\textsc{cat})} und \orongsch{Semantik (\textsc{cont})}\\
+  auf die es hinausläuft für \alert{Phonologie (\textsc{phon})}, \gruen{Syntax (\textsc{cat})} und \orongsch{Semantik (\textsc{cont})}\\
   \onslide<+->
   \Zeile
   \scalebox{0.8}{%
@@ -365,8 +365,8 @@
         \> \\
       \]\\
       cont & \[
-        restr & \< \[ \asort{lesen-rel} agens & \@1\\
-          patiens & \@2 \]\> 
+        restr & \< \[ \asort{lesen-rel} agent & \@1\\
+          patient & \@2 \]\> 
     \]
     \]
   \end{avm}}
@@ -484,43 +484,61 @@
   \onslide<+->
   \onslide<+->
   \centering 
-  \scalebox{0.35}{%
-    \begin{avm}
-      \[ \asort{head-argument-phrase} 
-        phon & Ein Ball fliegt \\
-        cat & \[ head & \@1 \\
-                 subcat & \<\> 
-        \]\\
-        cont & \@2 \\
-        nhd-dtr & \@5 \[ \asort{head-argument-phrase} 
-         phon & ein Ball \\
-         cat & \[ head & \@8 \[ \asort{noun} cas & nom \] \\
-           subcat & \<\> 
-         \] \\
-         cont & \@6 \\
-         nhd-dtr & \@7 \[ \asort{word}  
-           phon & ein \\
-           cat & \[ head & \[ \asort{det} \] \] \\
-         \] \\
-         hd-dtr & \[ \asort{word} 
-           phon & Ball \\
-           cat & \[ head & \@8 \\
-             subcat & \<\@7\>\] \\
-             cont & \@6 \[ ind & \@3 \[ per & 3 \\ num & sg \\ gen & m \]\\
-             restr & \[ \asort{ball-rel} theme & \@3 \]
-           \]
-         \]
-        \] \\
-        hd-dtr & \[ \asort{word} 
-         phon & fliegt \\
-         cat & \[ head & \@1 \[ \asort{verb} vform & fin \] \\ 
-           subcat & \< \@5 \>
-         \] \\
-         cont & \@2 \[ restr & \[ \asort{fly-rel} agent & \@3 \] \]\\
-        \] \\
-      \]
-    \end{avm}
-  }
+  \begin{tabular}[h]{cc}
+    \begin{minipage}{0.28\textwidth}
+      \scalebox{0.4}{%
+        \begin{avm}
+          \[ \asort{\alert<4,6,8>{head-argument-phrase}}
+            phon & ein Ball fliegt \\
+            cat & \[ \alert<6>{head} & \alert<6>{\@1} \\
+              \alert<4>{subcat} & \alert<4>{\<\>}
+            \]\\
+            \alert<8>{cont} & \alert<8>{\@2} \\
+            \alert<4>{nhd-dtr} & \alert<4>{\@5 \[ \asort{\alert<3,5,7>{head-argument-phrase}}
+             phon & ein Ball \\
+             cat & \[ \alert<5>{head} & \alert<5,10>{\@8 \[ \asort{noun} cas & \@9 nom \]} \\
+               \alert<3>{subcat} & \alert<3>{\<\>}
+             \] \\
+             \alert<7>{cont} & \alert<7>{\@6} \\
+             \alert<3>{nhd-dtr} & \alert<3>{\@7 \[ \asort{word}  
+               phon & ein \\
+               cat & \[ head & \[ \asort{det} \alert<10>{cas} & \alert<10>{\@9} \] \] \\
+             \]} \\
+             hd-dtr & \[ \asort{word} 
+               phon & Ball \\
+               cat & \[ \alert<5,10>{head} & \alert<5,10>{\@8} \\
+               \alert<3>{subcat} & \alert<3>{\<\@7\>} \] \\
+               \alert<7>{cont} & \alert<7>{\@6 \[ \alert<9>{ind} & \alert<9>{\@3 \[ per & 3 \\ num & sg \\ gen & m \]} \\
+                 restr & \[ \asort{ball-rel} theme & \@3 \]
+               \]}
+             \]
+           \]} \\
+            hd-dtr & \[ \asort{word} 
+             phon & fliegt \\
+             cat & \[ \alert<6>{head} & \alert<6>{\@1 \[ \asort{verb} vform & fin \]} \\ 
+             \alert<4>{subcat} & \alert<4>{\< \@5 \>}
+             \] \\
+             \alert<8>{cont} & \alert<8>{\@2 \[ restr & \alert<9>{\[ \asort{fly-rel} agent & \@3 \]} \]} \\
+            \] \\
+          \]
+        \end{avm}
+      }
+    \end{minipage} & %
+    \begin{minipage}{0.68\textwidth}
+      \begin{itemize}[<+->]
+        \item \alert<3>{Kopf-Komplement-Schema für die NP \textit{ein Ball}}
+        \item \alert<4>{Kopf-Komplement-Schema für die VP \textit{ein Ball fliegt}}
+        \item \alert<5>{Kopfmerkmalprinzip} für die NP \textit{ein Ball}
+        \item \alert<6>{Kopfmerkmalprinzip} für die VP \textit{ein Ball fliegt}
+        \item \alert<7>{Semantikprinzip} für die NP \textit{ein Ball}
+        \item \alert<8>{Semantikprinzip} für die VP \textit{ein Ball fliegt}
+          \Zeile
+        \item \alert<9>{Linking durch den Lexikoneintrag von \textit{fliegt}}
+        \item \alert<10>{Kongruenz durch den Lexikoneintrag von \textit{Ball}}
+      \end{itemize}
+    \end{minipage} \\
+  \end{tabular}
+  \onslide<+->
 \end{frame}
 
 \section{Nächste Woche}

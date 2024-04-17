@@ -51,7 +51,7 @@
   Problem mit einfachen \alert{Phrasenstrukturgrammatiken}\\
   \Halbzeile
   \begin{itemize}[<+->]
-    \item \alert{Symbolinflation} | Selbst für einfachete Valenz-\slash Kongruenzphänomene
+    \item \alert{Symbolinflation} | Selbst für einfachste Valenz-\slash Kongruenzphänomene
     \item Viele Regeln und viele Kategorien
   \end{itemize}
   \onslide<+->
@@ -105,8 +105,8 @@
   \onslide<+->
   \Viertelzeile
   \alert{\begin{avm}
-    \[ attribut1 & wert1 \\
-      attribut2 & wert2 \\
+    \[ attribut\Sub{1} & wert \\
+      attribut\Sub{2} & wert \\
       \ldots & \ldots
     \]
     \end{avm}}\\
@@ -114,10 +114,10 @@
     \Zeile
     Komplexe Merkmale können Werte von Attributen sein!\\
     \alert{\begin{avm}
-      \[ attribut1a & wert1a \\
-         attribut1b & 
-                     \[ attribut2a & wert2a \\
-                        attribut2b & wert2b \]
+      \[ attribut\Sub{1} & wert \\
+        attribut\Sub{2} & 
+           \[ attribut\Sub{2-1} & wert \\
+              attribut\Sub{2-2} & wert \]
       \]
     \end{avm}
     }
@@ -162,9 +162,9 @@
   \onslide<+->
   \Viertelzeile
   \scalebox{0.8}{\begin{avm}
-    \[ phon &  \<\[ art & plosiv \\ ort & alveolar \],
-    \[ art & vokal \\ position & vorn \\ höhe & hoch \\ rundung & nein \],
-    \[ art & frikativ \\ ort & alveolar \]
+    \[ phon &  \<\[ manner & plosive \\ place & alveolar \],
+    \[ manner & vokal \\ backness & front \\ height & high \\ round & no \],
+    \[ manner & fricative \\ place & alveolar \]
   \> \]
   \end{avm}}\\
   \onslide<+->
@@ -190,10 +190,11 @@
   \onslide<+->
   \Viertelzeile
   \scalebox{0.8}{\begin{avm}
-    \[ graphen & \textit{Tisch} \\
-      \alert{genus} & \alert{maskulin} \\
-      \alert{numerus} & \alert{singular} \\
-      \alert{kasus} & \alert{nominativ}
+    \[ phon & \textit{Tisch} \\
+      part-of-speech & noun \\
+      \alert{gender} & \alert{masculine} \\
+      \alert{number} & \alert{sg} \\
+      \alert{case} & \alert{nom}
     \]
   \end{avm}}\\
   \onslide<+->
@@ -202,41 +203,32 @@
   \onslide<+->
   \Viertelzeile
   \scalebox{0.6}{\begin{avm}
-    \[ graphen & \textit{Tisch} \\
-      wortart & nomen \\
-      genus & maskulin \\
-      numerus & singular \\
-      \orongsch{kasus} & \orongsch{akkusativ}
+    \[ phon & \textit{Tisch} \\
+      pos & n \\
+      gen & masc \\
+      num & sg \\
+      \orongsch{cas} & \orongsch{acc}
     \]
   \end{avm}}\onslide<+->
   \scalebox{0.6}{\begin{avm}
-    \[ graphen & \textit{Tisch} \\
-      wortart & nomen \\
-      genus & maskulin \\
-      numerus & singular \\
-      \orongsch{kasus} & \orongsch{dativ}
+    \[ phon & \textit{Tisch} \\
+      pos & n \\
+      gen & masc \\
+      num & sg \\
+      \orongsch{cas} & \orongsch{dat}
     \]
   \end{avm}}\\
   \onslide<+->
-%  \scalebox{0.6}{\begin{avm}
-%    \[ graphen & \textit{Tisch} \\
-%      wortart & nomen \\
-%      genus & maskulin \\
-%      numerus & singular \\
-%      \orongsch{kasus} & \orongsch{genitiv}
-%    \]
-%  \end{avm}}\\
-%  \onslide<+->
   \Halbzeile
   Abgekürzte Schreibweise mit \gruen{\textit{oder} bzw. $\vee$}\\
   \onslide<+->
   \Viertelzeile
-  \scalebox{0.8}{\begin{avm}
-    \[ graphen & \textit{Tisch} \\
-      wortart & nomen \\
-      genus & maskulin \\
-      numerus & singular \\
-      \gruen{kasus} & \gruen{nominativ $\vee$ akkusativ $\vee$ dativ}
+  \scalebox{0.6}{\begin{avm}
+    \[ phon & \textit{Tisch} \\
+      pos & n \\
+      gen & masc \\
+      num & sg \\
+      \gruen{cas} & \gruen{nom $\vee$ acc $\vee$ dat}
     \]
   \end{avm}}
 \end{frame}
@@ -249,10 +241,10 @@
   \onslide<+->
   \Viertelzeile
   \begin{avm}
-    \[ graphen & \textit{sieht} \\
-      wortart & verb \\
-      person & drei \\
-      numerus & singular \\
+    \[ phon & \textit{sieht} \\
+      pos & v \\
+      per & 3 \\
+      num & sg \\
     \]
   \end{avm}\\
   \onslide<+->
@@ -261,19 +253,19 @@
   \Viertelzeile
   \onslide<+->
   \begin{avm}
-    \[ graphen & \textit{sieht} \\
-      wortart & verb \\
-      person & drei \\
-      numerus & singular \\
-      \alert{finit} & \alert{ja} \\
+    \[ phon & \textit{sieht} \\
+      pos & v \\
+      per & 3 \\
+      num & sg \\
+      \alert{finit} & \alert{true} \\
     \]
   \end{avm}
   \onslide<+->
   \begin{avm}
-    \[ graphen & \textit{gesehen} \\
-      wortart & verb \\
-      \alert{finit} & \alert{nein} \\
-      \gruen{status} & \gruen{drei} \\
+    \[ phon & \textit{gesehen} \\
+      pos & v \\
+      \alert{finit} & \alert{false} \\
+      \gruen{status} & \gruen{3} \\
     \]
   \end{avm}
 \end{frame}
@@ -288,28 +280,28 @@
   \onslide<+->
   \Zeile
   \begin{avm}
-    \[ \asort{\alert{nomen}}
-    graphen & \textit{Tischs} \\
-    genus & maskulin \\
-    numerus & singular \\
-    kasus & genitiv \\
+    \[ \asort{\alert{n}}
+    phon & \textit{Tischs} \\
+    gen & masc \\
+    num & sg \\
+    cas & gen \\
   \]
   \end{avm}\\
   \onslide<+->
   \begin{avm}
-    \[ \asort{\alert{finites-verb}}
-    graphen & \textit{sieht} \\
-    person & drei \\
-    numerus & singular \\
-    tempus & präsens \\
-    modus & indikativ
+    \[ \asort{\alert{finite-verb}}
+    phon & \textit{sieht} \\
+    per & 3 \\
+    num & sg \\
+    tense & pres \\
+    mod & ind
   \]
   \end{avm}
   \onslide<+->
   \begin{avm}
-    \[ \asort{\alert{infinites-verb}}
-    graphen & \textit{gesehen} \\
-    status & drei
+    \[ \asort{\alert{infinite-verb}}
+    phon & \textit{gesehen} \\
+    status & 3
   \]
   \end{avm}
 \end{frame}
@@ -323,17 +315,18 @@
   \Zeile
   \centering 
   \scalebox{0.7}{\begin{forest}
-    [ wort
-      [nomen
-        [eigenname]
-        [appellativum
-          [zählsubstantiv]
-          [stoffsubstantiv]
+    typehierarchy
+    [ word
+      [noun
+        [proper-noun]
+        [common-noun
+          [count-noun]
+          [mass-noun]
         ]
       ]
       [verb
-        [finites-verb]
-        [infinites-verb]
+        [finite-verb]
+        [infinite-verb]
       ]
     ]
   \end{forest}}
@@ -376,16 +369,17 @@
   \onslide<+->
   \onslide<+->
   Valenz | \alert{Liste von Merkmalsbeschreibungen}\\
+  \grau{Bezeichnung für Valenz in HPSG: \textsc{subcategorisation}, kurz \textsc{subcat}}\\
   \onslide<+->
   \Halbzeile
   \begin{avm}
-    \[ \asort{finites-verb}
-      graphen & \textit{sieht} \\
-      person & drei \\
-      numerus & singular \\
-      tempus & präsens \\
-      modus & indikativ \\
-      \alert{valenz} & \alert{\< \[ \asort{nomen} \], \[ \asort{nomen} \]\>}
+    \[ \asort{finite-verb}
+      phon & \textit{sieht} \\
+      per & 3 \\
+      num & sg \\
+      tense & pres \\
+      mod & ind \\
+      \alert{subcat} & \alert{\< \[ \asort{n} \], \[ \asort{n} \]\>}
     \]
   \end{avm}
 \end{frame}
@@ -398,17 +392,17 @@
   \onslide<+->
   \Halbzeile
   \begin{avm}
-    \[ \asort{finites-verb}
-      graphen & \textit{sieht} \\
-      person & drei \\
-      numerus & singular \\
-      tempus & präsens \\
-      modus & indikativ \\
-      \alert{valenz} & \alert{\< \[ \asort{nomen}
-                                    person & drei \\
-                                    numerus & singular \\
-                                    kasus & nom \], \[ \asort{nomen}
-                                                        kasus & akkusativ \]\>}
+    \[ \asort{finite-verb}
+      phon & \textit{sieht} \\
+      per & 3 \\
+      num & sg \\
+      tense & pres \\
+      mod & ind \\
+      \alert{subcat} & \alert{\< \[ \asort{n}
+                                    per & 3 \\
+                                    num & sg \\
+                                    cas & nom \], \[ \asort{n}
+                                                        cas & acc \]\>}
     \]
   \end{avm}
 \end{frame}
@@ -421,17 +415,17 @@
   \onslide<+->
   \Halbzeile
   \scalebox{0.8}{\begin{avm}
-    \[ \asort{finites-verb}
-      graphen & \textit{sieht} \\
-      person & \alt<1-3|handout:0>{\alert{drei}}{\gruen{\@1 drei}} \\
-      numerus & \alt<1-3|handout:0>{\alert{singular}}{\gruen{\@2 singular}} \\
-      tempus & präsens \\
-      modus & indikativ \\
-      valenz & \< \[ \asort{nomen}
-        person & \alt<1-3|handout:0>{\alert{drei}}{\gruen{\@1}} \\
-        numerus & \alt<1-3|handout:0>{\alert{singular}}{\gruen{\@2}} \\
-                     kasus & nom \], \[ \asort{nomen}
-                                         kasus & akkusativ \]\>
+    \[ \asort{finite-verb}
+      phon & \textit{sieht} \\
+      per & \alt<1-3|handout:0>{\alert{3}}{\gruen{\@1 3}} \\
+      num & \alt<1-3|handout:0>{\alert{sg}}{\gruen{\@2 sg}} \\
+      tense & pres \\
+      mod & ind \\
+      subcat & \< \[ \asort{n}
+        per & \alt<1-3|handout:0>{\alert{3}}{\gruen{\@1}} \\
+        num & \alt<1-3|handout:0>{\alert{sg}}{\gruen{\@2}} \\
+                     cas & nom \], \[ \asort{n}
+                                         cas & acc \]\>
     \]
   \end{avm}}\\
   \onslide<+->
@@ -448,10 +442,10 @@
   \onslide<+->
   \Halbzeile
   \begin{avm}
-    \[ \asort{präposition} 
-    graphen & \textit{wegen} \\
-    valenz & \< \[ \asort{nomen} 
-                kasus & genitiv \] \>
+    \[ \asort{prep} 
+    phon & \textit{wegen} \\
+    subcat & \< \[ \asort{n} 
+                cas & gen \] \>
   \]
   \end{avm}\\
   \Zeile
@@ -473,11 +467,11 @@
   \onslide<+->
   \Zeile 
   \begin{avm}
-    \[ \asort{determinierer} 
-    graphen & \textit{des} \\
-    genus & maskulin \\
-    numerus & singular \\
-    kasus & genitiv \\
+    \[ \asort{det} 
+    phon & \textit{des} \\
+    gen & masc \\
+    num & sg \\
+    cas & gen \\
   \]
   \end{avm}
 \end{frame}
@@ -490,16 +484,16 @@
   \onslide<+->
   \Zeile
   \begin{avm}
-    \[ \asort{nomen}
-    graphen & \textit{Tischs} \\
-    person & drei \\
-    genus & \alt<1-5|handout:0>{maskulin}{\gruen{\@1 maskulin}} \\
-    numerus & \alt<1-5|handout:0>{singular}{\gruen{\@2 singular}} \\
-    kasus & \alt<1-5|handout:0>{genitiv}{\gruen{\@3 genitiv}} \\
-    \alt<5->{\gruen{valenz} & \gruen{\<\[ \asort{determinierer} 
-                             genus & \ \@1 \\
-                             numerus & \@2 \\
-                             kasus & \ \@3
+    \[ \asort{n}
+    phon & \textit{Tischs} \\
+    per & 3 \\
+    gen & \alt<1-5|handout:0>{masc}{\gruen{\@1 masc}} \\
+    num & \alt<1-5|handout:0>{sg}{\gruen{\@2 sg}} \\
+    cas & \alt<1-5|handout:0>{gen}{\gruen{\@3 gen}} \\
+    \alt<5->{\gruen{subcat} & \gruen{\<\[ \asort{det} 
+                             gen & \ \@1 \\
+                             num & \@2 \\
+                             cas & \ \@3
                            \]\>}}{}
   \]
   \end{avm}\\
@@ -512,16 +506,16 @@
 
 \newcommand{\AvmA}{%
   \begin{avm}
-    \[ \asort{nomen}
-    graphen & \textit{Tischs} \\
-    person & \gruen{\@1 drei} \\
-    genus & \gruen{\@2 maskulin} \\
-    numerus & \gruen{\@3 singular} \\
-    kasus & \gruen{\@4 genitiv} \\
-    valenz & \<\[ \asort{determinierer} 
-      genus & \ \gruen{\@2} \\
-      numerus & \gruen{\@3} \\
-      kasus & \ \gruen{\@4}
+    \[ \asort{n}
+    phon & \textit{Tischs} \\
+    per & \gruen{\@1 3} \\
+    gen & \gruen{\@2 masc} \\
+    num & \gruen{\@3 sg} \\
+    cas & \gruen{\@4 gen} \\
+    subcat & \<\[ \asort{det} 
+      gen & \ \gruen{\@2} \\
+      num & \gruen{\@3} \\
+      cas & \ \gruen{\@4}
                            \]\>
   \]
   \end{avm}%
@@ -529,24 +523,24 @@
 
 \newcommand{\AvmB}{%
   \begin{avm}
-    \[ \asort{determinierer}
-      graphen & \textit{des} \\
-       genus & \gruen{\@2} \\
-       numerus & \gruen{\@3} \\
-       kasus & \gruen{\@4} \\
-       valenz & \<\>
+    \[ \asort{det}
+      phon & \textit{des} \\
+       gen & \gruen{\@2} \\
+       num & \gruen{\@3} \\
+       cas & \gruen{\@4} \\
+       subcat & \<\>
     \]
   \end{avm}
 }
 
 \newcommand{\AvmC}{%
   \begin{avm}
-    \[ \asort{nomen} 
-      graphen & \textit{des Tischs} \\
-      person & \gruen{\@1} \\ 
-      genus & \gruen{\@2} \\
-      numerus & \gruen{\@3} \\
-      kasus & \gruen{\@4} \\ 
+    \[ \asort{n} 
+      phon & \textit{des Tischs} \\
+      per & \gruen{\@1} \\ 
+      gen & \gruen{\@2} \\
+      num & \gruen{\@3} \\
+      cas & \gruen{\@4} \\ 
   \]
   \end{avm}
 }
@@ -586,18 +580,18 @@
 
 \newcommand{\AvmAb}{%
   \begin{avm}
-    \[ \asort{nomen}
-    graphen & \textit{Tischs} \\
-    \alert{kopf} & \alert{\[ 
-      person & \@1 drei \\
-      genus & \@2 maskulin \\
-      numerus & \@3 singular \\
-      kasus & \@4 genitiv
+    \[ \asort{n}
+    phon & \textit{Tischs} \\
+    \alert{head} & \alert{\[ 
+      per & \@1 3 \\
+      gen & \@2 masc \\
+      num & \@3 sg \\
+      cas & \@4 gen
     \]} \\
-    valenz & \<\[ \asort{determinierer}
-      kopf & \[ genus & \ \@2 \\
-        numerus & \@3 \\
-        kasus & \ \@4
+    subcat & \<\[ \asort{det}
+      head & \[ gen & \ \@2 \\
+        num & \@3 \\
+        cas & \ \@4
       \]
       \]\>
   \]
@@ -606,27 +600,27 @@
 
 \newcommand{\AvmBb}{%
   \begin{avm}
-    \[ \asort{determinierer}
-      graphen & \textit{des} \\
-      \alert{kopf} & \alert{\[ 
-         genus & \@2 \\
-         numerus & \@3 \\
-         kasus & \@4
+    \[ \asort{det}
+      phon & \textit{des} \\
+      \alert{head} & \alert{\[ 
+         gen & \@2 \\
+         num & \@3 \\
+         cas & \@4
        \]} \\
-       valenz & \<\>
+       subcat & \<\>
     \]
   \end{avm}
 }
 
 \newcommand{\AvmCb}{%
   \begin{avm}
-    \[ \asort{nomen} 
-      graphen & \textit{des Tischs} \\
-      \alert{kopf} & \alert{\[
-        person & \@1 \\
-        genus & \@2 \\
-        numerus & \@3 \\
-        kasus & \@4 
+    \[ \asort{n} 
+      phon & \textit{des Tischs} \\
+      \alert{head} & \alert{\[
+        per & \@1 \\
+        gen & \@2 \\
+        num & \@3 \\
+        cas & \@4 
       \]}
   \]
   \end{avm}
@@ -637,7 +631,7 @@
   {Kopfmerkmale}
   \onslide<+->
   \onslide<+->
-  \alert{Bündel der Merkmale}, die vom Kopf zur Phrase projizieren\\
+  \alert{Head features} | \alert{Bündel der Merkmale}, die vom Kopf zur Phrase projizieren\\
   \onslide<+->
   \Halbzeile
   \centering
@@ -652,18 +646,18 @@
 
 \newcommand{\AvmAc}{%
   \begin{avm}
-    \[ \asort{nomen}
-    graphen & \textit{Tischs} \\
-    kopf & \gruen{\@5} \[ 
-      person & drei \\
-      genus & \@2 maskulin \\
-      numerus & \@3 singular \\
-      kasus & \@4 genitiv
+    \[ \asort{n}
+    phon & \textit{Tischs} \\
+    head & \gruen{\@5} \[ 
+      per & 3 \\
+      gen & \@2 masc \\
+      num & \@3 sg \\
+      cas & \@4 gen
     \] \\
-    valenz & \<\[ \asort{determinierer}
-      kopf & \gruen{\@6} \[ genus & \ \@2 \\
-        numerus & \@3 \\
-        kasus & \ \@4
+    subcat & \<\[ \asort{det}
+      head & \gruen{\@6} \[ gen & \ \@2 \\
+        num & \@3 \\
+        cas & \ \@4
       \]
       \]\>
   \]
@@ -672,19 +666,19 @@
 
 \newcommand{\AvmBc}{%
   \begin{avm}
-    \[ \asort{determinierer}
-      graphen & \textit{des} \\
-      kopf & \gruen{\@6} \\
-       valenz & \<\>
+    \[ \asort{det}
+      phon & \textit{des} \\
+      head & \gruen{\@6} \\
+       subcat & \<\>
     \]
   \end{avm}
 }
 
 \newcommand{\AvmCc}{%
   \begin{avm}
-    \[ \asort{nomen} 
-      graphen & \textit{des Tischs} \\
-      kopf & \gruen{\@5} 
+    \[ \asort{n} 
+      phon & \textit{des Tischs} \\
+      head & \gruen{\@5} 
   \]
   \end{avm}
 }
@@ -708,21 +702,21 @@
 
 \newcommand{\AvmAd}{%
   \begin{avm}
-    \[ \asort{\orongsch{wort}}
-    graphen & \textit{Tischs} \\
-    kopf & \gruen{\@5} \[ 
-      \asort{\orongsch{nomen}}
-      person & drei \\
-      genus & \@2 maskulin \\
-      numerus & \@3 singular \\
-      kasus & \@4 genitiv
+    \[ \asort{\orongsch{word}}
+    phon & \textit{Tischs} \\
+    head & \gruen{\@5} \[ 
+      \asort{\orongsch{n}}
+      per & 3 \\
+      gen & \@2 masc \\
+      num & \@3 sg \\
+      cas & \@4 gen
     \] \\
-    valenz & \<\[ \asort{\orongsch{wort}}
-      kopf & \gruen{\@6} \[
-        \asort{\orongsch{determinierer}}
-        genus & \ \@2 \\
-        numerus & \@3 \\
-        kasus & \ \@4
+    subcat & \<\[ \asort{\orongsch{word}}
+      head & \gruen{\@6} \[
+        \asort{\orongsch{det}}
+        gen & \ \@2 \\
+        num & \@3 \\
+        cas & \ \@4
       \]
       \]\>
   \]
@@ -731,10 +725,10 @@
 
 \newcommand{\AvmBd}{%
   \begin{avm}
-    \[ \asort{\orongsch{wort}}
-      graphen & \textit{des} \\
-      kopf & \gruen{\@6} \\
-       valenz & \<\>
+    \[ \asort{\orongsch{word}}
+      phon & \textit{des} \\
+      head & \gruen{\@6} \\
+       subcat & \<\>
     \]
   \end{avm}
 }
@@ -742,8 +736,8 @@
 \newcommand{\AvmCd}{%
   \begin{avm}
     \[ \asort{\orongsch{phrase}} 
-      graphen & \textit{des Tischs} \\
-      kopf & \gruen{\@5} 
+      phon & \textit{des Tischs} \\
+      head & \gruen{\@5} 
   \]
   \end{avm}
 }
@@ -776,12 +770,12 @@
   \Viertelzeile
   \onslide<+->
   \scalebox{0.5}{\begin{avm}
-    \[ \asort{wort} 
-    graphen & \textit{wegen} \\
-    kopf & \[ \asort{präposition} \] \\
-    valenz & \< \gruen{\[ 
-      kopf & \@1 \[ \asort{nomen}
-          kasus & genitiv 
+    \[ \asort{word} 
+    phon & \textit{wegen} \\
+    head & \[ \asort{prep} \] \\
+    subcat & \< \gruen{\[ 
+      head & \@1 \[ \asort{n}
+          cas & gen 
         \]
       \]} \>
   \]
@@ -793,14 +787,14 @@
   \Viertelzeile
   \scalebox{0.5}{\begin{avm}
     \[ \asort{phrase} 
-      graphen & \textit{des Tischs} \\
-      kopf    & \gruen{\@1} \[ \asort{\gruen{nomen}}
-                   person & drei \\
-                   genus & maskulin \\
-                   numerus & singular \\
-                   \gruen{kasus} & \gruen{genitiv}
+      phon & \textit{des Tischs} \\
+      head    & \gruen{\@1} \[ \asort{\gruen{n}}
+                   per & 3 \\
+                   gen & masc \\
+                   num & sg \\
+                   \gruen{cas} & \gruen{gen}
                  \] \\
-      valenz & \<\> \\
+      subcat & \<\> \\
     \]
   \end{avm}}\\
   \onslide<+->
@@ -812,7 +806,8 @@
   {Unifikation}
   \onslide<+->
   \onslide<+->
-  Bedingungen für Unifikation von zwei Merkmalstrukturen A und B\\
+  \alert{Unifikation} | Mehrere Merkmalstrukturen \alert{zu einer machen}\\
+  Bedingungen für Unifikation von zwei Merkmalstrukturen A und B:\\
   \Zeile
   \begin{itemize}[<+->]
     \item A und B enthalten \alert{keine widersprüchlichen Informationen}.\\
@@ -820,11 +815,11 @@
       \onslide<+->
       \grau{%
         \scalebox{0.8}{\begin{avm}
-          \[ kasus & nominativ \]
-        \end{avm}} und %
+          \[ cas & nom \]
+        \end{avm}} \raisebox{-0.15\baselineskip}{und} %
         \scalebox{0.8}{\begin{avm}
-          \[ kasus & akkusativ \]
-        \end{avm}} unifizieren nicht.}
+          \[ cas & acc \]
+        \end{avm}} \raisebox{-0.15\baselineskip}{unifizieren nicht.}}
       \Halbzeile
     \item Aus nicht widersprüchlichen Informationen wird die \alert{Vereinigungsmenge} gebildet.
       \Halbzeile
@@ -833,27 +828,27 @@
       \onslide<+->
       \grau{%
         \scalebox{0.8}{\begin{avm}
-          \[ kasus & nominativ \\ person & drei \]
-        \end{avm}} und %
+          \[ cas & nom \\ per & 3 \]
+        \end{avm}} \raisebox{-0.5\baselineskip}{und} %
+        \raisebox{-0.4\baselineskip}{\scalebox{0.8}{\begin{avm}
+          \[ cas & nom \]
+        \end{avm}}} \raisebox{-0.5\baselineskip}{unifizieren zu} %
         \scalebox{0.8}{\begin{avm}
-          \[ kasus & nominativ \]
-        \end{avm}} unifizieren zu %
-        \scalebox{0.8}{\begin{avm}
-          \[ kasus & nominativ \\ person & drei \]
+          \[ cas & nom \\ per & 3 \]
         \end{avm}}}
       \Halbzeile
     \item A und B können beide mehr Informationen enthalten als die jeweils andere.\\
       \Viertelzeile
       \onslide<+->
       \grau{%
+        \raisebox{-0.5\baselineskip}{\scalebox{0.8}{\begin{avm}
+          \[ cas & nom \\ per & 3 \]
+        \end{avm}}} \raisebox{-1\baselineskip}{und} %
+        \raisebox{-0.5\baselineskip}{\scalebox{0.8}{\begin{avm}
+          \[ cas & nom \\ num & sg \]
+        \end{avm}}} \raisebox{-1\baselineskip}{unifizieren zu} %
         \scalebox{0.8}{\begin{avm}
-          \[ kasus & nominativ \\ person & drei \]
-        \end{avm}} und %
-        \scalebox{0.8}{\begin{avm}
-          \[ kasus & nominativ \\ numerus & singular \]
-        \end{avm}} unifizieren zu %
-        \scalebox{0.8}{\begin{avm}
-          \[ kasus & nominativ \\ person & drei \\ numerus & singular \]
+          \[ cas & nom \\ per & 3 \\ num & sg \]
         \end{avm}}}
   \end{itemize}
 \end{frame}
@@ -873,5 +868,5 @@
   Abschnitt 3.1 und Kapitel 4 lesen!}\\
     \onslide<+->
     \Viertelzeile
-  Das sind gerade mal 15 Seiten.
+    Das sind gerade mal \gruen{15} Seiten.
 \end{frame}
