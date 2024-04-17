@@ -7,21 +7,521 @@
   Erster Entwurf einer Semantik für HPSG:\\
   \Zeile
   \begin{itemize}[<+->]
-    \item x
+    \item Was ist Valenz?
+    \item Valenz und \alert{semantische Rollen}
+    \item Auf Rollen basierende Semantik: \alert{Situationssemantik}
+    \item Anpassung der Merkmalsgeometrie
+    \item \alert{Semantikprinzip} für Phrasen mit Kopf
   \end{itemize}
   \Zeile
   \onslide<+->
   \centering 
-  \grau{\citet[Kapitel~5]{MuellerLehrbuch3}}
+  \grau{\citet[Kapitel~5]{MuellerLehrbuch3}\\
+  \Halbzeile
+  Einführung Valenz und Rollen auch: \citet{Schaefer2018a}\\
+  \Halbzeile
+  Situationssemantik: \citet{ps, GSag2000a-u,BP83a,CMP90,Devlin92}}
 \end{frame}
 
-\section{Semantische Rollen und Situationen}
+\section{Valenz, semantische Rollen und Situationen}
 
-\section{NP-Semantik}
+\begin{frame}
+  {Ergänzungen und Angaben}
+  \onslide<+->
+  \onslide<+->
+  \begin{exe}
+    \ex\label{ex:valenz034}
+    \begin{xlist}
+      \ex{Gabriele malt \alert{[ein Bild]}.}
+      \onslide<+->
+      \ex{Gabriele malt \orongsch{[gerne]}.}
+      \onslide<+->
+      \ex{Gabriele malt \orongsch{[den ganzen Tag]}.}
+      \onslide<+->
+      \ex{Gabriele malt \orongsch{[ihrem Mann]} \rot{[zu figürlich]}.}
+    \end{xlist}
+  \end{exe}
+  \Halbzeile
+  \begin{itemize}[<+->]
+    \item \alert{[ein Bild]} mit besonderer Relation zum Verb | \alert{Objekt\slash Ergänzung}
+    \item keine solche Relation bei den anderen | \orongsch{Adverbial\slash Angaben}
+    \item "`Weglassbarkeit"' (Optionalität) nicht entscheidend
+  \end{itemize}
+\end{frame}
 
-\section{Verbsemantik}
+\begin{frame}
+  {Lizenzierung}
+  \pause
+  \begin{exe}
+    \ex 
+    \begin{xlist}
+      \ex[ ]{Gabriele isst \orongsch{[den ganzen Tag]} Walnüsse.}
+    \pause
+      \ex[ ]{Gabriele läuft \orongsch{[den ganzen Tag]}.}
+      \pause
+      \ex[ ]{Gabriele backt ihrer Schwester \orongsch{[den ganzen Tag]} Stollen.}
+      \pause
+      \ex[ ]{Gabriele litt \orongsch{[den ganzen Tag]} unter Sonnenbrand.}
+    \end{xlist}
+    \pause\Halbzeile
+    \ex 
+    \begin{xlist}
+      \ex[*]{Gabriele isst \alert{[ein Bild]} Walnüsse.}
+      \pause
+      \ex[*]{Gabriele läuft \alert{[ein Bild]}.}
+      \pause
+      \ex[*]{Gabriele backt ihrer Schwester \alert{[ein Bild]} Stollen.}
+      \pause
+      \ex[*]{Gabriele litt \alert{[ein Bild]} unter Sonnenbrand. }
+      \pause
+    \end{xlist}
+  \end{exe}
+  \pause\Halbzeile
+  \begin{itemize}[<+->]
+    \item \orongsch{Angaben} sind verb-unspezifisch lizenziert
+    \item \alert{Ergänzungen} sind verb(klassen)spezifisch lizenziert
+    \item \gruen{Valenz = Liste der Ergänzungen eines lexikalischen Worts}
+  \end{itemize}
+\end{frame}
 
-\section{Kopfmerkmalprinzip}
+
+\begin{frame}
+  {Weitere Eigenschaften von Ergänzungen und Angaben}
+  \pause
+  \alert{Iterierbarkeit} (= Wiederholbarkeit) von Angaben, nicht Ergänzungen\\
+  \pause
+  \Halbzeile
+  \begin{exe}
+    \ex[ ]{Wir müssen den Wagen \orongsch{[jetzt]} \orongsch{[mit aller Kraft]} \orongsch{[vorsichtig]} anschieben.}
+    \pause
+    \ex[ ]{Wir essen \orongsch{[schnell]} \orongsch{[mit Appetit]} \orongsch{[an einem Tisch]}\\
+      \orongsch{[mit der Gabel]} \alert{[einen Salat]}.}
+    \pause
+    \ex[*]{Wir essen \orongsch{[schnell]} \rot{[ein Tofugericht]} \orongsch{[mit Appetit]} \orongsch{[an einem Tisch]}\\
+      \orongsch{[mit der Gabel]} \alert{[einen Salat]}.}
+  \end{exe}
+\end{frame}
+
+
+\begin{frame}
+  {Ergänzungen | Schnittstelle von Syntax und Semantik}
+  \onslide<+->
+  \onslide<+->
+  Verbsemantik | Welche \alert{Rolle} spielen die von den Satzgliedern bezeichneten Dinge\\
+  in der vom Verb beschriebenen Situation?\\
+  \Zeile
+  \onslide<+->
+  Semantik (\alert{Rolle}) von \alert{Ergänzungen} | \alert{abhängig} vom Verb\\
+  \onslide<+->
+  \Viertelzeile
+  Semantik (\alert{Rolle}) von \gruen{Angaben} | \gruen{unabhängig} vom Verb\\
+  \Halbzeile
+  \pause
+  \begin{exe}
+    \ex\label{ex:valenz071}
+    \begin{xlist}
+      \ex{\label{ex:valenz072}Ich lösche \alert{[den Ordner]} \gruen{[während der Hausdurchsuchung]}.}
+      \pause
+      \ex{\label{ex:valenz073}Ich mähe \alert{[den Rasen]} \gruen{[während der Ferien]}.}
+      \pause
+      \ex{\label{ex:valenz074}Ich fürchte \alert{[den Sturm]} \gruen{[während des Sommers]}.}
+    \end{xlist}
+  \end{exe}
+\end{frame}
+
+\begin{frame}
+  {Valenz}
+  \onslide<+->
+  \onslide<+->
+  \begin{block}{Angaben}
+    \alert{Angaben} sind grammatisch immer lizenziert und bringen\\
+    ihre eigene semantische Rolle mit.
+  \end{block}
+  \Zeile
+  \onslide<+->
+  \begin{block}{Ergänzungen}
+    \gruen{Ergänzungen} werden spezifisch vom Verb lizenziert und in ihrer semantischen Rolle\\
+    vom Verb festgelegt. Jede dieser Rollen kann nur einmal vergeben werden.
+  \end{block}
+\end{frame}
+
+\section{Situationssemantik und Linking}
+
+\begin{frame}
+  {Situationen in Situationssemantik}
+  \onslide<+->
+  \onslide<+->
+  Uns interessieren \alert{Situationen wie sie vom Verb beschrieben werden}.\\
+  \Zeile
+  \begin{itemize}[<+->]
+    \item \textit{sehen} beschreibt \alert{sehen-Situationen} mit \gruen{zwei Mitspielern}
+    \item \textit{schlafen} beschreibt \alert{schlafen-Situationen} mit \gruen{einem Mitspieler}
+    \item \textit{schenken} beschreibt \alert{schenken-Situationen} mit \gruen{drei Mitspielern}
+      \Halbzeile
+    \item Unabhängig vom verbkodierten Situationstyp (=~Angabenmaterial):
+      \begin{itemize}[<+->]
+        \item Ort (\textit{auf dem Bett})
+        \item Zeit (\textit{am letzten Dienstag})
+        \item Geschwindigkeit (\textit{schnell})
+        \item Zustand der Beteiligten (\textit{total groggy}, \textit{dicht})
+        \item usw.
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  {PSOA | Parametrised State of Affairs}
+  \onslide<+->
+  \onslide<+->
+  Die Verbsemantik muss angeben, welche Objekte\slash Mitspieler an Situationen\\
+  beteiligt sind, und was über sie gesagt wird. Die Beschreibung erfolgt als PSOAs.\\
+  \onslide<+->
+  \Zeile
+  \alert{Ein Kollege liest ein Buch.}\\
+  \Halbzeile
+  \begin{itemize}[<+->]
+    \item Situationstyp: \alert{lesen} (V-Beitrag)
+    \item Beteiligt: \alert{Objekt $x$ mit Eigenschaft \textit{Kollege}} (NP-Beitrag)
+    \item Beteiligt: \alert{Objekt $y$ mit Eigenschaft \textit{Buch}} (NP-Beitrag)
+    \item Rolle: \alert{Agens: $x$} (V-Beitrag/Linking)
+    \item Rolle: \alert{Patiens: $y$} (V-Beitrag/Linking)
+      \Halbzeile
+    \item \grau{\footnotesize\textit{Objekt} ist hier im weitesten Sinn zu verstehen: Alles, über das man individualisiert sprechen kann.}
+    \item \grau{\footnotesize In Konstruktionsgrammatik sind die Rollen der Beitrag einer Konstruktion. Aha.}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  {Semantischer Beitrag einer NP}
+  \onslide<+->
+  \onslide<+->
+  \alert{Nomina bzw.\ NPs (\textit{ein}) \textit{Kollege} und \textit{ein Buch}}\\
+  Ein Objekt wird in den Diskurs eingeführt (\textsc{index}) und als Kollege deklariert (\textsc{restr}).\\
+  \Zeile 
+  \onslide<+->
+  \scalebox{0.8}{\begin{avm}
+    \[ phon & ein Kollege \\
+      head & \[ \asort{noun} \] \\
+      \alert{content} & \alert{\[ index & \@1 \\
+        restrictions & \< \[ \asort{colleague-rel} instance & \@1 \]\>
+      \]}
+    \]
+  \end{avm}}\onslide<+->\hspace{2em}%
+  \scalebox{0.8}{\begin{avm}
+    \[ phon & ein Buch \\
+      head & \[ \asort{noun} \] \\
+      \alert{content} & \alert{\[ index & \@1 \\
+        restrictions & \< \[ \asort{book-rel} instance & \@1 \]\>
+      \]}
+    \]
+  \end{avm}}\\
+  \Halbzeile
+  \onslide<+->
+  \footnotesize Achtung! Die beiden Strukturteilungen \mybox{1} bei \textit{ein Kollege} und \textit{ein Buch}\\
+  stehen in unabhängigen Merkmalstrukturen und sind daher voneinander verschieden.
+\end{frame}
+
+\begin{frame}
+  {Semantischer Beitrag des Verbs}
+  \onslide<+->
+  \onslide<+->
+  \alert{Linking} | Verknüpfung von grammatischer Valenz und Verbsemantik\\
+  \onslide<+->
+  \Zeile
+  \begin{tabular}{cc}
+    \begin{minipage}{0.5\textwidth}
+      \scalebox{0.7}{\begin{avm}
+        \[ phon & liest \\
+          head & \[ \asort{verb} \] \\
+          subcat & \<
+            \[ head & \[ \asort{noun} cas & nom \] \\
+               subcat & \<\> \\
+               \gruen{cont} & \gruen{\[ ind & \@1 \]}
+            \], 
+            \[ head & \[ \asort{noun} cas & acc \] \\
+               subcat & \<\> \\
+               \gruen{cont} & \gruen{\[ ind & \@2 \]}
+            \]
+          \> \\
+          \alert{cont} & \alert{\[
+            restr & \< \[ \asort{lesen-rel} agens & \@1\\
+              patiens & \@2 \]\> 
+        \]}
+        \]
+      \end{avm}}
+    \end{minipage} & %
+    \begin{minipage}{0.4\textwidth}
+      \begin{itemize}[<+->]\footnotesize
+        \item Es stehen zwei valenzgebundene NPs auf der \textsc{subcat}.
+        \item Diese bringen \gruen{je einen Index mit (\mybox{1} und \mybox{2})}, auf die das Verb über die \textsc{subcat} "`zugreift"'.
+        \item Diese Indizes werden durch den Beitrag der NPs als Kollegen, Bücher usw. spezifiziert (hier nicht zu erkennen).
+        \item Das Verb fügt die \alert{Information hinzu, dass sie in einer lesen-Relation stehen (\mybox{1} liest \mybox{2})}.
+      \end{itemize}
+    \end{minipage} \\
+  \end{tabular}
+\end{frame}
+
+\begin{frame}
+  {Valenztypen \slash\ Verbtypen}
+  \onslide<+->
+  \onslide<+->
+  Denkbare \alert{Hierarchie für Verb-Relationen} | Ziel: Generalisierungen abbilden!\\
+  \centering
+  \Zeile
+  \scalebox{0.7}{\begin{forest}
+    typehierarchy
+    [rel
+      [agent-rel
+        [run-rel]
+        [yell-rel]
+        [\ldots]
+      ]
+      [agent-patient-rel
+        [behold-rel]
+        [read-rel]
+        [\ldots]
+      ]
+      [patient-rel
+        [sleep-rel]
+        [cough-rel]
+        [\ldots]
+      ]
+      [agent-theme-goal-rel
+        [give-rel]
+        [send-rel]
+        [\ldots]
+      ]
+      [\ldots]
+    ]
+  \end{forest}}
+\end{frame}
+
+
+\section{Modifikation der Merkmalgeometrie}
+
+\begin{frame}
+  {Finale Merkmalgeometrie}
+  \onslide<+->
+  \onslide<+->
+  Weil einige es lieber "`gleich in richtig"' hätten, hier einmal die Geometrie,\\
+  auf die es rausläuft für \alert{Phonologie (\textsc{phon})}, \gruen{Syntax (\textsc{cat})} und \orongsch{Semantik (\textsc{cont})}\\
+  \onslide<+->
+  \Zeile
+  \scalebox{0.8}{%
+    \begin{avm}
+      \[ \asort{word} 
+        \alert{phon} & list \\
+        \rot{local} & \[ 
+          \gruen{cat} & \[ head & head \\
+            subcat & list \] \\
+            \orongsch{cont} & cont
+        \] \\
+        \rot{nonlocal} & \[ slash & list \]
+      \]
+    \end{avm}
+  }\onslide<+->\hspace{2em}\scalebox{0.8}{%
+    \begin{avm}
+      \[ \asort{headed-phrase} 
+        \alert{phon} & list \\
+        \rot{local} & \[ 
+          \gruen{cat} & \[ head & head \\
+            subcat & list \] \\
+            \orongsch{cont} & cont
+        \] \\
+        \rot{nonlocal} & \[ slash & list \] \\
+        hd-dtr & sign \\
+        nhd-dtr & sign \\
+      \]
+    \end{avm}
+  }\\
+  \Zeile
+  \centering
+  \onslide<+->
+  \rot{Die Unterscheidung in \textsc{local} und \textsc{nonlocal} jetzt schon einzuführen,\\
+  wäre nicht zielführend. Wir brauchen sie erst für einen Typ von Bewegung.}\\
+  \grau{\footnotesize Außerdem gibt es bei Bedarf auch Geometrien mit noch mehr Struktur.}
+\end{frame}
+
+\begin{frame}
+  {Syntax und Semantik trennen}
+  \onslide<+->
+  \onslide<+->
+  Trennung von Syntax und Semantik | \textsc{head} und \textsc{subcat} (= Syntax) bündeln\\
+  \onslide<+->
+  \Zeile
+  \scalebox{0.7}{\begin{avm}
+    \[ phon & liest \\
+      \alert{cat} & \[
+        \alert{head} & \[ \asort{verb} \] \\
+        \alert{subcat} & \<
+          \[ head & \[ \asort{noun} cas & nom \] \\
+             subcat & \<\> \\
+             cont & \[ ind & \@1 \]
+          \], 
+          \[ head & \[ \asort{noun} cas & acc \] \\
+             subcat & \<\> \\
+             cont & \[ ind & \@2 \]
+          \]
+        \> \\
+      \]\\
+      cont & \[
+        restr & \< \[ \asort{lesen-rel} agens & \@1\\
+          patiens & \@2 \]\> 
+    \]
+    \]
+  \end{avm}}
+\end{frame}
+
+\begin{frame}
+  {Kongruenzmerkmale im \textsc{index}}
+  \onslide<+->
+  \onslide<+->
+  \alert{Anaphern} | Kongruieren in Person, Numerus, Genus.\\
+  Da dies über Satzgrenzen hinaus geschieht, sollten es \alert{Semantik-Merkmale} sein.\\
+  \onslide<+->
+  \Halbzeile
+  \begin{exe}
+    \ex[ ]{\alert{Die Kollegin\Sub{1}} liest \gruen{das Buch\Sub{2}}. \alert{Sie\Sub{1}} findet \gruen{es\Sub{2}} Schrott.}
+    \ex[*]{\alert{Die Kollegin\Sub{1}} liest \gruen{das Buch\Sub{2}}. \alert{Er\Sub{1}} findet \gruen{euch\Sub{2}} Schrott.}
+  \end{exe}
+  \Halbzeile
+  \onslide<+->
+  \scalebox{0.8}{\begin{avm}
+    \[ phon & eine Kollegin \\
+      cat & \[ head & \[ \asort{noun} cas & nom $\vee$ acc $\vee$ dat $\vee$ gen\] \\
+               subcat & \<\> 
+    \] \\
+      cont & \[ ind & \alert{\@1 \[ per & 3\\
+                                                  num & sg\\
+                                                gen & f\]} \\
+        restr & \< \[ \asort{colleague-rel} inst & \@1 \]\>
+      \]
+    \]
+  \end{avm}}
+\end{frame}
+
+\section{Semantikprinzip}
+
+\begin{frame}
+  {Semantik von Phrasen}
+  \onslide<+->
+  \onslide<+->
+  Semantikprinzip für Phrasen mit Kopf wie Kopf-Komplement-Phrasen:\\
+  \onslide<+->
+  \Zeile
+  \centering 
+  \alert{\raisebox{-0.5\baselineskip}{\textit{head-non-adjunct-phrase} $\Rightarrow$\ }%
+  \begin{avm}
+    \[ cont & \@1 \\
+      head-dtr|cont & \@1
+    \]
+  \end{avm}}\\
+  \onslide<+->
+  \Zeile
+  Es gibt auch andere Phrasen. Tentative Typhierarchie für \textit{sign}:\\
+  \onslide<+->
+  \Halbzeile
+  \centering 
+  \scalebox{0.7}{\begin{forest}
+    typehierarchy
+    [sign
+      [word]
+      [phrase
+        [non-headed-phrase]
+        [headed-phrase
+          [\alert{head-non-adjunct-phrase}
+            [head-argument-phrase]
+          ]
+          [\ldots]
+        ]
+      ]
+    ]
+  \end{forest}}
+\end{frame}
+
+\begin{frame}
+  {Die gesamte Kombinatorik bisher}
+  \onslide<+->
+  \onslide<+->
+  Kopf-Komplement-Schema\\
+  \Viertelzeile
+  \raggedleft
+  \scalebox{0.8}{\raisebox{-1.5\baselineskip}{\textit{head-argument-phrase}\ $\Rightarrow$\ }%
+  \begin{avm}
+    \[ cat|subcat & \@1 \\
+       hd-dtr|cat|subcat & \@1\ $\oplus$\ \<\@2\> \\
+       non-hd-dtr & \@2 
+     \]
+   \end{avm}}\\
+  \onslide<+->
+  \Zeile
+  \raggedright
+  Kopf-Merkmalprinzip\\
+  \Viertelzeile
+  \raggedleft
+  \scalebox{0.8}{\raisebox{-0.5\baselineskip}{\textit{headed-phrase}\ $\Rightarrow$\ }%
+  \begin{avm}
+    \[ cat|head & \@1 \\
+       hd-dtr|cat|head & \@1 \\
+     \]
+   \end{avm}}\\
+  \onslide<+->
+  \Zeile
+  \raggedright
+  Semantikprinzip\\
+  \Viertelzeile
+  \raggedleft
+  \scalebox{0.8}{\raisebox{-0.5\baselineskip}{\textit{head-non-adjunct-phrase} $\Rightarrow$\ }%
+  \begin{avm}
+    \[ cont & \@1 \\
+      head-dtr|cont & \@1
+    \]
+  \end{avm}}\\
+\end{frame}
+
+\begin{frame}
+  {Zusammenspiel der bisherigen Prinzipien und Schemata}
+  \onslide<+->
+  \onslide<+->
+  \centering 
+  \scalebox{0.35}{%
+    \begin{avm}
+      \[ \asort{head-argument-phrase} 
+        phon & Ein Ball fliegt \\
+        cat & \[ head & \@1 \\
+                 subcat & \<\> 
+        \]\\
+        cont & \@2 \\
+        nhd-dtr & \@5 \[ \asort{head-argument-phrase} 
+         phon & ein Ball \\
+         cat & \[ head & \@8 \[ \asort{noun} cas & nom \] \\
+           subcat & \<\> 
+         \] \\
+         cont & \@6 \\
+         nhd-dtr & \@7 \[ \asort{word}  
+           phon & ein \\
+           cat & \[ head & \[ \asort{det} \] \] \\
+         \] \\
+         hd-dtr & \[ \asort{word} 
+           phon & Ball \\
+           cat & \[ head & \@8 \\
+             subcat & \<\@7\>\] \\
+             cont & \@6 \[ ind & \@3 \[ per & 3 \\ num & sg \\ gen & m \]\\
+             restr & \[ \asort{ball-rel} theme & \@3 \]
+           \]
+         \]
+        \] \\
+        hd-dtr & \[ \asort{word} 
+         phon & fliegt \\
+         cat & \[ head & \@1 \[ \asort{verb} vform & fin \] \\ 
+           subcat & \< \@5 \>
+         \] \\
+         cont & \@2 \[ restr & \[ \asort{fly-rel} agent & \@3 \] \]\\
+        \] \\
+      \]
+    \end{avm}
+  }
+\end{frame}
 
 \section{Nächste Woche}
 
