@@ -758,7 +758,7 @@
     \item Bei der Verbindung von Kopf \mybox{1} Komplement \mybox{2}
       \begin{itemize}[<+->]
         \item Unifikation des \alert{letzten Elements der \textsc{subcat} von \mybox{1}} mit \mybox{2}
-        \item Resultierende Phrase | Kopfmerkmale kopiert von \textsc{hd-dtr}
+        \item Resultierende Phrase | Kopfmerkmale identisch mit denen der \textsc{hd-dtr}
         \item Resultierende Phrase | \textsc{subcat} von \mybox{1} \alert{ohne das letzte Element}
         \item \textsc{phon}-Werte der Phrase | \alert{Aneinandergehängte \textsc{phon}-Werte} der Töchter
       \end{itemize}
@@ -814,9 +814,37 @@
   {Reduktion von \textsc{subcat}-Listen}
   \onslide<+->
   \onslide<+->
-  Im Ergebnis ist die untenstehende Beschreibung äquivalent zur vorherigen.\\
+  Im Ergebnis sind die untenstehenden Beschreibungen äquivalent.\\
   \onslide<+->
   \Halbzeile
+  \centering 
+  \begin{tabular}[h]{cp{1em}c}
+    \begin{minipage}{0.35\textwidth}
+      \scalebox{0.5}{\begin{avm}
+        \[ phon & Jörg einen Verstärker testet \\
+          head & \@3 \\
+          subcat & \<\> \\
+          non-hd-dtr & \gruen{\@2 \[ phon & Jörg \\
+            head & \[ \asort{noun} case & nom \] \\
+            subcat & \<\> \\
+          \]} \\
+          hd-dtr & \[ phon & einen Verstärker testet \\
+            head & \@3 \\
+            subcat & \<\gruen{\@2}\> \\
+            non-hd-dtr & \alert{\@1 \[ phon & einen Verstärker \\
+              head & \[ \asort{noun} case & acc \] \\
+              subcat & \<\> \\
+            \]} \\
+            hd-dtr & \[ phon & testet \\
+              head & \@3 \[ \asort{verb} vform & fin \] \\
+              subcat & \<\gruen{\@2}, \alert{\@1}\> \\
+            \] \\
+          \] \\
+        \]
+      \end{avm}}
+    \end{minipage} && %
+    \onslide<+->
+    \begin{minipage}{0.35\textwidth}
       \scalebox{0.5}{\begin{avm}
         \[ phon & \@{12} $\oplus$ \@{11} $\oplus$ \@{10} \\
           head & \@3 \\
@@ -839,6 +867,8 @@
           \] \\
         \]
       \end{avm}}
+    \end{minipage} \\
+  \end{tabular}
 \end{frame}
 
 \begin{frame}
@@ -858,7 +888,7 @@
   \raggedright
   \begin{itemize}[<+->]
     \item \alert{Implikationsregel} | Für alle Zeichen vom Typ \textit{hd-arg-phrase} gilt \ldots
-    \item Wichtig: \mybox{1} ist die "`restliche"' Valenzliste, \rot{\mybox{2} ist keine Liste}!
+    \item Wichtig: \mybox{1} ist die "`restliche"' Valenzliste, \rot{\mybox{2} ist keine Liste!}
     \item \alert{Wenn \mybox{1} leer ist}, ist die betreffende \textit{hd-arg-phrase} eine Maximalprojektion.
     \item \alert{Das Pipe-Zeichen |} kürzt Pfade durch Merkmalsbeschreibungen ab.\\
       \Viertelzeile
@@ -893,12 +923,13 @@
   \raggedright
   \begin{itemize}[<+->]
     \item Das gilt für alle \textit{headed-phrases} \alert{inkl.\ aller Untertypen}.
-    \item Wichtig: Es darf nichts in die \textsc{head}-Merkmale, das nicht\\
+    \item Wichtig: Wir dürfen nichts in die \textsc{head}-Merkmale stecken, das nicht\\
       an die Projektion nach oben weitergegeben werden darf\slash soll.
     \item Die Valenz bzw.\ \rot{\textsc{subcat} darf also kein Kopfmerkmal sein}.\\
       \grau{Sonst hätte jede Projektionsstufe dieselbe Valenz wie der Kopf.}
       \Halbzeile
-    \item Konsequenz | \alert{Die Kopfmerkmale von Nicht-Kopf-Töchtern werden nicht weitergegeben!}
+    \item Konsequenz | \alert{Die Kopfmerkmale von Nicht-Kopf-Töchtern werden\\
+      nicht weitergegeben!}
     \item \small Das entspricht der Generalisierung, dass die syntaktischen Eigenschaften von Nicht-Köpfen\\
       für die Syntax über die direkt einschließende Phrase hinaus irrelevant sind.
   \end{itemize}
