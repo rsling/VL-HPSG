@@ -71,7 +71,7 @@ slides01: $(OUTDIR)/01.+Phrasenstruktur+und+Phrasenstrukturgrammatik$(SLIDESUFF)
 slides02: $(OUTDIR)/02.+Merkmalstrukturen+und+Merkmalbeschreibungen$(SLIDESUFF)$(PROJECT)$(SUFFSUFF)
 slides03: $(OUTDIR)/03.+Komplementation+und+Grammatikregeln$(SLIDESUFF)$(PROJECT)$(SUFFSUFF)
 slides04: $(OUTDIR)/04.+Verbsemantik+und+Linking$(SLIDESUFF)$(PROJECT)$(SUFFSUFF)
-slides04: $(OUTDIR)/05.+Adjunktion+und+Spezifikation$(SLIDESUFF)$(PROJECT)$(SUFFSUFF)
+slides05: $(OUTDIR)/05.+Adjunktion+und+Spezifikation$(SLIDESUFF)$(PROJECT)$(SUFFSUFF)
 
 allslides: slides01 slides02 slides03 slides04 slides05
 
