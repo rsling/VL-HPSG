@@ -131,7 +131,7 @@
         \item Lokale Relation: \orongsch{x befindet sich auf y}
         \item %
           \scalebox{0.7}{\begin{avm}
-            \[restr & \<\[ \asort{ontop-rel} positioned-obj & \[ \asort{index} \] \\ reference-obj & \[ \asort{index} \] \]\>\]
+            \[restr & \<\[ \asort{ontop-loc-rel} positioned-obj & \[ \asort{index} \] \\ reference-obj & \[ \asort{index} \] \]\>\]
           \end{avm}}
       \end{itemize}
       \Halbzeile
@@ -190,6 +190,7 @@
   Einführung einer \textsc{restr} \ldots\ und sonst?\\
   \onslide<+->
   \Halbzeile
+  \centering 
   \scalebox{0.8}{\begin{avm}
     \[ \asort{word} 
       phon & türkisem \\
@@ -211,6 +212,7 @@
   \end{avm}}\\
   \Halbzeile
   \onslide<5->
+  \raggedright
   \alert{Der Wert des \textsc{mod}-Merkmals entspricht einem N$'$!}
 \end{frame}
 
@@ -284,7 +286,7 @@
       cat & \[
         head & \[ \asort{adj} 
           cas & dat \\
-          \only<4->{
+          \only<3->{
             mod & \[ cat & \[
                 head & \[ \asort{noun} \] \\
                 subcat & \< \[ cat|head & \[ \asort{det} \] \]\> \\
@@ -429,6 +431,38 @@
 
 \begin{frame}
   {Lexikoneintrag eines intensionalen Adjektivs}
+  \onslide<+->
+  \onslide<+->
+  Es ist nicht adäquat, einfch die \textsc{restr} aufzusammeln.\\
+  \onslide<+->
+  Die \textsc{restr} des mit \textsc{mod} selegierten Kopfs muss modifiziert werden.\\
+  \onslide<+->
+  \Halbzeile
+  \centering 
+  \scalebox{0.8}{%
+    \begin{avm}
+      \[ \asort{word} 
+        phon & \< \textnormal{fiktiv} \> \\ 
+        cat & \[
+          head & \[ \asort{adj} 
+            mod & \[
+              cat & \[ head & \[ \asort{noun} \] \\
+                       subcat & \<\> \] \\
+              cont & \[ 
+                ind & \@1 \\
+                restr & \alert<4->{\@2} \\
+              \]
+            \]\\
+          \]\\
+          subcat & \<\> \\
+        \]\\
+        cont & \[ 
+          ind & \@1 \\
+          restr & \alert<4->{\<\[ \asort{fictional-psoa-rel} pso-arg & \@2 \]\>}
+        \]\\
+      \]
+    \end{avm}
+  }
 \end{frame}
 
 
@@ -441,46 +475,465 @@
   Beispiel: \textit{ein Buch \alert{auf} dem Tisch}\\
   \onslide<+->
   \Halbzeile
+  \begin{minipage}{0.45\textwidth}
+    \scalebox{0.575}{%
+      \begin{avm}
+        \[ \asort{word} 
+          phon & \<\textnormal{\it auf}\> \\
+          cat &  \[ 
+            head & \[ \asort{prep} 
+              \alert<6>{mod} & \alert<6>{\[
+                cat & \[
+                  head & \[ \asort{n} \] \\
+                  subcat & \< \[ cat|hd & \[ \asort{det} \] \]\> \\
+                \]\\
+                cont & \[
+                  \alert<9>{ind} & \alert<9>{\@1} \\
+                  restr & \@5 \\
+                \] \\
+              \]} \\
+            \] \\
+            \alert<5>{subcat} & \alert<5>{\< \[ 
+              cat & \[
+                head & \[ \asort{n} cas & dat \]\\
+                subcat & \<\> \\
+              \] \\
+              cont & \[
+                \alert<9>{ind} & \alert<9>{\@2} \\
+                restr & \@3 \\
+              \]
+            \]\>} \\
+          \]\\
+          cont & \[ 
+            ind & \@2 \\
+            \alert<8>{restr} & \alert<8>{\< \[ \asort{ontop-loc-rel} 
+              \alert<9>{pos-obj} & \alert<9>{\@1} \\
+              \alert<9>{rel-obj} & \alert<9>{\@2} \\
+            \] \>}\ \alert<7>{$\oplus$\ \@3\ $\oplus$\ \@5} \\
+          \]\\
+        \]
+      \end{avm}%
+    }
+  \end{minipage}~\onslide<+->%
+  \begin{minipage}{0.525\textwidth}
+    Die vielen Aufgaben einer Präposition\\
+    \Halbzeile
+    \begin{itemize}[<+->]\small
+      \item Die Präposition \alert<5>{regiert eine NP als ihr Komplement in einem bestimmten Kasus}.
+      \item Außerdem \alert<6>{möchte sie ein N$'$ modifizieren}.
+      \item Sie \alert<7>{sammelt die \textsc{restr} von Komplement und Modifikans auf}.
+      \item Sie \alert<8>{führt eine lokale Relation ein}.
+      \item Die Relation besteht \alert<9>{zwischen den Objekten, die vom Komplement und Modifikans eingeführt werden}.
+    \end{itemize}
+  \end{minipage}
 \end{frame}
 
 \begin{frame}
   {Kombination der Präposition mit ihrem Komplement}
+  \onslide<+->
+  \onslide<+->
+  Diese beiden \textit{signs} können eine \textit{hd-arg-phr} bilden.\\
+  \grau{\footnotesize Wir teilen ein Struktur in der Darstellung auf. \mybox{100} deutet das Phrasenpotenzial an.}\\
+  \onslide<+->
+  \centering 
+    \scalebox{0.5}{%
+      \begin{avm}
+        \[ \asort{word} 
+          phon & \<\textnormal{\it auf}\> \\
+          cat &  \[ 
+            head & \[ \asort{prep} 
+              mod & \[
+                cat & \[
+                  head & \[ \asort{n} \] \\
+                  subcat & \< \[ cat|hd & \[ \asort{det} \] \]\> \\
+                \]\\
+                cont & \[
+                  ind & \@1 \\
+                  restr & \@5 \\
+                \] \\
+              \] \\
+            \] \\
+            subcat & \< \@{100} \[ 
+              cat & \[
+                head & \[ \asort{n} cas & dat \]\\
+                subcat & \<\> \\
+              \] \\
+              cont & \[
+                ind & \@2 \\
+                restr & \@3 \\
+              \]
+            \]\> \\
+          \]\\
+          cont & \[ 
+            ind & \@2 \\
+            restr & \< \[ \asort{ontop-loc-rel} 
+              pos-obj & \@1 \\
+              rel-obj & \@2 \\
+            \] \>\ $\oplus$\ \@3\ $\oplus$\ \@5 \\
+          \]\\
+        \]
+      \end{avm}%
+    }\hspace{2em}%
+    \visible<4->{\raisebox{-3\baselineskip}{\scalebox{0.5}{%
+      \begin{avm}
+        \@{100} \[
+          \asort{hd-arg-phr} 
+          phon & \<\textnormal{\it dem,Tisch}\> \\
+          cat & \[
+            hd & \[ \asort{n}
+              cas & dat \\
+              mod & none \\
+            \]\\
+            subcat & \<\> \\
+          \]\\
+          cont & \[
+            ind & \@2 \[ per & 3 \\ num & sg \\ gen & masc \]\\
+            restr & \@3 \<\[ \asort{table-rel} instance & \@2 \]\> \\
+          \]\\
+        \]
+      \end{avm}
+    }}}
 \end{frame}
 
 \begin{frame}
-  {Kombination der PP mit dem Kopf-N$'$}
+  {Kombination der attributiven PP mit dem Kopf-N$'$}
+  \centering 
+    \visible<2->{\raisebox{-0\baselineskip}{\scalebox{0.5}{%
+      \begin{avm}
+        \@{200} \[ \asort{hd-adj-phr}
+          phon & \<\textnormal{\it Buch,auf,dem,Tisch}\> \\
+          cat & \[
+            head & \@9 \[ \asort{n} \] \\
+            subcat & \@{10} \< \[ cat|hd & \[ \asort{det} \] \]\> \\
+          \]\\
+          cont & \@7 \\
+          hd-dtr & \[
+            phon & \<\textnormal{\it Buch}\> \\
+            cat & \[ 
+              head & \@9 \\
+              subcat & \@{10} \\
+            \] \\
+            cont & \[
+              ind & \@1 \[ per & 3 \\ num & sg  \\ gen & neut \] \\
+              restr & \@5 \< \[ \asort{book-rel} instance & \@1 \] \> \\
+            \]
+          \]\\
+          nhd-dtr & \@{300} \\
+        \]
+      \end{avm}%
+    }}}\hspace{0.5em}%
+    \visible<3->{\raisebox{-0.25\baselineskip}{\scalebox{0.5}{%
+      \begin{avm}
+        \@{300} \[ \asort{hd-arg-phr} 
+          phon & \<\textnormal{\it auf,dem,Tisch}\> \\
+          cat &  \[ 
+            head & \@6 \[ \asort{prep} 
+              mod & \@{200}
+            \] \\
+            subcat & \<\> \\
+          \]\\
+          cont & \@7 \[ 
+            ind & \@2 \\
+            restr & \< \[ \asort{ontop-loc-rel} 
+              pos-obj & \@1 \\
+              rel-obj & \@2 \\
+            \] \>\ $\oplus$\ \@3\ $\oplus$\ \@5 \\
+          \]\\
+          hd-dtr & \[
+            phon & \< \textnormal{\it auf} \> \\
+            cat & \[
+              head & \@6 \\
+              subcat & \< \@{100} \> \\
+            \] \\
+            cont & \@7 \\
+          \]\\
+          nhd-dtr & \@{100} \\
+        \]
+      \end{avm}%
+    }}}\hspace{0.5em}%
+    \visible<4>{\raisebox{-1.35\baselineskip}{\scalebox{0.5}{%
+      \begin{avm}
+        \@{100} \[ \asort{hd-arg-phr} 
+        phon & \<\textnormal{\it dem,Tisch}\> \\
+        cat & \[
+          hd & \[ \asort{n}
+            cas & dat \\
+            mod & none \\
+          \]\\
+          subcat & \<\> \\
+        \]\\
+        cont & \[
+          ind & \@2 \[ per & 3 \\ num & sg \\ gen & masc \]\\
+          restr & \@3 \<\[ \asort{table-rel} instance & \@2 \]\> \\
+        \]\\
+        \]
+      \end{avm}
+    }}}
+\end{frame}
+
+\begin{frame}
+  {\textsc{mod} als \textsc{head}-Merkmal}
+  \onslide<+->
+  \onslide<+->
+  \textsc{mod} muss ein \textsc{head}-Merkmal sein\\
+  \Zeile
+  \begin{itemize}[<+->]
+    \item Die Präposition ist \alert{lexikalisch für ihr \textsc{mod} spezifiziert}.
+    \item Sie \alert{bildet aber zunächt eine Phrase} mit einem Komplement (NP).
+    \item Die \alert{volle PP modifiziert} dann das N$'$.
+    \item Die \textsc{mod}-Spezifikation muss also \alert{an der PP} realisiert werden.
+    \item \alert{Die \textsc{head}-Merkmale werden sowieso unverändert von P an PP weitergegeben.}
+    \item \grau{Sonst bräuchten wir zusätzliche Mechanismen, um \textsc{mod} an der PP zu realisieren.}
+      \Halbzeile
+    \item Ähnliches gilt für attributive NPs oder Relativsätze.
+  \end{itemize}
 \end{frame}
 
 \section{Specifier in HPSG}
 
 \begin{frame}
   {Lexikoneintrag eines Possessivartikels}
+  \onslide<+->
+  \onslide<+->
+  Das Nomen bleibt der Kopf, aber \alert{der Spezifikator muss dessen Index erreichen}.\\
+  \onslide<+->
+  \Zeile
+  \begin{minipage}{0.45\textwidth}
+    \scalebox{0.8}{\begin{avm}
+      \[ \asort{word}
+        phon & \<\textnormal{\it sein} \> \\
+        cat & \[ 
+          head & \[ \asort{det} 
+            \alert<5>{spec} & \alert<5>{\[
+              cat|head & \[ \asort{n} \] \\
+              cont|ind & \@1 \\
+            \]} \\
+          \]\\
+          subcat & \<\> \\
+        \]\\
+        cont & \[
+          ind & \@2 \[ per & 3 \\ num & sg \\ gen & m $\vee$ n \] \\
+          restr & \< \[ \asort{possess-rel} possessor-obj & \@2 \\ \alert<5>{possessed-obj} & \alert<5>{\@1} \]\> \\
+        \]\\
+      \]
+    \end{avm}}
+  \end{minipage}~\onslide<+->%
+  \begin{minipage}{0.5\textwidth}
+    \alert{Spezifikator-Prinzip}\\
+    \Halbzeile 
+    \begin{itemize}[<+->]
+      \item Wenn eine Nicht-Kopf-Tochter für \textsc{cat|head|spec} nicht \textit{none} als Wert hat,
+      \item ist der Wert ihres \textsc{spec}-Merkmals token-identisch zur Kopftochter.
+    \end{itemize}
+  \end{minipage}
 \end{frame}
 
 \begin{frame}
-  {Kombination mit dem N$'$}
+  {Kombination des Possessivartikels mit N$'$}
+  \onslide<+->
+  \onslide<+->
+  \centering 
+  \raisebox{-2\baselineskip}{\scalebox{0.55}{%
+    \begin{avm}
+      \[ \asort{ hd-arg-phr}
+        phon & \<\textnormal{\it sein,Buch}\> \\
+        cat & \[ 
+          head & \@6 \\
+          subcat \<\> \\
+        \]\\
+        cont & \@5 \\
+        hd-dtr & \@{100} \\
+        nhd-dtr & \@{200} \\
+      \]
+    \end{avm}
+  }}\hspace{1em}%
+  \visible<3->{%
+    \raisebox{0\baselineskip}{\scalebox{0.55}{%
+      \begin{avm}
+        \@{200} \[ \asort{word} 
+          phon & \<\textnormal{\it sein} \> \\
+          cat & \[ 
+            head & \[ \asort{det} 
+              spec & \@{100}\[
+                cat|head & \[ \asort{n} \] \\
+                cont|ind & \@1 \\
+              \] \\
+            \]\\
+            subcat & \<\> \\
+          \]\\
+          cont & \[
+            ind & \@4 \[ per & 3 \\ num & sg \\ gen & m $\vee$ n \] \\
+            restr & \< \[ \asort{possess-rel} possessor-obj & \@4 \\ possessed-obj & \@1 \]\> \\
+          \]\\
+        \]
+      \end{avm}
+    }}
+  }\hspace{1em}%
+  \visible<4->{%
+    \raisebox{-0.25\baselineskip}{\scalebox{0.55}{%
+      \begin{avm}
+        \@{100} \[ \asort{word}
+          phon & \<\textnormal{\it Buch}\> \\
+          cat & \[
+            head & \[ \asort{n} \] \\
+            subcat & \<\@{200}\[
+              cat & \[
+                head & \@6 \[ \asort{det} \] \\
+                subcat & \<\> \\
+              \]
+            \]\>
+          \] \\
+          cont & \@5 \[ 
+            ind & \@1 \[ per & 3 \\ num & sg \\ gen & n \]\\
+            restr & \< \[ \asort{book-rel} instance & \@1 \]\> \\
+          \]
+        \]
+      \end{avm}
+    }}
+  }
 \end{frame}
 
 \section{Zusammenfassung der Grammatik}
 
 \begin{frame}
   {Kopf-Adjunkt-Schema}
+  \onslide<+->
+  \onslide<+->
+  \centering 
+  \raisebox{-1.25\baselineskip}{\textit{head-adjunct-phrase} $\Rightarrow$} \scalebox{0.8}{%
+    \begin{avm}
+      \[ head-dtr & \@1 \\
+        non-hd-dtr & \< \[ cat & \[ head|mod & \@1 \\
+          subcat & \<\>
+        \]
+      \]\> 
+      \]
+    \end{avm}
+  }\\
+  \Zeile
+  \onslide<+->
+  In Kopf-Adjunkt-Strukturen ist das \textsc{mod}-Merkmal des Nicht-Kopfs\\
+  token-identisch mit der Kopftochter.\\
+  \onslide<+->
+  \Halbzeile
+  \grau{So selegiert das Adjunkt seinen Kopf und kann dessen Semantik modifizieren.}
 \end{frame}
 
 \begin{frame}
-  {Semantikprinzip}
+  {Semantikprinzip (zweiteilig)}
+  \onslide<+->
+  \onslide<+->
+  \centering 
+    \raisebox{-0.75\baselineskip}{\textit{head-non-adjunct-phrase} $\Rightarrow$} \scalebox{0.7}{%
+      \begin{avm}
+        \[ cont & \@1 \\
+           hd-dtr & \[ 
+             cont & \@1
+        \] 
+        \]
+    \end{avm}}\\
+    \onslide<+->
+    \Zeile
+    \raisebox{-0.75\baselineskip}{\textit{head-adjunct-phrase} $\Rightarrow$} \scalebox{0.7}{%
+      \begin{avm}
+        \[ cont & \@1 \\
+           non-hd-dtr & \[ 
+             cont & \@1
+        \] 
+        \]
+    \end{avm}}\\
+    \onslide<+->
+    \Zeile
+    In Kopf-Nichtadjunkt-Strukturen wird die Semantik des Kopfs an der Phrase repräsentiert, in Kopf-Adjunkt-Strukturen die Semantik des Nicht-Kopfs (Adjunkts).\\
+    \onslide<+->
+    \Halbzeile
+    \grau{Das erlaubt dem Adjunkt die Kontrolle über die Semantik der Phrase.}
 \end{frame}
 
 \begin{frame}
   {Subkategorisierungsprinzip}
+  \onslide<+->
+  \onslide<+->
+  \centering 
+    \raisebox{-0.5\baselineskip}{\textit{head-argument-phrase} $\Rightarrow$} \scalebox{0.7}{%
+      \begin{avm}
+        \[ cat|subcat & \@1 \\
+          hd-dtr|cat|subcat & \@1 $\oplus$ \<\@2\> \\
+          nhd-dtr & \@2 \\
+        \]
+    \end{avm}} \\
+    \onslide<+->
+    \Zeile
+    \raisebox{-0.5\baselineskip}{\textit{head-non-argument-phrase} $\Rightarrow$} \scalebox{0.7}{%
+      \begin{avm}
+        \[ cat|subcat & \@1 \\
+          hd-dtr|cat|subcat & \@1 \\
+        \]
+    \end{avm}} \\
+    \onslide<+->
+    \Zeile
+    In einer Kopf-Argument-Struktur ist das letzte Element der \textsc{subcat} des Kopfs\\
+    token-identisch zur Nicht-Kopf-Tochter und die \textsc{subcat} der Phrase\\
+    ist die \textsc{subcat} der Kopftochter ohne deren letztes Element.\\
+    \Halbzeile
+    \onslide<+->
+    In Kopf-Nichtargument-Strukturen ist die \textsc{subcat} des Kopfs an der Phrase repräsentiert.
 \end{frame}
 
 \begin{frame}
   {Specifier-Prinzip}
+  \onslide<+->
+  \onslide<+->
+  \centering 
+  Falls eine Nicht-Kopf-Tochter in einer Kopf-Struktur einen Wert für \textsc{spec} anders als \textit{none} hat, ist dieser token-identisch zur Kopftochter.\\
+  \onslide<+->
+  \Halbzeile
+  \grau{Das erlaubt es pränominalen Possessiva, auf die Semantik des N$'$ zuzugreifen.}
 \end{frame}
 
 \begin{frame}
   {Typenhierachie (Ausschnitt)}
+  \onslide<+->
+  \onslide<+->
+  \centering 
+  \begin{forest}
+    typehierarchy,
+    for tree={
+      calign=fixed angles,
+      calign angle=60
+    } 
+    [sign
+      [word]
+      [phrase
+        [non-headed-phrase]
+        [headed-phrase, for tree={l sep+=\baselineskip}
+          [head-non-adjunct-phrase, calign=first
+            [head-argument-phrase]
+            [\ldots]]
+            [head-non-argument-phrase, calign=last
+            [,identify=!r2212]
+            [head-adjunct-phrase]
+          ]
+        ]
+      ]
+    ]
+  \end{forest}
+\end{frame}
+
+\begin{frame}
+  {Bemerkungen zur Grammatik}
+  \onslide<+->
+  \onslide<+->
+  Die Grammatik im engeren Sinn (Kombinatorik) ist damit weitgehend beschrieben.\\
+  \Zeile
+  \begin{itemize}[<+->]
+    \item Sie merken: Die meiste Arbneit leistet das Lexikon.
+    \item Zum Lexikon sagen wir nächste Woche mehr, und da kommen noch Regeln hinzu.
+    \item Es ist wichtig, die wenigen echten Regeln zu verinnerlichen.
+      \Halbzeile
+    \item "`Phrase"' bedeutet in HPSG zunächst mal "`komplexes Zeichen"'.
+    \item Die "`Phrase"' traditioneller Ansätze ist eine \textsc{subcat}-empty Struktur mit Kopf.
+  \end{itemize}
 \end{frame}
 
 \section{Nächste Woche}
@@ -499,6 +952,7 @@
   \onslide<+->
   \Viertelzeile
   Das sind gerade mal \gruen{7} Seiten.\\
+  Ein zusätzlicher Blick in Kapitel~19 kann nicht schaden.\\
   \onslide<+->
   \Zeile
   \rot{Achtung! In der Woche darauf sind die Seiten~129--148 dran.\\Das ist mehr als sonst. Lesen Sie ggf.\ im Voraus!}
