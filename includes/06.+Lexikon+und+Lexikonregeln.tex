@@ -9,6 +9,8 @@
   \begin{itemize}[<+->]
     \item Welche Information ist bei Wörtern wirklich idiosynkratisch (= individuell)?
     \item Wie kann man Generalisierungen im Lexikon erfassen (Typen)?
+    \item Wie helfen Typenhierarchien, die sehr komplexen Lexikoneinträge zu strukturieren.
+      \Halbzeile
     \item Wie funktionieren Lexikonregeln für das Passiv?
     \item Wie modelliert man Flexion und Wortbildung in HPSG? (Kapitel~19)
   \end{itemize}
@@ -53,15 +55,232 @@
 \end{frame}
 
 \begin{frame}
-  {Nomen-Typen}
+  {Nomen-Typen I}
+  \onslide<+->
+  \onslide<+->
+  Was entspricht der \alert{traditionellen Wortklasse \textit{Nomen}}?\\
+  \grau{\footnotesize Wir schreiben jetzt reine Typen ohne eckige Klammern.}\\
+  \onslide<+->
+  \centering 
+  \Zeile
+  \begin{avm}
+    \[ \asort{noun-sign}
+      cat|head & \ty{noun}\\
+      cont & \ty{nom-obj}
+    \]
+  \end{avm}\\
+  \Doppelzeile
+  \raggedright
+  Die Typen \textit{noun} und \textit{nom-obj} sind dann anderswo in der Hierarchie zu spezifizieren.\\
+  \grau{\footnotesize Hier nur der Illustration halber. Alle Werte haben wiederum Typen.}\\
+  \onslide<+->
+  \Halbzeile
+  \centering 
+  \raisebox{-1.3\baselineskip}{\begin{avm}
+    \[ \asort{noun} cas & \ty{case} \]
+  \end{avm}}\hspace{2em}\begin{avm}
+    \[ \asort{nom-obj} 
+      ind & \ty{index} \\
+      restr & \<\[ \asort{nom-psoa} inst & \ty{index} \]\>
+    \]
+  \end{avm}
+\end{frame}
+
+\begin{frame}
+  {Nomen-Typen II}
+  \onslide<+->
+  \onslide<+->
+  Achtung! Die Aussagen auf der letzten Folie zu \textit{nom-obj} gelten z.\,B.\ \alert{nicht für Pronomina}.\\
+  \centering
+  \Halbzeile
+  \scalebox{0.7}{\begin{avm}
+    \[ \asort{count-appellative-noun-sign}
+      cat|subcat & \<\[ cat|head & \ty{det} \]\> \\
+      cont & \[ \asort{nom-obj} 
+        ind & \@1 \[ per & 3 \]\\
+        restr & \<\[ \asort{nom-psoa} inst & \@1 \]\>
+      \]
+    \]
+  \end{avm}}\\
+  \onslide<+->
+  \Zeile
+  \raggedright
+  Für Feminina gilt zusätzlich:\\
+  \Halbzeile
+  \centering 
+  \scalebox{0.7}{\begin{avm}
+    \[ \asort{fem-noun-sign}
+      cont|ind|gen & fem \\
+    \]
+  \end{avm}}\\
+\end{frame}
+
+\begin{frame}
+  {Mehrfachvererbung}
+  \onslide<+->
+  \onslide<+->
+  Aus Typen, die Teilinformationen kodieren, werden terminale spezifische Typen gebildet.\\
+  \grau{\footnotesize Hier nur beispielhafte Toy-Hierarhie. Eine größere Hierarchie weiter unten und später in \textit{Trale}.}\\
+  \centering 
+  \Zeile
+  \scalebox{0.6}{\begin{forest}
+    typehierarchy,
+    for tree={
+      calign=fixed angles,
+      calign angle=60
+    }
+    [ sign
+      [noun-sign
+        [count-appellative-noun-sign
+          [\alert{fem-count-appellative-noun-sign}]
+        ]
+        [fem-noun-sign, calign=last
+          [, identify=!r111]
+          [\ldots]
+        ]
+        [masc-noun-sign]
+        [neut-noun-sign]
+      ]
+    ]
+  \end{forest}}%
+  \onslide<+->\hspace{1em}%
+  \raisebox{-2\baselineskip}{\scalebox{0.6}{\begin{avm}
+    \[ \asort{\alert{fem-count-appellative-noun-sign}}
+      cat & \[
+        head & \ty{noun} cas & case \\
+        subcat & \< \[ cat|head & det \]\> \\
+      \] \\
+      cont & \[ \asort{nom-obj}
+        ind & \@1 \[ gen & fem \\ per & 3 \]\\
+        restr & \< \[ \asort{psoa} inst & \@1 \]\>\\
+      \]
+    \]
+  \end{avm}}}
 \end{frame}
 
 \begin{frame}
   {Verb-Typen}
+  \onslide<+->
+  \onslide<+->
+  \begin{minipage}{0.45\textwidth}
+  Verben an sich\\
+  \onslide<+->
+  \Viertelzeile 
+  \scalebox{0.75}{\begin{avm}
+    \[
+      cat|head & verb \\
+      cont|restr & psoa \\
+    \]
+  \end{avm}}\\
+
+  \onslide<+->
+  \Zeile
+  Dativverben\\
+  \onslide<+->
+  \Viertelzeile
+  \scalebox{0.75}{\begin{avm}
+    \[
+      cat|subcat & \< NP\Sub{nom}, NP\Sub{dat} \> \\
+    \]
+  \end{avm}}\\
+  
+  \onslide<+->
+  \Zeile
+  Agentivische Experiencerverben\\
+  \onslide<+->
+  \Viertelzeile
+  \scalebox{0.75}{\begin{avm}
+    \[
+      cat|subcat & \< \[ cont|ind & \@1 \], \[ cont|ind & \@2 \] \> \\
+      cont|restr & \[ \asort{agens-exp-rel} agens & \@1 \\ exp & \@2 \]
+    \]
+  \end{avm}}\\
+  \end{minipage}
+  \onslide<+->
+  \begin{minipage}{0.5\textwidth}
+    Im Ergebnis:\\
+
+    \Halbzeile
+    \centering 
+    \scalebox{0.65}{%
+      \begin{avm}
+        \[ cat & 
+          \[
+            head & verb \\
+            subcat & \<
+              \[ cat & \[
+                head & \[ \asort{noun} cas & nom \]\\
+                subcat & \<\> \\
+                \] \\
+                cont|ind & \@1 \\
+              \], \\
+              \[ cat & \[
+                head & \[ \asort{noun} cas & dat \]\\
+                subcat & \<\> \\
+                \] \\
+                cont|ind & \@2 \\
+              \]
+            \>\\
+          \] \\
+          cont|restr & \< \[ \asort{agens-exp-rel} agens & \@1 \\ exp & \@2 \]\>
+        \]
+      \end{avm}
+    }
+  \end{minipage}
 \end{frame}
 
+
 \begin{frame}
-  {Typhierarchie}
+  {Möglicher größerer Ausschnitt der Typhierarchie}
+  \centering 
+  \scalebox{0.5}{\begin{forest}
+  typehierarchy
+  [sign, l sep*=3
+    [root,name=root]
+    [{\begin{tabular}[t]{@{}c@{}}
+     verb-sign\\
+     \upshape [\head \type{verb}]\end{tabular}}, l sep+=8\baselineskip
+      [nom-dat-verb-root, edge to= root, edge to=nom-dat-arg, edge to=agens-exp, l sep+=2\baselineskip
+        [helf, instance]]]
+    [{\begin{tabular}[t]{@{}c@{}}
+     noun-sign\\
+     \upshape [\head \type{noun}]\end{tabular}}, l sep+=8\baselineskip
+      [count-noun-root, edge to=root, edge to=det-sc, edge to=3rd, l sep+=2\baselineskip
+        [Frau, instance]]]
+    [{\begin{tabular}[t]{@{}c@{}}
+      saturated\\
+     \upshape [\subcat \eliste]\end{tabular}}]
+    [{\begin{tabular}[t]{@{}c@{}}
+      unsaturated\\
+     \upshape [\subcat \sliste{ [], \ldots }]\end{tabular}}
+      [{\begin{tabular}[t]{@{}c@{}}
+       det-sc\\
+       \upshape [\subcat \sliste{ Det }]\end{tabular}},name=det-sc]
+      [{\begin{tabular}[t]{@{}c@{}}
+       nom-arg\\
+       \upshape [\subcat \sliste{ NP[\type{nom}] }]\end{tabular}}]
+      [{\begin{tabular}[t]{@{}c@{}}
+       nom-dat-arg\\
+       \upshape [\subcat \sliste{ NP[\type{nom}], NP[\type{acc}] }]\end{tabular}},name=nom-dat-arg]]
+    [nominal-sem-sign
+      [1]
+      [2]
+      [{\begin{tabular}[t]{@{}c@{}}
+       3\\
+       \upshape [\textsc{ind|per} \type{3}]\end{tabular}},name=3rd]]
+    [{\begin{tabular}[t]{@{}c@{}}
+      verbal-sem-sign\\
+      \upshape [\cont \type{psoa}]\end{tabular}}
+      [{\begin{tabular}[t]{@{}c@{}}
+       agens\\
+      \upshape [\cont \type{agens-rel}]\end{tabular}}
+      [agens-exp, edge to=!un, name=agens-exp %before drawing tree={x/.option=!r.x}
+      ]]
+      [{\begin{tabular}[t]{@{}c@{}}
+       experiencer\\
+      \upshape [\cont \type{exp-rel}]\end{tabular}}
+        ]]]
+  \end{forest}}
 \end{frame}
 
 \begin{frame}
