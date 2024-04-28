@@ -25,7 +25,6 @@
 \begin{frame}
   {Welche Informationen sind wirklich idiosynkratisch?}
   \onslide<+->
-  \onslide<+->
   \begin{itemize}[<+->]
     \item \alert{\textit{Buch}}
       \begin{itemize}[<+->]
@@ -71,6 +70,7 @@
   \end{avm}\\
   \Doppelzeile
   \raggedright
+  \onslide<+->
   Die Typen \textit{noun} und \textit{nom-obj} sind dann anderswo in der Hierarchie zu spezifizieren.\\
   \grau{\footnotesize Hier nur der Illustration halber. Alle Werte haben wiederum Typen.}\\
   \onslide<+->
@@ -93,6 +93,7 @@
   Achtung! Die Aussagen auf der letzten Folie zu \textit{nom-obj} gelten z.\,B.\ \alert{nicht für Pronomina}.\\
   \centering
   \Halbzeile
+  \onslide<+->
   \scalebox{0.7}{\begin{avm}
     \[ \asort{count-appellative-noun-sign}
       cat|subcat & \<\[ cat|head & \ty{det} \]\> \\
@@ -106,6 +107,7 @@
   \Zeile
   \raggedright
   Für Feminina gilt zusätzlich:\\
+  \onslide<+->
   \Halbzeile
   \centering 
   \scalebox{0.7}{\begin{avm}
@@ -123,6 +125,7 @@
   \grau{\footnotesize Hier nur beispielhafte Toy-Hierarhie. Eine größere Hierarchie weiter unten und später in \textit{Trale}.}\\
   \centering 
   \Zeile
+  \onslide<+->
   \scalebox{0.6}{\begin{forest}
     typehierarchy,
     for tree={
@@ -232,6 +235,8 @@
 
 \begin{frame}
   {Möglicher größerer Ausschnitt der Typhierarchie}
+  \onslide<+->
+  \onslide<+->
   \centering 
   \scalebox{0.5}{\begin{forest}
   typehierarchy
@@ -284,47 +289,338 @@
 \end{frame}
 
 \begin{frame}
-  {Maximal spezifische Typen und "`Wortklassen"'}
+  {Typen und "`Wortarten"'}
+  \onslide<+->
+  \onslide<+->
+  Platitüde aus der Morphologie- oder Syntaxeinführung: \alert{Wortarten sind immer\\
+  nur ein Konstrukt. Wir teilen Wörter grob so ein, wie wir es für die Grammatik brauchen.}\\
+  \Zeile
+  \begin{itemize}[<+->]
+    \item Solche Äußerungen treffen auf \rot{nicht-formalisierte Grammatiken} zu.
+    \Viertelzeile
+    \item In der \alert{Formalisierung} verschwinden diese Einschränkungen:
+      \begin{itemize}[<+->]
+        \item \alert{Typen} erfassen Generalisierungen über Wörter und Wortformen.
+        \item \alert{Konkrete Wörter} erben von diversen Typen und haben einen maximal spezifischen Typ.
+        \item Wörter bringen zusätzlich \alert{idiosynkratische} Informationen mit.\\
+          \grau{\footnotesize\textit{Frau} ist ein \textit{noun-sign}, \textit{det-sc}, nominal-sem-sign\slash 3 mit \textit{Frau} als \textsc{phon}-Wert.}
+        \item Wortarten erfassen brutalst vereinfacht Teilaspekte dieser Typenhierarchie.
+      \end{itemize}
+      \Viertelzeile
+    \item Wortarten sind Konstrukte, Typen(hierarchien) sind real.
+    \item Wenn Sie sonst nichts aus dieser Vorlesung übrig behalten:\\
+      \alert{Daran} sollten Sie sich erinnern, wenn Sie Wortarten unterrichten.
+  \end{itemize}
 \end{frame}
 
 \section{Lexikonregeln und Passiv}
 
 \begin{frame}
-  {Unäre Regeln}
+  {Unäre Phrasen}
+  \onslide<+->
+  \onslide<+->
+  Nichts verbietet unäre Projektionen in HPSG. Analog zu X-Bar-Syntax:\\
+  \grau{\footnotesize Aus Kontexten wie: \textit{Wir brauchen dringend Zement.}}\\
+  \onslide<+->
+  \Halbzeile
+  \begin{minipage}{0.45\textwidth}
+    \centering 
+    \begin{forest}
+      [NP
+        [N$'$
+          [N
+            [\it Zement]
+          ]
+        ]
+      ]
+    \end{forest}
+  \end{minipage}%
+  \onslide<+->
+  \begin{minipage}{0.5\textwidth}
+    Wir brauchen solche Projektionen nicht.\\
+
+    \Halbzeile
+    \centering
+    \begin{avm}
+      \[
+        phon & \phon{Zement} \\
+        cat & \[
+          head & noun \\
+          subcat \<\> \\
+        \] \\
+      \]
+    \end{avm}\\
+
+    \onslide<+->
+    \Zeile
+    \raggedright
+    Das Wort kommt als NP aus dem Lexikon.
+  \end{minipage}
 \end{frame}
 
 \begin{frame}
-  {Lexikonregeln (DLR)}
+  {Unäre Syntaxregeln}
+  \onslide<+->
+  \onslide<+->
+  Hypothetisches Schema, das ein Stoffsubstantiv zu einem sortalen Nomen macht.\\
+  \grau{\footnotesize (ein bisschen) Zement → (ein) Zement}\\
+  \onslide<+->
+  \Zeile
+  \textit{sortal-noun-unary-phrase} $\Rightarrow$\\
+  \Viertelzeile
+  \begin{minipage}{0.425\textwidth}
+    \scalebox{0.8}{\begin{avm}
+      \[
+        phon & \@2 \\
+        cat & \[
+          head & \@1 \\
+          subcat & \< \[ cat|head & det \] \> \\
+        \] \\
+        cont|restr & \[ \asort{sortal-psoa-rel} psoa-arg & \@3 \] \\
+        single-dtr & \[ 
+          phon & \@2 \\
+          cat & \[ 
+            head & \@1 \\
+            subcat & \<\> \\
+          \] \\
+          cont|restr & \@3 \[ \asort{mass-rel} \] \\
+        \]
+      \]
+    \end{avm}}
+  \end{minipage}%
+  \onslide<+->%
+  \begin{minipage}{0.55\textwidth}
+    \begin{itemize}[<+->]\footnotesize
+      \item Die einzige Tochter ist ein Stoffsubstantiv.
+      \item Es kommt ein sortales Nomen heraus (\textsc{cont}-Magie).
+      \item Das sortale Nomen braucht einen Determinierer\\
+        im Gegensatz zum Stoffsubstantiv.
+      \item \textsc{phon} und \textsc{head} bleiben gleich.
+        \Halbzeile
+      \item Das könnten wir so machen und hätten damit\\
+        eine Art \alert{syntaktischer Konversion}.
+      \item Probleme gäbe es, \rot{wenn das Nomen}\\
+        \rot{bereits Adjunkte zu sich genommen hat}.
+    \end{itemize}
+  \end{minipage}
 \end{frame}
 
 \begin{frame}
-  {Passivregel}
+  {Description-Level-Lexical Rules (DLR)}
+  \onslide<+->
+  \onslide<+->
+  \alert{Lexikonregeln} funktionieren so. Aber \alert{ihre Töchter dürfen nur Lexikoneinträge sein}.\\
+  \onslide<+->
+  \Zeile
+  \centering 
+  \scalebox{0.8}{%
+    \begin{avm}
+      \[ \asort{acc-passive-lexical-rule}
+        cat & \[ 
+          head|vform & passive-participle \\
+          subcat & \<
+            \[
+              cat|head & \[ \asort{noun} cas & nom \] \\
+              cont|ind & \@1 \\
+            \]
+          \>\ $\oplus$\ \@2 \\
+        \]\\
+        lex-dtr & \[ \asort{stem}
+          cat & \[
+            head & verb \\
+            subcat & \<
+              \[
+                cat|head & \[ \asort{noun} cas & nom \]
+              \],
+              \[
+                cat|head & \[ \asort{noun} cas & acc \] \\
+                cont|ind & \@1 \\
+              \]
+            \>\ $\oplus$\ \@2 \\
+          \]
+        \] \\
+      \]
+    \end{avm}
+  }\\
+  \Halbzeile
+  \onslide<+->
+  \grau{\footnotesize Deswegen erkläre ich in \citet{Schaefer2018a}, dass Passiv lexikalisch ist.\\
+    Vollständige Argumentation: \citet{AW98a}}
 \end{frame}
 
 \begin{frame}
-  {Satz mit Verb im Passiv}
+  {Lexikonregeln}
+  \onslide<+->
+  \onslide<+->
+  Wir betrachten hier nur DLR-Lexikonregeln.\\
+  \grau{\footnotesize Alternativen s.\ \citet[Kapitel~6]{MuellerLehrbuch3}.}\\
+  \Halbzeile
+  \begin{itemize}[<+->]
+    \item Lexikonregeln sind Teil des Formalismus.
+    \item Es gibt keinen formalen Unterschied zwischen Morphologie und Syntax.
+    \item Sie sind unäre Regeln, die auf Lexikoneinträge beschränkt sind.
+    \item Die \textsc{lex-dtr} ist der lexiklaische Input.
+    \item Alles, worüber die Regel nichts aussagt, wird übernommen.
+      \Halbzeile
+    \item So geht Passiv, Flexion, Wortbildung usw.
+    \item Theorien wie HPSG sind \alert{Theorien des gesamten Sprachsystems} inkl.\ Lexikon,\\
+      sie sind \rot{keine Syntaxen im engeren Sinn}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  {Passiv mit Morpholo-Magie}
+  \onslide<+->
+  \onslide<+->
+  Um die Form kümmert sich $f$\,!\\
+  \onslide<+->
+  \Halbzeile
+  \centering 
+  \scalebox{0.7}{%
+    \begin{avm}
+      \[ \asort{acc-passive-lexical-rule}
+        \alert{phon} & \alert{f(\@1)} \\
+        cat & \[ 
+          head|vform & passive-participle \\
+          subcat & \<
+            \[
+              cat|head & \[ \asort{noun} cas & nom \] \\
+              cont|ind & \@1 \\
+            \]
+          \>\ $\oplus$\ \@2 \\
+        \]\\
+        lex-dtr & \[ \asort{stem}
+          \alert{phon} & \alert{\@1} \\
+          cat & \[
+            head & verb \\
+            subcat & \<
+              \[
+                cat|head & \[ \asort{noun} cas & nom \]
+              \],
+              \[
+                cat|head & \[ \asort{noun} cas & acc \] \\
+                cont|ind & \@1 \\
+              \]
+            \>\ $\oplus$\ \@2 \\
+          \]
+        \] \\
+      \]
+    \end{avm}
+  }\\
+  \onslide<+->
+  \Halbzeile
+  Die Funktion \alert{$f$} baut die Form \textit{gekauft} zu \textit{kauf} usw.\\
+  \onslide<+->
+  Und starke Verben?
+\end{frame}
+
+\begin{frame}
+  {Starke Verben}
+  \onslide<+->
+  \onslide<+->
+  Wenn man nicht $f$ noch mehr extern mitgeben will, muss irgendwo\\
+  die \alert{Information über die Stammallomorphie} in \textit{stem}-Typen.\\
+  \onslide<+->
+  \Halbzeile
+  \small Starke Verben:\\
+  \scalebox{0.6}{\begin{avm}
+    \[ \asort{verb-stem-phon}
+      pres-stem & \phon{geb} \\
+      pret-stem & \phon{gab} \\
+      part-stem & \phon{geb} \\
+    \]
+  \end{avm}}\\
+  \onslide<+->
+  \Zeile
+  \small Alternativ die Information über das Ablautmuster für $f$ hinterlegen:\\
+  \scalebox{0.6}{
+    \begin{avm}
+      \[ \asort{stem}
+        phon & \[ \asort{verb-ablaut-eae-phon} \phon{g\_b} \]
+      \]
+    \end{avm}}\\
+  \onslide<+->
+  \Zeile
+  \small Nomina:\\
+  \scalebox{0.6}{\begin{avm}
+    \[ \asort{noun-stem-phon}
+      sg-stem & \phon{haus} \\
+      pl-stem & \phon{häus} \\
+    \]
+  \end{avm}}\\
+  \raggedleft
+  \grau{\footnotesize Siehe \citet{Crysmann2021a} für richtige Morphologie in HPSG.}
 \end{frame}
 
 \section{Flexion und Wortbildung mit Lexikonregeln}
 
 \begin{frame}
   {Plural von Nomina}
-  % Selbstmachen
+  Was leistet Pluralbildung bei Nomina? \onslide<+-> -- Form, Numerus\\
+  \onslide<+->
+  \Zeile
+  \scalebox{0.8}{%
+    \begin{avm}
+      \[ \]
+    \end{avm}
+  }
 \end{frame}
 
 \begin{frame}
   {Verbflexion}
-  % S. 380
+  \onslide<+->
+  \onslide<+->
+  Was leistet Verbflexion? \onslide<+-> -- Form, Tempus, Person, Numerus\grau{, Modus)}\\
+  \grau{\footnotesize Vereinfachung für unsere Zwecke von \citet[380]{MuellerLehrbuch3}.}\\
+  \onslide<+->
+  \Halbzeile
+  \centering 
+  \scalebox{0.75}{%
+    \begin{avm}
+      \[ \asort{fin-verb-infl-lexical-rule}
+        phon & f(\@1, \phon{st}) \\
+        cat & \@2 \[
+          head|vform & fin\\
+          subcat & \< \[
+            cat|head & \[ \asort{noun} cas & nom \] \\
+            cont|ind & \[ per & 2 \\ num & sg \] \\
+          \]\>\ $\oplus$\ \@5 \\
+        \] \\
+        cont & \[ \asort{present-psoa-op} psoa-arg & \@4 \] \\
+      lex-dtr & \[ \asort{stem}
+        phon & \@1 \\
+        cat & \@2 \[ head & verb \] \\
+        cont & \@4 \\
+      \]
+      \] 
+    \end{avm}
+  }
 \end{frame}
 
 \begin{frame}
   {Derivation mit \textit{-bar}}
   % S. 382
+  \onslide<+->
+  \Zeile
+  \scalebox{0.8}{%
+    \begin{avm}
+      \[ \]
+    \end{avm}
+  }
 \end{frame}
 
 \begin{frame}
   {Konversion mit Lexikonregel}
-  % Selbstmachen
+  \onslide<+->
+  \onslide<+->
+  Konversion ist letztlich dasselbe wie Deriavation ohne \textsc{phon}-Modifikation.\\
+  \onslide<+->
+  \Zeile
+  \scalebox{0.8}{%
+    \begin{avm}
+      \[ \]
+    \end{avm}
+  }
 \end{frame}
 
 \section{Nächste Woche}
