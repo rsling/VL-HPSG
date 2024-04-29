@@ -469,7 +469,7 @@
 \end{frame}
 
 \begin{frame}
-  {Passiv mit Morpholo-Magie}
+  {Passiv mit Morpholomagie}
   \onslide<+->
   \onslide<+->
   Um die Form kümmert sich $f$\,!\\
@@ -544,8 +544,14 @@
   \small Nomina:\\
   \scalebox{0.6}{\begin{avm}
     \[ \asort{noun-stem-phon}
-      sg-stem & \phon{haus} \\
-      pl-stem & \phon{häus} \\
+      sg-stem & \phon{Haus} \\
+      pl-stem & \phon{Häus} \\
+    \]
+  \end{avm}}\hspace{1em}%
+  \scalebox{0.6}{\begin{avm}
+    \[ \asort{noun-stem-phon}
+      sg-alloform & \phon{Haus} \\
+      pl-alloform & \phon{Häuser} \\
     \]
   \end{avm}}\\
   \raggedleft
@@ -556,14 +562,34 @@
 
 \begin{frame}
   {Plural von Nomina}
-  Was leistet Pluralbildung bei Nomina? \onslide<+-> -- Form, Numerus\\
+  Was leistet Pluralbildung bei Nomina? \onslide<+-> -- Form, Numerus. Ungefähr so:\\
   \onslide<+->
   \Zeile
-  \scalebox{0.8}{%
+  \centering 
+  \scalebox{0.7}{%
     \begin{avm}
-      \[ \]
+      \[ \asort{noun-plural-lex-rule} 
+        phon & \@1 \\
+        cat & \@2 \[
+          subcat & \< \[ cat|head|nform & pl \] \>
+        \] \\
+        cont & \@3 \[ ind|num & pl \] \\
+        lex-dtr & \[ \asort{stem}
+          phon & \[ pl-alloform & \@1 \] \\
+          cat & \@2 \\
+          cont & \@3 \\
+        \]
+      \]
     \end{avm}
-  }
+  }\\
+  \raggedright
+  \Zeile
+  \begin{itemize}[<+->]
+    \item \textsc{phon} ist hier für \textit{stem} komplex.
+    \item Die eigentliche Quantifikation macht der Quantor.
+    \item Der Quantor muss aber ein pluralischer sein (\textit{zwei}, \textit{mehrere}, \ldots).\\
+      \grau{Das wurde hier behelfsmäßig mit \textsc{nform} implementiert.}
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -599,29 +625,53 @@
 
 \begin{frame}
   {Derivation mit \textit{-bar}}
-  % S. 382
   \onslide<+->
-  \Zeile
-  \scalebox{0.8}{%
+  \onslide<+->
+  \centering 
+  \scalebox{0.65}{%
     \begin{avm}
-      \[ \]
+      \[ \asort{reg-bar-adj-stem}
+        phon & \@1\ $\oplus$\ \phon{bar} \\
+        cat & \[
+          head & \[ \asort{adj} mod & \[
+            cat|head & noun \\
+            cont|ind & \@2 \\
+            \]
+          \]\\
+          subcat & \< \[ cat|head & \[ \asort{prep} pform & von $\vee$\ durch\] \\ cont|ind & \@5 \]\>\ $\oplus$\ \@3\\
+        \] \\
+        cont & \[ \asort{possible-psoa-op}
+          psoa-arg & \@4 \\
+        \] \\
+      lex-dtr & \[ \asort{stem}
+        phon & \@1 \\
+        cat & \[
+          head & verb \\
+          subcat & \<\[ cat|head & \[ \asort{noun} cas & nom\] \\ cont|ind & \@5\], \[cat|head & \[ \asort{noun} cas & acc\] \\ cont|ind & \@2\]\>\ $\oplus$\ \@3 \\
+        \] \\
+        cont & \@4 \\
+      \]
+    \]
     \end{avm}
-  }
+  }\\
+  \Viertelzeile
+  \onslide<+->
+  \grau{\footnotesize Die Version in \citet[382]{MuellerLehrbuch3} ist allgemeiner, aber dadurch schwerer nachvollziehbar.}
 \end{frame}
 
-\begin{frame}
-  {Konversion mit Lexikonregel}
-  \onslide<+->
-  \onslide<+->
-  Konversion ist letztlich dasselbe wie Deriavation ohne \textsc{phon}-Modifikation.\\
-  \onslide<+->
-  \Zeile
-  \scalebox{0.8}{%
-    \begin{avm}
-      \[ \]
-    \end{avm}
-  }
-\end{frame}
+% \begin{frame}
+%   {Konversion mit Lexikonregel}
+%   \onslide<+->
+%   \onslide<+->
+%   Konversion ist letztlich dasselbe wie Deriavation ohne \textsc{phon}-Modifikation.\\
+%   \onslide<+->
+%   \Zeile
+%   \scalebox{0.8}{%
+%     \begin{avm}
+%       \[ \]
+%     \end{avm}
+%   }
+% \end{frame}
 
 \section{Nächste Woche}
 
