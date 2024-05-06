@@ -200,7 +200,7 @@
   \Zeile 
   \onslide<+->
   \scalebox{0.8}{\begin{avm}
-    \[ phon & ein Kollege \\
+    \[ phon & \phon{ein, Kollege} \\
       head & \[ \asort{noun} \] \\
       \alert{content} & \alert{\[ index & \@1 \\
         restrictions & \< \[ \asort{colleague-rel} instance & \@1 \]\>
@@ -208,7 +208,7 @@
     \]
   \end{avm}}\onslide<+->\hspace{2em}%
   \scalebox{0.8}{\begin{avm}
-    \[ phon & ein Buch \\
+    \[ phon & \phon{ein, Buch} \\
       head & \[ \asort{noun} \] \\
       \alert{content} & \alert{\[ index & \@1 \\
         restrictions & \< \[ \asort{book-rel} instance & \@1 \]\>
@@ -231,7 +231,7 @@
   \begin{tabular}{cc}
     \begin{minipage}{0.5\textwidth}
       \scalebox{0.7}{\begin{avm}
-        \[ phon & liest \\
+        \[ phon & \phon{liest} \\
           head & \[ \asort{verb} \] \\
           subcat & \<
             \[ head & \[ \asort{noun} cas & nom \] \\
@@ -351,7 +351,7 @@
   \Zeile
   \centering 
   \scalebox{0.7}{\begin{avm}
-    \[ phon & liest \\
+    \[ phon & \phon{liest} \\
       \alert{cat} & \[
         \alert{head} & \[ \asort{verb} \] \\
         \alert{subcat} & \<
@@ -389,7 +389,7 @@
   \onslide<+->
   \centering 
   \scalebox{0.8}{\begin{avm}
-    \[ phon & eine Kollegin \\
+    \[ phon & \phon{eine, Kollegin} \\
       cat & \[ head & \[ \asort{noun} cas & nom $\vee$ acc $\vee$ dat $\vee$ gen\] \\
                subcat & \<\> 
     \] \\
@@ -488,26 +488,26 @@
   \centering 
   \begin{tabular}[h]{cc}
     \begin{minipage}{0.28\textwidth}
-      \scalebox{0.4}{%
+      \scalebox{0.37}{%
         \begin{avm}
           \[ \asort{\alert<4,6,8>{head-argument-phrase}}
-            phon & ein Ball fliegt \\
+            phon & \phon{ein, Ball, fliegt} \\
             cat & \[ \alert<6>{head} & \alert<6>{\@1} \\
               \alert<4>{subcat} & \alert<4>{\<\>}
             \]\\
             \alert<8>{cont} & \alert<8>{\@2} \\
             \alert<4>{nhd-dtr} & \alert<4>{\@5 \[ \asort{\alert<3,5,7>{head-argument-phrase}}
-             phon & ein Ball \\
+             phon & \phon{ein, Ball} \\
              cat & \[ \alert<5>{head} & \alert<5,10>{\@8 \[ \asort{noun} cas & \@9 nom \]} \\
                \alert<3>{subcat} & \alert<3>{\<\>}
              \] \\
              \alert<7>{cont} & \alert<7>{\@6} \\
              \alert<3>{nhd-dtr} & \alert<3>{\@7 \[ \asort{word}  
-               phon & ein \\
+               phon & \phon{ein} \\
                cat & \[ head & \[ \asort{det} \alert<10>{cas} & \alert<10>{\@9} \] \] \\
              \]} \\
              hd-dtr & \[ \asort{word} 
-               phon & Ball \\
+               phon & \phon{Ball} \\
                cat & \[ \alert<5,10>{head} & \alert<5,10>{\@8} \\
                \alert<3>{subcat} & \alert<3>{\<\@7\>} \] \\
                \alert<7>{cont} & \alert<7>{\@6 \[ \alert<9>{ind} & \alert<9>{\@3 \[ per & 3 \\ num & sg \\ gen & m \]} \\
@@ -516,7 +516,7 @@
              \]
            \]} \\
             hd-dtr & \[ \asort{word} 
-             phon & fliegt \\
+             phon & \phon{fliegt} \\
              cat & \[ \alert<6>{head} & \alert<6>{\@1 \[ \asort{verb} vform & fin \]} \\ 
              \alert<4>{subcat} & \alert<4>{\< \@5 \>}
              \] \\

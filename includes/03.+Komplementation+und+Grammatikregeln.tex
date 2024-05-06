@@ -70,7 +70,7 @@
     \visible<7->{%
       \resizebox{0.62\textwidth}{!}{
         \begin{avm}
-          \[ phon & dass~Matthias~Doro~besucht \\
+          \[ phon & \phon{dass, Matthias, Doro, besucht} \\
             head & \[ \asort{comp} \]
           \]
         \end{avm}} %
@@ -78,7 +78,7 @@
     \visible<6->{%
     & \multicolumn{3}{c}{ %
       \resizebox{0.455\textwidth}{!}{\begin{avm}
-        \[ phon & Matthias~Doro~besucht \\
+        \[ phon & \phon{Matthias, Doro, besucht} \\
           head & \[ \asort{verb} \]
         \]
       \end{avm}} %
@@ -86,31 +86,31 @@
     \visible<5->{%
     & & \multicolumn{2}{c}{ %
       \resizebox{0.29\textwidth}{!}{\begin{avm}
-        \[ phon & Doro~besucht \\
+        \[ phon & \phon{Doro, besucht} \\
           head & \[ \asort{verb} \]
         \]
       \end{avm}} %
     }\\}
     \visible<4->{%
     \resizebox{0.13\textwidth}{!}{\begin{avm}
-      \[ phon & dass \\
+      \[ phon & \phon{dass } \\
         head & \[ \asort{comp} \]
       \]
     \end{avm}} & %
     \resizebox{0.13\textwidth}{!}{\begin{avm}
-      \[ phon & Matthias \\
+      \[ phon & \phon{Matthias } \\
         head & \[ \asort{noun} \]
 
       \]
     \end{avm}} & %
     \resizebox{0.13\textwidth}{!}{\begin{avm}
-      \[ phon & Doro  \\
+      \[ phon & \phon{Doro  } \\
         head & \[ \asort{noun} \]
 
       \]
     \end{avm}} & %
     \resizebox{0.13\textwidth}{!}{\begin{avm}
-      \[ phon & besucht  \\
+      \[ phon & \phon{besucht  } \\
         head & \[ \asort{verb} \]
 
       \]
@@ -129,7 +129,8 @@
   {Phrasen in HPSG}
   \onslide<+->
   \onslide<+->
-  Strukturen mit \alert{Kopf- und Nicht-Kopf-Bündeln}\\
+  Struktur mit \alert{Kopf- und Nicht-Kopf-Bündel} | \gruen{\textsc{head-daughter}}, \gruen{\textsc{non-head-daughter}}\\
+  \grau{\footnotesize Achtung: \textsc{head} sind die Kopf\textit{merkmale}, der Kopf selbst ist die \textsc{head-daughter}}\\
   \onslide<+->
   \Zeile
   \centering
@@ -182,13 +183,13 @@
     \end{forest}}} %
     && %
     \scalebox{0.7}{\begin{avm}
-      \[ phon & dass~Matthias~Doro~besucht \\
-        \whyte<1-3|handout:0>{hd-dtr} & \whyte<1-3|handout:0>{\[ phon & dass \]} \\
-        \whyte<1-4|handout:0>{non-hd-dtr} & \whyte<1-4|handout:0>{\[ phon & Matthias~Doro~besucht \\
-                         \whyte<1-5|handout:0>{non-hd-dtr} & \whyte<1-5|handout:0>{\[ phon & Matthias \]} \\
-                         \whyte<1-6|handout:0>{hd-dtr} & \whyte<1-6|handout:0>{\[ phon & Doro~besucht \\
-                           \whyte<1-7|handout:0>{non-hd-dtr} & \whyte<1-7|handout:0>{\[ phon & Doro \]} \\
-                           \whyte<1-8|handout:0>{hd-dtr} & \whyte<1-8|handout:0>{\[ phon & besucht \]} \\
+      \[ phon & \phon{dass, Matthias, Doro, besucht} \\
+        \whyte<1-3|handout:0>{hd-dtr} & \whyte<1-3|handout:0>{\[ phon & \phon{dass} \]} \\
+        \whyte<1-4|handout:0>{non-hd-dtr} & \whyte<1-4|handout:0>{\[ phon & \phon{Matthias, Doro, besucht } \\
+                         \whyte<1-5|handout:0>{non-hd-dtr} & \whyte<1-5|handout:0>{\[ phon & \phon{Matthias} \]} \\
+                         \whyte<1-6|handout:0>{hd-dtr} & \whyte<1-6|handout:0>{\[ phon & \phon{Doro, besucht } \\
+                           \whyte<1-7|handout:0>{non-hd-dtr} & \whyte<1-7|handout:0>{\[ phon & \phon{Doro} \]} \\
+                           \whyte<1-8|handout:0>{hd-dtr} & \whyte<1-8|handout:0>{\[ phon & \phon{besucht} \]} \\
                          \]} \\
                        \]}
       \]
@@ -271,7 +272,7 @@
   \onslide<+->
   \onslide<+->
   HPSG | \alert{Die gleichen Abhängigkeiten ohne Bewegung}, dafür mit \alert{Strukturteilung}\\
-  \grau{\footnotesize Aber nicht unbedingt ohne leere Elemente!}\\
+  \grau{\footnotesize Aber nicht unbedingt ohne leere Elemente.}\\
   \onslide<+->
   \Zeile
   \centering 
@@ -299,12 +300,12 @@
     \end{forest}} && % 
     \onslide<+->\alt<1-4|handout:0>{%
     \scalebox{0.55}{\begin{avm}
-      \[ phon & Matthias~besucht~Doro \\
-        non-hd-dtr & \[ phon & Matthias \] \\
-        hd-dtr & \[ phon & besucht~Doro \\
-          hd-dtr & \[ phon & besucht \] \\
-          non-hd-dtr & \[ phon & Doro \\
-            non-hd-dtr & \[ phon & Doro \] \\
+      \[ phon & \phon{Matthias, besucht, Doro} \\
+        non-hd-dtr & \[ phon & \phon{Matthias} \] \\
+        hd-dtr & \[ phon & \phon{besucht, Doro} \\
+          hd-dtr & \[ phon & \phon{besucht} \] \\
+          non-hd-dtr & \[ phon & \phon{Doro} \\
+            non-hd-dtr & \[ phon & \phon{Doro} \] \\
             hd-dtr & \[ phon & \<\> \\
               non-hd-dtr & \[ phon & \<\> \] \\
               hd-dtr & \[ phon & \<\> \]
@@ -314,15 +315,15 @@
       \]
     \end{avm}}}{%
     \scalebox{0.55}{\begin{avm}
-      \[ phon & Matthias~besucht~Doro \\
-        non-hd-dtr & \alert{\[ phon & Matthias \\ 
+      \[ phon & \phon{Matthias, besucht, Doro} \\
+        non-hd-dtr & \alert{\[ phon & \phon{Matthias } \\ 
           some-features & \@1
         \]} \\
-        hd-dtr & \[ phon & besucht~Doro \\
-          hd-dtr & \gruen{\[ phon & besucht \\
+        hd-dtr & \[ phon & \phon{besucht, Doro} \\
+          hd-dtr & \gruen{\[ phon & \phon{besucht} \\
           some-features & \@2 \]} \\
-          non-hd-dtr & \[ phon & Doro \\
-            non-hd-dtr & \[ phon & Doro \] \\
+          non-hd-dtr & \[ phon & \phon{Doro} \\
+            non-hd-dtr & \[ phon & \phon{Doro} \] \\
             hd-dtr & \[ phon & \<\> \\
               non-hd-dtr & \alert{\[ phon & \<\> \\
               some-features & \@1 \]} \\
@@ -354,7 +355,7 @@
   \centering 
   \begin{avm}
     \[
-      phon & \alert{wegen} \\
+      phon & \alert{\phon{wegen}} \\
     head & \[ \asort{prep} \] \\
     \gruen{subcat} & \gruen{\< \[ 
       head & \[ \asort{noun} 
@@ -376,7 +377,7 @@
   \centering 
   \Zeile
   \scalebox{0.6}{\begin{avm}
-    \[ phon & \alert{Telefon} \\
+    \[ phon & \alert{\phon{Telefon}} \\
       head & \[ \asort{\orongsch{count-noun}}
         gen & \@1 neut \\
         num & \@2 sg \\
@@ -391,7 +392,7 @@
       \>}
     \]
   \end{avm}}\onslide<+->\hspace{3em}\scalebox{0.6}{\begin{avm}
-    \[ phon & \alert{Saft} \\
+    \[ phon & \alert{\phon{Saft}} \\
       head & \[ \asort{\orongsch{mass-noun}}
         gen & \@1 masc \\
         num & \@2 sg \\
@@ -400,7 +401,7 @@
       \gruen{subcat} & \gruen{\<\>} \\
     \]
   \end{avm}}\onslide<+->\hspace{3em}\scalebox{0.6}{\begin{avm}
-    \[ phon & \alert{Saft} \\
+    \[ phon & \alert{\phon{Saft}} \\
       head & \[ \asort{\orongsch{sort-noun}} 
         gen & \@1 masc \\
         num & \@2 sg \\
@@ -431,7 +432,7 @@
   \centering 
   \scalebox{0.7}{%
     \begin{avm}
-      \[ phon & \alert{schläft} \\
+      \[ phon & \alert{\phon{schläft}} \\
         head & \[ \asort{verb} 
           vform & fin \\
           per & \@1 3 \\
@@ -450,7 +451,7 @@
   \onslide<+->\hspace{2em}%
   \scalebox{0.7}{%
     \begin{avm}
-      \[ phon & \alert{testet} \\
+      \[ phon & \alert{\phon{testet}} \\
         head & \[ \asort{verb} 
           vform & fin \\
           per & \@1 3 \\
@@ -480,7 +481,7 @@
 
 \newcommand{\AvmDreiA}{%
   \begin{avm}
-    \[ phon & testet \\
+    \[ phon & \phon{testet} \\
       head & \[ \asort{verb} 
         vform & fin \\
       \] \\
@@ -498,7 +499,7 @@
 
 \newcommand{\AvmDreiB}{%
   \begin{avm}
-    \alert{\@1 \[ phon & einen Verstärker \\
+    \alert{\@1 \[ phon & \phon{einen, Verstärker} \\
       head & \[ \asort{noun} 
         case & acc \]
       \]}
@@ -507,7 +508,7 @@
 
 \newcommand{\AvmDreiC}{%
   \begin{avm}
-    \gruen{\@2 \[ phon & Jörg \\
+    \gruen{\@2 \[ phon & \phon{Jörg} \\
       head & \[ \asort{noun} 
        case & nom $\vee$ acc $\vee$ dat \]
      \]}
@@ -516,7 +517,7 @@
 
 \newcommand{\AvmDreiAa}{%
   \begin{avm}
-    \[ phon & testet einen Verstärker \\
+    \[ phon & \phon{testet, einen, Verstärker} \\
       head & \[ \asort{verb} 
         vform & fin \\
       \] \\
@@ -531,7 +532,7 @@
 
 \newcommand{\AvmDreiAb}{%
   \begin{avm}
-    \[ phon & Jörg testet einen Verstärker \\
+    \[ phon & \phon{Jörg, testet, einen, Verstärker} \\
       head & \[ \asort{verb} 
         vform & fin \\
       \] \\
@@ -622,19 +623,19 @@
   \Halbzeile
   \centering 
   \scalebox{0.6}{\begin{avm}
-    \[ phon & Jörg einen Verstärker testet \\
+    \[ phon & \phon{Jörg, einen, Verstärker, testet} \\
       \rot{head} & \rot{\@3} \\
       subcat & \<\> \\
-      non-hd-dtr & \gruen{\@2 \[ phon & Jörg \\
+      non-hd-dtr & \gruen{\@2 \[ phon & \phon{Jörg } \\
         head & \[ \asort{noun} case & nom \]
       \]} \\
-      \rot{hd-dtr} & \[ phon & einen Verstärker testet \\
+      \rot{hd-dtr} & \[ phon & \phon{einen, Verstärker, testet} \\
         \rot{head} & \rot{\@3} \\
         subcat & \<\gruen{\@2}\> \\
-        non-hd-dtr & \alert{\@1 \[ phon & einen Verstärker \\
+        non-hd-dtr & \alert{\@1 \[ phon & \phon{einen, Verstärker} \\
           head & \[ \asort{noun} case & acc \]
         \]} \\
-        \rot{hd-dtr} & \[ phon & testet \\
+        \rot{hd-dtr} & \[ phon & \phon{testet} \\
           \rot{head} & \rot{\@3 \[ \asort{verb} vform & fin \]} \\
           subcat & \<\gruen{\@2}, \alert{\@1}\> \\
         \] \\
@@ -673,22 +674,22 @@
   \onslide<+->
   \Halbzeile
   \centering 
-  \scalebox{0.6}{\begin{avm}
-    \[ phon & Jörg einen Verstärker testet \\
+  \scalebox{0.55}{\begin{avm}
+    \[ phon & \phon{Jörg, einen, Verstärker, testet} \\
       head & \@3 \\
       subcat & \<\> \\
-      non-hd-dtr & \@2 \[ phon & Jörg \\
+      non-hd-dtr & \@2 \[ phon & \phon{Jörg} \\
         head & \[ \asort{noun} case & nom \] \\
         \orongsch{subcat} & \orongsch{\<\>} \\
       \] \\
-      hd-dtr & \[ phon & einen Verstärker testet \\
+      hd-dtr & \[ phon & \phon{einen, Verstärker, testet} \\
         head & \@3 \\
         subcat & \<\@2\> \\
-        non-hd-dtr & \@1 \[ phon & einen Verstärker \\
+        non-hd-dtr & \@1 \[ phon & \phon{einen, Verstärker} \\
           head & \[ \asort{noun} case & acc \] \\
           \orongsch{subcat} & \orongsch{\<\>} \\
         \] \\
-        hd-dtr & \[ phon & testet \\
+        hd-dtr & \[ phon & \phon{testet} \\
           head & \@3 \[ \asort{verb} vform & fin \] \\
           subcat & \<\@2, \@1\> \\
         \] \\
@@ -705,21 +706,21 @@
   \begin{tabular}[h]{cc}
     \begin{minipage}{0.35\textwidth}
       \scalebox{0.5}{\begin{avm}
-        \[ phon & Jörg einen Verstärker testet \\
+        \[ phon & \phon{Jörg, einen, Verstärker, testet } \\
           \rot{head} & \rot{\@3} \\
           subcat & \<\> \\
-          non-hd-dtr & \gruen{\@2 \[ phon & Jörg \\
+          non-hd-dtr & \gruen{\@2 \[ phon & \phon{Jörg } \\
             head & \[ \asort{noun} case & nom \] \\
             \orongsch{subcat} & \orongsch{\<\>} \\
           \]} \\
-          \rot{hd-dtr} & \[ phon & einen Verstärker testet \\
+          \rot{hd-dtr} & \[ phon & \phon{einen, Verstärker, testet} \\
             \rot{head} & \rot{\@3} \\
             subcat & \<\gruen{\@2}\> \\
-            non-hd-dtr & \alert{\@1 \[ phon & einen Verstärker \\
+            non-hd-dtr & \alert{\@1 \[ phon & \phon{einen, Verstärker} \\
               head & \[ \asort{noun} case & acc \] \\
               \orongsch{subcat} & \orongsch{\<\>} \\
             \]} \\
-            \rot{hd-dtr} & \[ phon & testet \\
+            \rot{hd-dtr} & \[ phon & \phon{testet} \\
               \rot{head} & \rot{\@3 \[ \asort{verb} vform & fin \]} \\
               subcat & \<\gruen{\@2}, \alert{\@1}\> \\
             \] \\
@@ -822,21 +823,21 @@
   \begin{tabular}[h]{cp{1em}c}
     \begin{minipage}{0.35\textwidth}
       \scalebox{0.5}{\begin{avm}
-        \[ phon & Jörg einen Verstärker testet \\
+        \[ phon & \phon{Jörg, einen, Verstärker, testet} \\
           head & \@3 \\
           subcat & \<\> \\
-          non-hd-dtr & \gruen{\@2 \[ phon & Jörg \\
+          non-hd-dtr & \gruen{\@2 \[ phon & \phon{Jörg } \\
             head & \[ \asort{noun} case & nom \] \\
             subcat & \<\> \\
           \]} \\
-          hd-dtr & \[ phon & einen Verstärker testet \\
+          hd-dtr & \[ phon & \phon{einen, Verstärker, testet} \\
             head & \@3 \\
             subcat & \<\gruen{\@2}\> \\
-            non-hd-dtr & \alert{\@1 \[ phon & einen Verstärker \\
+            non-hd-dtr & \alert{\@1 \[ phon & \phon{einen, Verstärker} \\
               head & \[ \asort{noun} case & acc \] \\
               subcat & \<\> \\
             \]} \\
-            hd-dtr & \[ phon & testet \\
+            hd-dtr & \[ phon & \phon{testet} \\
               head & \@3 \[ \asort{verb} vform & fin \] \\
               subcat & \<\gruen{\@2}, \alert{\@1}\> \\
             \] \\
@@ -850,7 +851,7 @@
         \[ phon & \@{12} $\oplus$ \@{11} $\oplus$ \@{10} \\
           head & \@3 \\
           subcat & \orongsch{\<\>} \\
-          non-hd-dtr & \gruen{\@2 \[ phon & Jörg \\
+          non-hd-dtr & \gruen{\@2 \[ phon & \phon{Jörg} \\
             head & \[ \asort{noun} case & nom \] \\
             subcat & \<\> \\
           \]} \\

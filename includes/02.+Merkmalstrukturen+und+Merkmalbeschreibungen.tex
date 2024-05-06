@@ -154,22 +154,25 @@
   \onslide<+->
   \Halbzeile
   \alert{\begin{avm}
-    \[ graph & \<\it T,i,s,c,h\> \]
+    \[ graph & \<\it d,e,r,T,i,s,c,h\> \]
+  \end{avm}}\hspace{1em}\onslide<+->\alert{\begin{avm}
+    \[ graph & \<\it der, Tisch\> \]
   \end{avm}}\\
   \onslide<+->
   \Zeile
   Auf einer Liste stehen eigentlich auch Merkmalbeschreibungen.\\
   \onslide<+->
   \Viertelzeile
-  \scalebox{0.8}{\begin{avm}
+  \scalebox{0.7}{\begin{avm}
     \[ phon &  \<\[ manner & plosive \\ place & alveolar \],
-    \[ manner & vokal \\ backness & front \\ height & high \\ round & no \],
+    \[ manner & vowel \\ backness & front \\ height & high \\ round & no \],
     \[ manner & fricative \\ place & alveolar \]
   \> \]
   \end{avm}}\\
   \onslide<+->
   \Zeile
-  Strenggenommen falsche Kurzschreibweisen für \textsc{phon} in typischer HPSG\\
+  Mehr oder weniger korrekte Kurzschreibweisen für \textsc{phon} in typischer HPSG\\
+  \grau{\footnotesize Oft: \textit{Ketten von Phonemketten}}\\
   \onslide<+->
   \Viertelzeile
   \orongsch{\begin{avm}
@@ -189,8 +192,8 @@
   Lösung für Probleme mit Genus usw.\ in PSGs von letzter Woche\\
   \onslide<+->
   \Viertelzeile
-  \scalebox{0.8}{\begin{avm}
-    \[ phon & \textit{Tisch} \\
+  \scalebox{0.6}{\begin{avm}
+    \[ phon & \phon{Tisch} \\
       part-of-speech & noun \\
       \alert{gender} & \alert{masculine} \\
       \alert{number} & \alert{sg} \\
@@ -203,7 +206,7 @@
   \onslide<+->
   \Viertelzeile
   \scalebox{0.6}{\begin{avm}
-    \[ phon & \textit{Tisch} \\
+    \[ phon & \phon{Tisch} \\
       pos & n \\
       gen & masc \\
       num & sg \\
@@ -211,7 +214,7 @@
     \]
   \end{avm}}\onslide<+->
   \scalebox{0.6}{\begin{avm}
-    \[ phon & \textit{Tisch} \\
+    \[ phon & \phon{Tisch} \\
       pos & n \\
       gen & masc \\
       num & sg \\
@@ -224,7 +227,7 @@
   \onslide<+->
   \Viertelzeile
   \scalebox{0.6}{\begin{avm}
-    \[ phon & \textit{Tisch} \\
+    \[ phon & \phon{Tisch} \\
       pos & n \\
       gen & masc \\
       num & sg \\
@@ -241,7 +244,7 @@
   \onslide<+->
   \Viertelzeile
   \begin{avm}
-    \[ phon & \textit{sieht} \\
+    \[ phon & \phon{sieht} \\
       pos & v \\
       per & 3 \\
       num & sg \\
@@ -253,7 +256,7 @@
   \Viertelzeile
   \onslide<+->
   \begin{avm}
-    \[ phon & \textit{sieht} \\
+    \[ phon & \phon{sieht} \\
       pos & v \\
       per & 3 \\
       num & sg \\
@@ -262,7 +265,7 @@
   \end{avm}
   \onslide<+->
   \begin{avm}
-    \[ phon & \textit{gesehen} \\
+    \[ phon & \phon{gesehen} \\
       pos & v \\
       \alert{finit} & \alert{false} \\
       \gruen{status} & \gruen{3} \\
@@ -281,7 +284,7 @@
   \Zeile
   \begin{avm}
     \[ \asort{\alert{n}}
-    phon & \textit{Tischs} \\
+    phon & \phon{Tischs} \\
     gen & masc \\
     num & sg \\
     cas & gen \\
@@ -290,7 +293,7 @@
   \onslide<+->
   \begin{avm}
     \[ \asort{\alert{finite-verb}}
-    phon & \textit{sieht} \\
+    phon & \phon{sieht} \\
     per & 3 \\
     num & sg \\
     tense & pres \\
@@ -300,7 +303,7 @@
   \onslide<+->
   \begin{avm}
     \[ \asort{\alert{infinite-verb}}
-    phon & \textit{gesehen} \\
+    phon & \phon{gesehen} \\
     status & 3
   \]
   \end{avm}
@@ -374,7 +377,7 @@
   \Halbzeile
   \begin{avm}
     \[ \asort{finite-verb}
-      phon & \textit{sieht} \\
+      phon & \phon{sieht} \\
       per & 3 \\
       num & sg \\
       tense & pres \\
@@ -393,7 +396,7 @@
   \Halbzeile
   \begin{avm}
     \[ \asort{finite-verb}
-      phon & \textit{sieht} \\
+      phon & \phon{sieht} \\
       per & 3 \\
       num & sg \\
       tense & pres \\
@@ -416,7 +419,7 @@
   \Halbzeile
   \scalebox{0.8}{\begin{avm}
     \[ \asort{finite-verb}
-      phon & \textit{sieht} \\
+      phon & \phon{sieht} \\
       per & \alt<1-3|handout:0>{\alert{3}}{\gruen{\@1 3}} \\
       num & \alt<1-3|handout:0>{\alert{sg}}{\gruen{\@2 sg}} \\
       tense & pres \\
@@ -443,7 +446,7 @@
   \Halbzeile
   \begin{avm}
     \[ \asort{prep} 
-    phon & \textit{wegen} \\
+    phon & \phon{wegen} \\
     subcat & \< \[ \asort{n} 
                 cas & gen \] \>
   \]
@@ -468,7 +471,7 @@
   \Zeile 
   \begin{avm}
     \[ \asort{det} 
-    phon & \textit{des} \\
+    phon & \phon{des} \\
     gen & masc \\
     num & sg \\
     cas & gen \\
@@ -485,7 +488,7 @@
   \Zeile
   \begin{avm}
     \[ \asort{n}
-    phon & \textit{Tischs} \\
+    phon & \phon{Tischs} \\
     per & 3 \\
     gen & \alt<1-5|handout:0>{masc}{\gruen{\@1 masc}} \\
     num & \alt<1-5|handout:0>{sg}{\gruen{\@2 sg}} \\
@@ -507,7 +510,7 @@
 \newcommand{\AvmA}{%
   \begin{avm}
     \[ \asort{n}
-    phon & \textit{Tischs} \\
+    phon & \phon{Tischs} \\
     per & \gruen{\@1 3} \\
     gen & \gruen{\@2 masc} \\
     num & \gruen{\@3 sg} \\
@@ -524,7 +527,7 @@
 \newcommand{\AvmB}{%
   \begin{avm}
     \[ \asort{det}
-      phon & \textit{des} \\
+      phon & \phon{des} \\
        gen & \gruen{\@2} \\
        num & \gruen{\@3} \\
        cas & \gruen{\@4} \\
@@ -536,7 +539,7 @@
 \newcommand{\AvmC}{%
   \begin{avm}
     \[ \asort{n} 
-      phon & \textit{des Tischs} \\
+      phon & \phon{des, Tischs} \\
       per & \gruen{\@1} \\ 
       gen & \gruen{\@2} \\
       num & \gruen{\@3} \\
@@ -551,7 +554,6 @@
   \onslide<+->
   \orongsch{In HPSG gibt es eigentlich keine Bäume.} Zur Illustration aber hilfreich:\\
   \onslide<+->
-  \Zeile
   \centering
   \begin{forest}
     [ \scalebox{0.6}{\AvmC}
@@ -581,7 +583,7 @@
 \newcommand{\AvmAb}{%
   \begin{avm}
     \[ \asort{n}
-    phon & \textit{Tischs} \\
+    phon & \phon{Tischs} \\
     \alert{head} & \alert{\[ 
       per & \@1 3 \\
       gen & \@2 masc \\
@@ -601,7 +603,7 @@
 \newcommand{\AvmBb}{%
   \begin{avm}
     \[ \asort{det}
-      phon & \textit{des} \\
+      phon & \phon{des} \\
       \alert{head} & \alert{\[ 
          gen & \@2 \\
          num & \@3 \\
@@ -615,7 +617,7 @@
 \newcommand{\AvmCb}{%
   \begin{avm}
     \[ \asort{n} 
-      phon & \textit{des Tischs} \\
+      phon & \phon{des, Tischs} \\
       \alert{head} & \alert{\[
         per & \@1 \\
         gen & \@2 \\
@@ -633,7 +635,6 @@
   \onslide<+->
   \alert{Head features} | \alert{Bündel der Merkmale}, die vom Kopf zur Phrase projizieren\\
   \onslide<+->
-  \Halbzeile
   \centering
   \begin{forest}
     [ \alt<1-3|handout:0>{\scalebox{0.6}{\AvmC}}{\scalebox{0.6}{\AvmCb}}
@@ -647,7 +648,7 @@
 \newcommand{\AvmAc}{%
   \begin{avm}
     \[ \asort{n}
-    phon & \textit{Tischs} \\
+    phon & \phon{Tischs} \\
     head & \gruen{\@5} \[ 
       per & 3 \\
       gen & \@2 masc \\
@@ -667,7 +668,7 @@
 \newcommand{\AvmBc}{%
   \begin{avm}
     \[ \asort{det}
-      phon & \textit{des} \\
+      phon & \phon{des} \\
       head & \gruen{\@6} \\
        subcat & \<\>
     \]
@@ -677,7 +678,7 @@
 \newcommand{\AvmCc}{%
   \begin{avm}
     \[ \asort{n} 
-      phon & \textit{des Tischs} \\
+      phon & \phon{des, Tischs} \\
       head & \gruen{\@5} 
   \]
   \end{avm}
@@ -689,7 +690,6 @@
   \onslide<+->
   Durch Merkmalbündel | Optimale Struktur finden\slash \alert{Generalisierungen abbilden}\\
   \onslide<+->
-  \Halbzeile
   \centering
   \begin{forest}
     [ \alt<1-3|handout:0>{\scalebox{0.6}{\AvmCb}}{\scalebox{0.6}{\AvmCc}}
@@ -703,7 +703,7 @@
 \newcommand{\AvmAd}{%
   \begin{avm}
     \[ \asort{\orongsch{word}}
-    phon & \textit{Tischs} \\
+    phon & \phon{Tischs} \\
     head & \gruen{\@5} \[ 
       \asort{\orongsch{n}}
       per & 3 \\
@@ -726,7 +726,7 @@
 \newcommand{\AvmBd}{%
   \begin{avm}
     \[ \asort{\orongsch{word}}
-      phon & \textit{des} \\
+      phon & \phon{des} \\
       head & \gruen{\@6} \\
        subcat & \<\>
     \]
@@ -736,7 +736,7 @@
 \newcommand{\AvmCd}{%
   \begin{avm}
     \[ \asort{\orongsch{phrase}} 
-      phon & \textit{des Tischs} \\
+      phon & \phon{des Tischs} \\
       head & \gruen{\@5} 
   \]
   \end{avm}
@@ -749,7 +749,6 @@
   \onslide<+->
   Wortartenspezifisch sind die \orongsch{\textsc{head}-Bündel}, nicht die \orongsch{Wörter\slash Phrasen}.\\
   \onslide<+->
-  \Halbzeile
   \centering
   \begin{forest}
     [ \alt<1-3|handout:0>{\scalebox{0.6}{\AvmCc}}{\scalebox{0.6}{\AvmCd}}
@@ -771,7 +770,7 @@
   \onslide<+->
   \scalebox{0.5}{\begin{avm}
     \[ \asort{word} 
-    phon & \textit{wegen} \\
+    phon & \phon{wegen} \\
     head & \[ \asort{prep} \] \\
     subcat & \< \gruen{\[ 
       head & \@1 \[ \asort{n}
@@ -787,7 +786,7 @@
   \Viertelzeile
   \scalebox{0.5}{\begin{avm}
     \[ \asort{phrase} 
-      phon & \textit{des Tischs} \\
+      phon & \phon{des Tischs} \\
       head    & \gruen{\@1} \[ \asort{\gruen{n}}
                    per & 3 \\
                    gen & masc \\

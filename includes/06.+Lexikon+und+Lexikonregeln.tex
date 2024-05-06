@@ -9,7 +9,7 @@
   \begin{itemize}[<+->]
     \item Welche Information ist bei Wörtern wirklich idiosynkratisch (= individuell)?
     \item Wie kann man Generalisierungen im Lexikon erfassen (Typen)?
-    \item Wie helfen Typenhierarchien, die sehr komplexen Lexikoneinträge zu strukturieren.
+    \item Wie helfen Typhierarchien, die sehr komplexen Lexikoneinträge zu strukturieren.
       \Halbzeile
     \item Wie funktionieren Lexikonregeln für das Passiv?
     \item Wie modelliert man Flexion und Wortbildung in HPSG? (Kapitel~19)
@@ -20,7 +20,7 @@
   \grau{\citet[Kapitel~6]{MuellerLehrbuch3}}\\
 \end{frame}
 
-\section{Idiosynkrasie und Typenbildung}
+\section{Idiosynkrasie und Typbildung}
 
 \begin{frame}
   {Welche Informationen sind wirklich idiosynkratisch?}
@@ -28,25 +28,25 @@
   \begin{itemize}[<+->]
     \item \alert{\textit{Buch}}
       \begin{itemize}[<+->]
-        \item \textsc{phon} und \textit{buch-rel}
+        \item \textsc{phon} und \textit{book-rel}
         \item Ansonsten \alert{neutrales Zählsubstantiv}
       \end{itemize}
       \Halbzeile
     \item \alert{\textit{Zement}}
       \begin{itemize}[<+->]
-        \item \textsc{phon} und \textit{zement-rel}
+        \item \textsc{phon} und \textit{cement-rel}
         \item Ansonsten \alert{maskulines Stoffsubstantiv}
       \end{itemize}
       \Halbzeile
     \item \alert{\textit{zerlegen}}
       \begin{itemize}[<+->]
-        \item \textsc{phon} und \textit{zerlegen-rel}
+        \item \textsc{phon} und \textit{disassemble-rel}
         \item Ansonsten \alert{schwaches transitives telisches Agens\slash Patiens-Verb}
       \end{itemize}
       \Halbzeile
     \item \alert{\textit{sehen}}
       \begin{itemize}[<+->]
-        \item \textsc{phon} und \textit{sehen-rel}
+        \item \textsc{phon} und \textit{see-rel}
         \item Und die \alert{Stammformen}
         \item Ansonsten \alert{transitives atelisches Agens\slash Thema-Verb}
       \end{itemize}
@@ -58,7 +58,7 @@
   \onslide<+->
   \onslide<+->
   Was entspricht der \alert{traditionellen Wortklasse \textit{Nomen}}?\\
-  \grau{\footnotesize Wir schreiben jetzt reine Typen ohne eckige Klammern.}\\
+  \grau{\footnotesize Wir schreiben jetzt reine Typangaben in AVMs ohne eckige Klammern.}\\
   \onslide<+->
   \centering 
   \Zeile
@@ -91,6 +91,7 @@
   \onslide<+->
   \onslide<+->
   Achtung! Die Aussagen auf der letzten Folie zu \textit{nom-obj} gelten z.\,B.\ \alert{nicht für Pronomina}.\\
+  \grau{\footnotesize Pronomina führen keine \textsc{rel} ein. Substantive sind dafür immer dritte Person.}\\
   \centering
   \Halbzeile
   \onslide<+->
@@ -292,7 +293,7 @@
   {Typen und "`Wortarten"'}
   \onslide<+->
   \onslide<+->
-  Platitüde aus der Morphologie- oder Syntaxeinführung: \alert{Wortarten sind immer\\
+  Platitüde aus der Morphologie- oder Syntax-Einführung: \alert{Wortarten sind immer\\
   nur ein Konstrukt. Wir teilen Wörter grob so ein, wie wir es für die Grammatik brauchen.}\\
   \Zeile
   \begin{itemize}[<+->]
@@ -304,10 +305,10 @@
         \item \alert{Konkrete Wörter} erben von diversen Typen und haben einen maximal spezifischen Typ.
         \item Wörter bringen zusätzlich \alert{idiosynkratische} Informationen mit.\\
           \grau{\footnotesize\textit{Frau} ist ein \textit{noun-sign}, \textit{det-sc}, nominal-sem-sign\slash 3 mit \textit{Frau} als \textsc{phon}-Wert.}
-        \item Wortarten erfassen brutalst vereinfacht Teilaspekte dieser Typenhierarchie.
+        \item Wortarten erfassen brutal vereinfacht Teilaspekte dieser Typhierarchie.
       \end{itemize}
       \Viertelzeile
-    \item Wortarten sind Konstrukte, Typen(hierarchien) sind real.
+    \item Wortarten sind Konstrukte, Typen (und Typhierarchien) sind real.
     \item Wenn Sie sonst nichts aus dieser Vorlesung übrig behalten:\\
       \alert{Daran} sollten Sie sich erinnern, wenn Sie Wortarten unterrichten.
   \end{itemize}
@@ -362,6 +363,7 @@
   {Unäre Syntaxregeln}
   \onslide<+->
   \onslide<+->
+  Man kann aber \alert{unäre Regeln} einführen und daran beliebige Funktionen aufhängen.\\
   Hypothetisches Schema, das ein Stoffsubstantiv zu einem sortalen Nomen macht.\\
   \grau{\footnotesize (ein bisschen) Zement → (ein) Zement}\\
   \onslide<+->
@@ -401,6 +403,8 @@
         eine Art \alert{syntaktischer Konversion}.
       \item Probleme gäbe es, \rot{wenn das Nomen}\\
         \rot{bereits Adjunkte zu sich genommen hat}.
+      \item \rot{Man vermeidet solche Regeln möglichst\\
+        in der Syntax.}
     \end{itemize}
   \end{minipage}
 \end{frame}
@@ -409,7 +413,7 @@
   {Description-Level-Lexical Rules (DLR)}
   \onslide<+->
   \onslide<+->
-  \alert{Lexikonregeln} funktionieren so. Aber \alert{ihre Töchter dürfen nur Lexikoneinträge sein}.\\
+  \alert{Lexikonregeln} funktionieren ähnlich. Aber \alert{ihre Töchter sind immer Lexikoneinträge}.\\
   \onslide<+->
   \Zeile
   \centering 
@@ -456,13 +460,13 @@
   \grau{\footnotesize Alternativen s.\ \citet[Kapitel~6]{MuellerLehrbuch3}.}\\
   \Halbzeile
   \begin{itemize}[<+->]
-    \item Lexikonregeln sind Teil des Formalismus.
     \item Es gibt keinen formalen Unterschied zwischen Morphologie und Syntax.
+    \item Lexikonregeln sind Teil des Formalismus.
     \item Sie sind unäre Regeln, die auf Lexikoneinträge beschränkt sind.
-    \item Die \textsc{lex-dtr} ist der lexiklaische Input.
+    \item Die \textsc{lex-dtr} ist der lexikalische Input.
     \item Alles, worüber die Regel nichts aussagt, wird übernommen.
       \Halbzeile
-    \item So geht Passiv, Flexion, Wortbildung usw.
+    \item So funktionieren Passiv, Flexion, Wortbildung usw. in HPSG.
     \item Theorien wie HPSG sind \alert{Theorien des gesamten Sprachsystems} inkl.\ Lexikon,\\
       sie sind \rot{keine Syntaxen im engeren Sinn}.
   \end{itemize}
@@ -518,8 +522,8 @@
   {Starke Verben}
   \onslide<+->
   \onslide<+->
-  Wenn man nicht $f$ noch mehr extern mitgeben will, muss irgendwo\\
-  die \alert{Information über die Stammallomorphie} in \textit{stem}-Typen.\\
+  Wenn man nicht $f$ noch mehr externes Wissen mitgeben will, muss man irgendwo\\
+  die \alert{Information über die Stammallomorphie} in \textit{stem}-Typen repräsentieren.\\
   \onslide<+->
   \Halbzeile
   \small Starke Verben:\\
@@ -562,7 +566,7 @@
 
 \begin{frame}
   {Plural von Nomina}
-  Was leistet Pluralbildung bei Nomina? \onslide<+-> -- Form, Numerus. Ungefähr so:\\
+  Worin besteht Pluralbildung bei Nomina? \onslide<+-> -- Formänderung und \textsc{num}:\\
   \onslide<+->
   \Zeile
   \centering 
@@ -571,7 +575,7 @@
       \[ \asort{noun-plural-lex-rule} 
         phon & \@1 \\
         cat & \@2 \[
-          subcat & \< \[ cat|head|nform & pl \] \>
+          subcat & \< \[ cat|head|numform & pl \] \>
         \] \\
         cont & \@3 \[ ind|num & pl \] \\
         lex-dtr & \[ \asort{stem}
@@ -586,9 +590,9 @@
   \Zeile
   \begin{itemize}[<+->]
     \item \textsc{phon} ist hier für \textit{stem} komplex.
-    \item Die eigentliche Quantifikation macht der Quantor.
-    \item Der Quantor muss aber ein pluralischer sein (\textit{zwei}, \textit{mehrere}, \ldots).\\
-      \grau{Das wurde hier behelfsmäßig mit \textsc{nform} implementiert.}
+    \item Die eigentliche Quantifikation macht der Quantor (Artikel\slash Determinierer).
+    \item Der Quantor muss aber ein pluralischer (\textit{zwei}, \textit{mehrere}, \ldots) sein.\\
+      \grau{Das wurde hier behelfsmäßig mit \textsc{numform} implementiert.}
   \end{itemize}
 \end{frame}
 
@@ -596,7 +600,7 @@
   {Verbflexion}
   \onslide<+->
   \onslide<+->
-  Was leistet Verbflexion? \onslide<+-> -- Form, Tempus, Person, Numerus\grau{, Modus)}\\
+  Worin besteht Verbflexion? \onslide<+-> -- Formänderung, Tempus, Person, Numerus\grau{, Modus)}\\
   \grau{\footnotesize Vereinfachung für unsere Zwecke von \citet[380]{MuellerLehrbuch3}.}\\
   \onslide<+->
   \Halbzeile
@@ -659,19 +663,6 @@
   \grau{\footnotesize Die Version in \citet[382]{MuellerLehrbuch3} ist allgemeiner, aber dadurch schwerer nachvollziehbar.}
 \end{frame}
 
-% \begin{frame}
-%   {Konversion mit Lexikonregel}
-%   \onslide<+->
-%   \onslide<+->
-%   Konversion ist letztlich dasselbe wie Deriavation ohne \textsc{phon}-Modifikation.\\
-%   \onslide<+->
-%   \Zeile
-%   \scalebox{0.8}{%
-%     \begin{avm}
-%       \[ \]
-%     \end{avm}
-%   }
-% \end{frame}
 
 \section{Nächste Woche}
 
