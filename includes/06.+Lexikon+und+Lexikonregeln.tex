@@ -467,12 +467,12 @@
       \Halbzeile
     \item So funktionieren Passiv, Flexion, Wortbildung usw. in HPSG.
     \item Theorien wie HPSG sind \alert{Theorien des gesamten Sprachsystems} inkl.\ Lexikon,\\
-      sie sind \rot{keine Syntaxen im engeren Sinn}.
+      sie sind \rot{keine reinen Syntaxen im engen Sinn}.
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  {Passiv mit Morpholomagie}
+  {Passiv mit Morphonolomagie}
   \onslide<+->
   \onslide<+->
   Um die Form kümmert sich $f$\,!\\
@@ -514,7 +514,7 @@
   \Halbzeile
   Die Funktion \alert{$f$} baut die Form \textit{gekauft} zu \textit{kauf} usw.\\
   \onslide<+->
-  Und starke Verben?
+  \rot{Und starke Verben?}
 \end{frame}
 
 \begin{frame}
@@ -621,7 +621,7 @@
       lex-dtr & \[ \asort{stem}
         phon & \@1 \\
         cat & \@2 \[ head & verb \] \\
-        cont & \@4 \\
+        cont|restr & \@4 \\
       \]
       \] 
     \end{avm}
@@ -645,7 +645,7 @@
           \]\\
           subcat & \< \[ cat|head & \[ \asort{prep} pform & von $\vee$\ durch\] \\ cont|ind & \@5 \]\>\ $\oplus$\ \@3\\
         \] \\
-        cont & \[ \asort{possible-psoa-op}
+        cont|restr & \[ \asort{possible-psoa-op}
           psoa-arg & \@4 \\
         \] \\
       lex-dtr & \[ \asort{stem}
@@ -654,7 +654,7 @@
           head & verb \\
           subcat & \<\[ cat|head & \[ \asort{noun} cas & nom\] \\ cont|ind & \@5\], \[cat|head & \[ \asort{noun} cas & acc\] \\ cont|ind & \@2\]\>\ $\oplus$\ \@3 \\
         \] \\
-        cont & \@4 \\
+        cont|restr & \@4 \\
       \]
     \]
     \end{avm}
@@ -664,6 +664,64 @@
   \grau{\footnotesize Die Version in \citet[382]{MuellerLehrbuch3} ist allgemeiner, aber dadurch schwerer nachvollziehbar.}
 \end{frame}
 
+
+\begin{frame}
+  {Ein Beispiel}
+  \onslide<+->
+  \onslide<+->
+  Beispielkontext: \textit{die durch mich \alert{lösbare} Gleichung}\\
+  \onslide<+->
+  \centering 
+  \Zeile 
+  \scalebox{0.6}{%
+    \begin{avm}
+      \[
+        \asort{reg-bar-adj-stem}
+        phon & \phon{lös,bar} \\
+        cat & \[
+          head & \[
+            \asort{adj}
+            mod & \[
+              cat|head & noun \\
+              cont|ind & \@2 \\
+            \]
+          \] \\
+          subcat & \<\[
+            cat|head & \[
+              \asort{prep}
+              pform & durch \\
+            \] \\
+            cont|ind & \@5 \\
+          \]\> \\
+        \] \\
+        cont|restr & \[ \asort{possible-psoa-op} psoa-arg & \@4 \] \\
+        lex-dtr & \@{100} \\
+      \]
+    \end{avm}
+  }\hspace{1em}\onslide<+->\raisebox{-1.5\baselineskip}{\scalebox{0.6}{%
+    \begin{avm}
+      \@{100} \[
+        \asort{verb-stem} 
+        phon & \phon{lös} \\
+        cat|subcat & \<
+            \[
+              cat|head|cas & nom \\
+              cont|ind & \@5 \\
+            \],
+            \[
+              cat|head|cas & acc \\
+              cont|ind & \@2 \\
+            \]
+          \> \\
+        cont|restr & \@4 \<\[
+            \asort{solve-rel}
+            agent & \@5 \\
+            other &  \@2 \\
+          \]\> \\
+      \]
+    \end{avm}
+  }}
+\end{frame}
 
 \section{Nächste Woche}
 
