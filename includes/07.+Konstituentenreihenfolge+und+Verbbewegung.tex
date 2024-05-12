@@ -1,6 +1,34 @@
 \section{Einleitung}
 
 \begin{frame}
+  {Meditieren Sie fünf Minuten!}
+  \onslide<+->
+  \onslide<+->
+  \centering 
+  \includegraphics[height=0.7\textheight]{graphics/escher_low}\\
+  \grau{\footnotesize M.\,C.\ Escher, \textit{Wasserfall}, Lithografie, 1961.\\
+  \url{https://en.wikipedia.org/wiki/File:Escher_Waterfall.jpg}}
+\end{frame}
+
+\begin{frame}
+  {Das war die Vorbereitung}
+  \onslide<+->
+  \onslide<+->
+  \centering 
+  Sie sind jetzt bereit für den schönsten Lexikoneintrag überhaupt!\\
+  \Doppelzeile
+  \onslide<+->
+  \scalebox{1.5}{%
+    \begin{avm}
+      \[
+        phon & \<\> \\
+        loc  & \@1 \[ cat|head|dsl & \@1 \]
+      \]
+    \end{avm}
+  }
+\end{frame}
+
+\begin{frame}
   {Satzsyntax, und zwar auch noch deutsche!}
   \onslide<+->
   \onslide<+->
@@ -14,6 +42,578 @@
   \centering 
   \grau{\citet[Kapitel~9]{MuellerLehrbuch3}}\\
 \end{frame}
+
+\begin{frame}
+  {Scrambling}
+\end{frame}
+
+\begin{frame}
+  {Linearisierungsregeln}
+\end{frame}
+
+\begin{frame}
+  {Links- und Rechtsköpfigkeit}
+\end{frame}
+
+\section{Verbbewegung}
+
+\begin{frame}
+  {Wiederholung | Bewegungstransformationen}
+  \onslide<+->
+  \onslide<+->
+  \alert{Bewegung} | Erklärt \alert{Abhängigkeiten} zwischen Positionen in Strukturen.\\
+  \grau{\footnotesize\textit{Transformationen} sagt man seit der GB-Theorie nicht mehr. Technisch gesehen sind es Transformationen.}\\
+  \onslide<+->
+  \Zeile
+  \centering
+  \begin{tabular}{cc}
+    \scalebox{0.8}{\begin{forest}
+      [CP
+        [C$'$
+          [C
+            [\it dass, rottree]
+          ]
+          [VP
+            [NP
+              [\it Matthias, bluetree]
+            ]
+            [V$'$
+              [NP
+                [\it Doro]
+              ]
+              [V
+                [\it besucht, gruentree]
+              ]
+            ]
+          ]
+        ]
+      ]
+    \end{forest}} & %
+    \visible<4->{\scalebox{0.8}{\begin{forest}
+      [CP
+        [NP
+            [\it Matthias\Sub{2}, bluetree, name=Matthias]
+        ]
+        [C$'$
+          [C
+            [\it besucht\Sub{1}, gruentree, name=besucht]
+          ]
+          [VP
+            [t\Sub{2}, bluetree, name=t2]
+            [V$'$
+              [NP
+                [\it Doro]
+              ]
+              [V
+                [t\Sub{1}, gruentree, name=t1]
+              ]
+            ]
+          ]
+        ]
+      ]
+      {\draw [<->, bend left=70, gruen, thick] (t1.south) to (besucht.south);}
+      {\draw [<->, bend left=70, trueblue, thick] (t2.south) to (Matthias.south);}
+    \end{forest}}} \\
+  \end{tabular}
+\end{frame}
+
+
+\begin{frame}
+  {Wiederholung | Theorien ohne Transformationen im weiteren Sinn}
+  \onslide<+->
+  \onslide<+->
+  HPSG | \alert{Die gleichen Abhängigkeiten ohne Bewegung}, dafür mit \alert{Strukturteilung}\\
+  \grau{\footnotesize Aber nicht unbedingt ohne leere Elemente.}\\
+  \onslide<+->
+  \Zeile
+  \centering 
+  \begin{tabular}[h]{cp{0.05\textwidth}c}
+    \scalebox{0.6}{\begin{forest}
+      [ VP
+        [NP
+          [\it \alt<1-4|handout:0>{Matthias}{\alert{Matthias\Sub{1}}}]
+        ]
+        [VP
+          [V
+            [\it \alt<1-4|handout:0>{besucht}{\gruen{besucht\Sub{2}}}]
+          ]
+          [VP
+            [NP
+              [\it Doro]
+            ]
+            [V
+              [\alt<1-4|handout:0>{$\emptyset$}{\alert{t\Sub{1}}}]
+              [\alt<1-4|handout:0>{$\emptyset$}{\gruen{t\Sub{2}}}]
+            ]
+          ]
+        ]
+      ]
+    \end{forest}} && % 
+    \onslide<+->\alt<1-4|handout:0>{%
+    \scalebox{0.55}{\begin{avm}
+      \[ phon & \phon{Matthias, besucht, Doro} \\
+        non-hd-dtr & \[ phon & \phon{Matthias} \] \\
+        hd-dtr & \[ phon & \phon{besucht, Doro} \\
+          hd-dtr & \[ phon & \phon{besucht} \] \\
+          non-hd-dtr & \[ phon & \phon{Doro} \\
+            non-hd-dtr & \[ phon & \phon{Doro} \] \\
+            hd-dtr & \[ phon & \<\> \\
+              non-hd-dtr & \[ phon & \<\> \] \\
+              hd-dtr & \[ phon & \<\> \]
+            \]
+          \]
+        \]
+      \]
+    \end{avm}}}{%
+    \scalebox{0.55}{\begin{avm}
+      \[ phon & \phon{Matthias, besucht, Doro} \\
+        non-hd-dtr & \alert{\[ phon & \phon{Matthias } \\ 
+          magical-features & \@1
+        \]} \\
+        hd-dtr & \[ phon & \phon{besucht, Doro} \\
+          hd-dtr & \gruen{\[ phon & \phon{besucht} \\
+          magical-features & \@2 \]} \\
+          non-hd-dtr & \[ phon & \phon{Doro} \\
+            non-hd-dtr & \[ phon & \phon{Doro} \] \\
+            hd-dtr & \[ phon & \<\> \\
+              non-hd-dtr & \alert{\[ phon & \<\> \\
+              magical-features & \@1 \]} \\
+              hd-dtr & \gruen{\[ phon & \<\> \\
+              magical-features & \@2 \]}
+            \]
+          \]
+        \]
+      \]
+    \end{avm}}%
+    }\\
+  \end{tabular}  \\
+  \Zeile
+  \onslide<+->
+  \onslide<+->
+  \gruen{Heute klären wir für das bewegte Verb, wie die Merkmalsmagie funktioniert.}\\
+\end{frame}
+
+\begin{frame}
+  {Nicht streng lokale Theorien}
+  \onslide<+->
+  \onslide<+->
+  Auch bei \textit{Bewegung} geht es letztlich darum, wie die magischen Merkmale\\
+  in der Struktur einander zugeordnet werden können.\\
+  \onslide<+->
+  \Zeile
+  \begin{minipage}{0.35\textwidth}
+    \centering 
+    \scalebox{0.8}{\begin{forest}
+      [CP
+        [NP
+            [\it Matthias\Sub{2}, bluetree, name=Matthias]
+        ]
+        [C$'$
+          [C
+            [\it besucht\Sub{1}, gruentree, name=besucht]
+          ]
+          [VP
+            [t\Sub{2}, bluetree, name=t2]
+            [V$'$
+              [NP
+                [\it Doro]
+              ]
+              [V
+                [t\Sub{1}, gruentree, name=t1]
+              ]
+            ]
+          ]
+        ]
+      ]
+      {\draw [<->, bend left=70, gruen, thick] (t1.south) to (besucht.south);}
+      {\draw [<->, bend left=70, trueblue, thick] (t2.south) to (Matthias.south);}
+    \end{forest}}
+  \end{minipage}\hspace{1em}\begin{minipage}{0.6\textwidth}
+    Probleme\\
+    \Halbzeile
+    \begin{itemize}[<+->]\small
+      \item Koindizierte bewegte Elemente und Spuren müssen eine Kette (\textit{chain}) bilden.
+      \item Dazu muss der Formalismus sie einander zuordnen.
+      \item Aus Sicht des bewegten Elements muss \rot{die gesamte c"=Kommando"=Domäne durchsucht werden}.
+      \item Der Baum kann beliebig komplex sein, es gibt kein einfaches Rezept für die Suche (in der Art von: \textit{aufwärts, dann abwärts: rechts, rechts, links}).
+      \item \rot{Bäume} und \rot{Baumdurchsuchungen} machen solche Theorien unnötig komplex.
+    \end{itemize}
+  \end{minipage}
+\end{frame}
+
+\begin{frame}
+  {Streng lokale Theorien}
+  \onslide<+->
+  \onslide<+->
+  In einer lokalen Theorie müssen die relevanten Informationen\\
+  \alert{am jeweiligen "`Knoten"' verfügbar sein}. Man durchsucht keine Bäume!\\
+  \onslide<+->
+  \Viertelzeile
+  Die Information, dass etwas fehlt, wird an geeigneter Stelle \alert{von Knoten zu Knoten weitergegeben}. Hier steht hinter dem \alert{Doubleslash} jeweils, was fehlt.\\
+  \centering 
+  \onslide<+->
+  \Halbzeile
+  \centering
+    \scalebox{0.8}{\begin{forest}
+        [VP
+          [V
+            [\it besucht]
+          ]
+          [VP//V
+            [NP
+              [\it Matthias]
+            ]
+            [V$'$//V
+              [NP
+                [\it Doro]
+              ]
+              [\gruen<5->{V//V}
+              ]
+            ]
+          ]
+        ]
+      \end{forest}}\onslide<+->\hspace{3em}\scalebox{0.8}{%
+    \gruen{\raisebox{-4.5\baselineskip}{\begin{avm}
+      \[
+        phon & \<\> \\
+        loc  & \@1 \[ cat|head|dsl & \@1 \]
+      \]
+    \end{avm}
+  }}}
+\end{frame}
+
+\begin{frame}
+  {Ausblick auf die Modellierung}
+  \onslide<+->
+  Um \alert{Verbbewegung} zu modellieren, brauchen wir keine neuen Regeln, sondern:\\
+  \Halbzeile
+  \begin{enumerate}[<+->]
+    \item Eine Zusammenfassung von \textsc{cat} und \textsc{cont} zu \alert{\textsc{local}} bzw.\ \alert{\textsc{loc}}.
+    \Viertelzeile
+    \item Eine \alert{lexikalische Verbspur} für alle Verben
+      \begin{itemize}[<+->]
+        \item Ihr \textsc{phon} ist eine leere Liste.
+        \item Ihr Kopfmerkmal \textsc{Doubleslash} bzw.\ \alert{\textsc{dsl} ist strukturgeteilt mit ihrem \textsc{loc}}.
+        \item Mit \textsc{dsl} kodiert sie, was fehlt (also das lexikalische Verb selbst).
+        \item Sie ist \textsc{initial $-$} wie normale Verben.
+        \item Als Kopfmerkmal wird \textsc{head|dsl} in Kopf-Strukturen weitergegeben.
+      \end{itemize}
+      \Viertelzeile
+    \item Einen Lexikoneintrag per \alert{Lexikonregel für das bewegte Verb}
+      \begin{itemize}[<+->]
+        \item Sein \textsc{phon} entspricht dem seiner \textsc{lex-dtr} (normales Verb).
+        \item Er ist \textsc{initial $+$}, weil er links von der VP steht.
+        \item Auf seiner \textsc{subcat} steht eine VP, deren \textsc{loc|cat|head|dsl} \ldots
+        \item \ldots\ mit dem \textsc{loc} seiner \textsc{lex-dtr} token-identisch ist.
+        \item \gruen{Dadurch wird die gesamte Syntax und Semantik des lexikalischen Verbs\\
+          durch die Knoten, deren Kopf die Verbspur ist, in die Verbspur gepumpt.}
+        \item \orongsch{Die Verbspur muss daher nicht verbspezifisch sein!}
+      \end{itemize}
+  \end{enumerate}
+\end{frame}
+
+\newcommand{\AvmGa}{%
+  \scalebox{0.5}{\begin{avm}
+    \[ \asort{word} 
+      phon & \<\> \\
+      loc & \@1 \[cat|head & \@5 \[dsl & \@1 \]\]
+    \]
+  \end{avm}}
+}
+
+\newcommand{\AvmGb}{%
+  \scalebox{0.5}{\begin{avm}
+    \@3 \[ \asort{word}
+      phon & \phon{hustet} \\
+        loc & \@1 \[cat & \[
+          head|initial & $-$ \\
+          subcat & \<\@2 \[
+            loc|cat & \[
+              head & \textit{\sl noun} \\
+              subcat & \<\> \\
+            \]
+          \]\>
+        \]
+      \]
+    \]
+  \end{avm}}
+}
+
+\newcommand{\AvmGc}{%
+  \scalebox{0.5}{\begin{avm}
+    \[ \asort{v1-lex-rule} 
+      phon & \phon{hustet} \\
+      loc|cat & \[
+        head|initial & $+$ \\
+        subcat & \<
+          \@4 \[
+            loc|cat & \[
+              head|dsl & \@1 \\
+              subcat & \<\> \\
+            \]
+          \]
+        \>\\
+      \]\\
+      lex-dtr & \@3 \\
+    \]
+  \end{avm}}
+}
+
+\newcommand{\AvmGd}{%
+  \scalebox{0.5}{\begin{avm}
+    \@2 \[ \asort{word} 
+      phon & \phon{Matthias} \\
+    \]
+  \end{avm}}
+}
+
+\newcommand{\AvmGe}{%
+  \scalebox{0.5}{\begin{avm}
+    \@4 \[ \asort{hd-arg-phr} 
+           phon & \phon{Matthias}$\oplus$\<\> \\
+           loc|cat|head & \@5 \[dsl & \@1 \] \\
+    \]
+  \end{avm}}
+}
+
+\newcommand{\AvmGf}{%
+  \scalebox{0.5}{\begin{avm}
+    \[ \asort{hd-arg-phr}
+      phon & \phon{hustet,Matthias}$\oplus$\<\> \\
+    \]
+  \end{avm}}
+}
+
+\begin{frame}
+  {Analyse (ausnahmsweise als Baum)}
+  \onslide<+->
+  \onslide<+->
+  \alert{V1-Satz} | \textit{Hustet Matthias?} \\
+  \onslide<+->
+  \centering
+  \begin{forest}
+    [\AvmGf
+      [\AvmGc
+        [\AvmGb]
+      ]
+      [\AvmGe
+        [\AvmGd]
+        [\AvmGa]
+      ]
+    ]
+  \end{forest}
+\end{frame}
+
+
+\section{Details der Analyse}
+
+\begin{frame}
+  {Neue Merkmalgeometrie für Zeichen}
+  \onslide<+->
+  \onslide<+->
+  \centering 
+  \begin{avm}
+    \[
+      \asort{sign}
+      phon & \textit{\sl list of phoneme strings} \\
+      \grau{synsem} & \[
+        loc & \[
+          cat & \[
+            head & \textit{\sl head}\\
+            subcat & \textit{\sl list of signs} \\
+          \] \\
+          cont & \textit{\sl cont} \\
+        \]\\
+        \grau{nonloc} & \grau{\textit{\sl non-local}} \\
+      \]
+    \]
+  \end{avm}\\
+  \onslide<+->
+  \Zeile
+  \textsc{nonloc} brauchen wir nächste Woche.\\
+  \onslide<+->
+  \textsc{synsem} brauchen wir bei der Lektüre von \citet{ps2}.
+\end{frame}
+
+\begin{frame}
+  {Lexikonregel für Verben in Nicht-Letzt-Stellung}
+  \onslide<+->
+  \onslide<+->
+  Bildet eine Verb wie \textit{hustet}, das eine VP verlangt, in der es selbst "`fehlt"'.\\
+  \onslide<+->
+  \Zeile
+  \centering 
+  \begin{avm}
+    \[ loc|cat & \[
+      head & \[ \asort{verb}
+        initial & $+$ \\
+      \] \\
+      subcat & \<
+        \[ loc|cat & \[
+          head & \[ \asort{verb} dsl & \gruen{\@1} \] \\
+          subcat & \<\> \\
+        \]
+      \]
+      \> \\
+    \]\\
+      lex-dtr & \[
+        loc & \gruen{\@1} \[
+        cat|head & \[
+          \asort{verb}
+          vform & fin \\
+          initial & $-$ \\
+        \]
+      \]
+      \]
+    \]
+  \end{avm}
+\end{frame}
+
+\begin{frame}
+  {Verbot nicht-stummer Spuren}
+  \onslide<+->
+  \onslide<+->
+  Verhindert ansonsten mögliche Verbdopplung | \textit{\rot{*Hustet Matthias hustet?}}\\
+  \onslide<+->
+  \Zeile
+  \centering 
+  \begin{avm}
+    \[ hd-dtr & \[ \asort{word} phon & \textit{\sl non-empty-list} \] \]
+  \end{avm}\raisebox{-0.75\baselineskip}{$\Rightarrow$%
+  \begin{avm}
+    \[ loc|cat|head|dsl & \textit{\sl none} \]
+  \end{avm}}
+\end{frame}
+
+
+
+
+\newcommand{\AvmGSema}{%
+  \scalebox{0.44}{\begin{avm}
+    \[ \asort{word} 
+      phon & \<\> \\
+      loc & \@1 \[
+        cat|head & \@5 \[dsl & \@1 \] \\
+        cont & \@7 \\
+    \]
+    \]
+  \end{avm}}
+}
+
+\newcommand{\AvmGSemb}{%
+  \scalebox{0.44}{\begin{avm}
+    \@3 \[ \asort{word}
+      phon & \phon{besucht} \\
+        loc & \@1 \[cat & \[
+          head|initial & $-$ \\
+          subcat & \<\@2 NP\UpSub{\sl Nom}{\@{10}}, \@6 NP\UpSub{\sl Acc}{\@{11}}\>
+        \] \\
+        cont & \@7 \[ restr & \< \[ \asort{visit-rel} agent & \@{10} \\ other & \@{11} \] \> \] \\
+      \]
+    \]
+  \end{avm}}
+}
+
+\newcommand{\AvmGSemc}{%
+  \scalebox{0.44}{\begin{avm}
+    \[ \asort{v1-lex-rule} 
+      phon & \phon{besucht} \\
+      loc|cat & \[
+        head|initial & $+$ \\
+        subcat & \<
+          \@4 \[
+            loc|cat & \[
+              head|dsl & \@1 \\
+              subcat & \<\> \\
+            \]
+          \]
+        \>\\
+      \]\\
+      lex-dtr & \@3 \\
+    \]
+  \end{avm}}
+}
+
+\newcommand{\AvmGSemd}{%
+  \scalebox{0.44}{\begin{avm}
+    \@2 \[ \asort{word} 
+      phon & \phon{Matthias} \\
+      loc|cont|ind & \@{10} \\
+    \]
+  \end{avm}}
+}
+
+\newcommand{\AvmGSemdd}{%
+  \scalebox{0.44}{\begin{avm}
+    \@6 \[ \asort{word} 
+      phon & \phon{Doro} \\
+      loc|cont|ind & \@{11} \\
+    \]
+  \end{avm}}
+}
+
+\newcommand{\AvmGSeme}{%
+  \scalebox{0.44}{\begin{avm}
+    \@4 \[ \asort{hd-arg-phr} 
+           phon & \phon{Matthias,Doro}$\oplus$\<\> \\
+           loc & \[
+             cat & \[
+               head & \@5 \[dsl & \@1 \] \\
+               subcat & \<\> \\
+             \] \\
+             cont & \@7 \\
+           \]\\
+    \]
+  \end{avm}}
+}
+
+\newcommand{\AvmGSemee}{%
+  \scalebox{0.44}{\begin{avm}
+    \@4 \[ \asort{hd-arg-phr} 
+           phon & \phon{Doro}$\oplus$\<\> \\
+           loc & \[
+             cat & \[
+               head & \@5 \[dsl & \@1 \] \\
+               subcat & \<\@2\>
+             \] \\
+             cont & \@7 \\
+           \] \\
+    \]
+  \end{avm}}
+}
+
+\newcommand{\AvmGSemf}{%
+  \scalebox{0.44}{\begin{avm}
+    \[ \asort{hd-arg-phr}
+      phon & \phon{besucht,Matthias,Doro}$\oplus$\<\> \\
+      cont & \@7 \\
+    \]
+  \end{avm}}
+}
+
+\begin{frame}
+  {Die Semantik gibt es umsonst!}
+  \onslide<+->
+  \onslide<+->
+  \centering
+  \vspace{-1.75\baselineskip}
+  \begin{forest}
+    [\AvmGSemf
+      [\AvmGSemc
+        [\AvmGSemb]
+      ]
+      [\AvmGSeme
+        [\AvmGSemd]
+        [\AvmGSemee
+          [\AvmGSemdd]
+          [\AvmGSema]
+        ]
+      ]
+    ]
+  \end{forest}
+\end{frame}
+
+
 
 \section{Nächste Woche}
 
