@@ -7,19 +7,313 @@
   Es gibt zwei Arten von Bewegung im Deutschen (und anderen Sprachen).\\
   \Zeile
   \begin{itemize}[<+->]
-    \item x
+    \item Was bedeutet lokale und nicht-lokale Bewegung?
+    \item Warum führen wir \textsc{synsem} in die Merkmalgeometrie ein?
+      \Halbzeile
+    \item Wie modelliert man Vorfeldbesetzung in HPSG?
+    \item Warum kann man nicht wie bei \textsc{dsl} ein Kopfmerkmal nehmen?
+    \item Wie funktionieren alternative Ansätze ohne Spuren?
   \end{itemize}
   \Zeile
   \onslide<+->
   \centering 
-  \grau{\citet[Abschnitt~10.1--10.2]{MuellerLehrbuch3}}\\
+  \grau{\citet[Abschnitt~10.1--10.2, 12.1]{MuellerLehrbuch3}}\\
 \end{frame}
 
 \begin{frame}
   {Was macht Abhängigkeiten nicht-lokal?}
+  \onslide<+->
+  \onslide<+->
+  Bei \textsc{dsl}-\alert{Bewegung} wird der \alert{Kopf} an seine \alert{Phrasengrenze} bewegt.\\
+  \onslide<+->
+  \Viertelzeile
+  \begin{exe}
+    \ex[ ]{\gruen{Hustet\Sub{1}} [Matthias \gruen{t\Sub{1}}]?}
+    \ex[ ]{\gruen{Gibt\Sub{1}} [Doro Matthias den Wagen in einem Stück zurück \gruen{t\Sub{1}}]?}
+    \ex[ ]{\gruen{Glaubt\Sub{1}} [Doro \gruen{t\Sub{1}}, [dass Matthias gut Auto fährt]]?}
+    \ex[*]{\gruen{Fährt\Sub{1}} [Doro weiß, [dass Matthias gut Auto \gruen{t\Sub{1}}]]?}
+  \end{exe}
+  \onslide<+->
+  \Halbzeile
+  Andere Bewegungen gehen (potenziell) über Phrasen- und Clause-Grenzen hinweg.\\
+  \Viertelzeile
+  \begin{exe}
+    \ex[ ]{[Doro hat Matthias [das Buch \orongsch{t\Sub{1}}] gegeben], \orongsch{[das er suchte]\Sub{1}}.}
+    \ex[ ]{[Matthias hat \orongsch{t\Sub{1}} gedacht], \orongsch{[die Hupe zu hören]\Sub{1}}.}
+    \ex[ ]{Matthias hat [das Buch [des Linguisten [aus der Stadt \orongsch{t\Sub{1}}]]]] getroffen,\\
+    \orongsch{[die keine Autobahnanbindung hat]\Sub{1}}.}
+    \ex[ ]{\orongsch{Wen\Sub{1}} [hat Otje behauptet, [dass Carlos \orongsch{t\Sub{1}} gesehen hat]]?}
+  \end{exe}
 \end{frame}
 
+\begin{frame}
+  {Warum reicht \textsc{dsl} hier nicht?}
+  \onslide<+->
+  \onslide<+->
+  \textsc{dsl} ist ein \alert{Kopfmerkmal}!\\
+  \Zeile
+  \begin{itemize}[<+->]
+    \item Auf \textsc{head|dsl} ist das extrahierte Element registriert (als \textsc{loc}-Wert).
+    \item Am Phrasenknoten sind zuletzt die Kopfmerkmale des Kopfs repräsentiert.
+    \item In größeren Strukturen ist ein anderes Wort der Kopf, und \ldots
+    \item \ldots\ das \textsc{dsl}-Merkmal des eingebetteten Kopfs ist nicht mehr zugänglich.
+    \item \rot{Mit \textsc{dsl} kann man nur Kopf-an-Phrase-Bewegung modellieren!}
+      \Halbzeile
+    \item Mit \textsc{nonlocal} (z.\,B.\ \textsc{nonloc|slash}) führen wir neue Listen ein.
+    \item Diese registrieren \alert{nicht-phrasengebundene extrahierte Elemente}: \alert{Gaps}.
+    \item Ihr Inhalt wird von Köpfen und Nicht-Köpfen konkateniert und weitergegeben.
+    \item Irgendwo muss ein passender \alert{Filler} (= bewegtes Element) für jede Gap stehen.
+    \item Dafür gibt es einen neuen Phrasentyp: \alert{\textit{filler-gap-phrase}}.
+  \end{itemize}
+\end{frame}
+
+% S. 165:
+% Die englische Bezeichnung für Fernabhängigkeiten, die mehrere Satzgrenzen überschreiten können, ist unbounded dependencies. Im Unter- schied dazu gibt es Fernabhängigkeiten, die begrenzt sind, aber dennoch nicht lokal. Diese werden auch long distance dependencies genannt. Ein Beispiel für solch eine Fernabhän- gigkeit ist die Extraposition. In (4a) ist ein Relativsatz extraponiert worden, der Frau im Mittelfeld modifiziert. In (4b) ist ein Infinitivkomplement ins Nachfeld gestellt worden.
+% (4) a. Der Mann hat [der Frau _i] den Apfel gegeben, [die er am schönsten fand]i. b. DerMannhat_ibehauptet,[einerFraudenApfelgegebenzuhaben]i.
+
+
 \section{Extraktion mit Spur}
+
+\begin{frame}
+  {Neue Merkmalgeometrie für Zeichen}
+  \onslide<+->
+  \onslide<+->
+  Wir haben letzte Woche bereits \textsc{nonloc} und \textsc{synysem} eingeführt.\\
+  \onslide<+->
+  \Zeile
+  \centering 
+  \begin{avm}
+    \[
+      \asort{sign}
+      phon & \textit{\sl list of phoneme strings} \\
+      \alert{synsem} & \[
+        loc & \[
+          cat & \[
+            head & \textit{\sl head}\\
+            subcat & \textit{\sl list of signs} \\
+          \] \\
+          cont & \textit{\sl cont} \\
+        \]\\
+        \alert{nonloc} & \alert{\[ \asort{nonloc}
+          que   & \textit{\sl list of npros} \\
+          rel   & \textit{\sl list of indices} \\
+          slash & \textit{\sl list of local phrases} \\
+        \]} \\
+      \]
+    \]
+  \end{avm}\\
+  \onslide<+->
+  \Zeile
+  Über \alert{\textsc{nonloc}} werden \alert{Fernabhängigkeiten} modelliert.\\
+  \onslide<+->
+  \Viertelzeile
+  Nur die Merkmale auf \alert{\textsc{synsem}} dürfen lokal selegiert werden!
+\end{frame}
+
+\begin{frame}
+  {Revidiertes Kopf-Argument-Schema}
+  \onslide<+->
+  \onslide<+->
+  Es steht nicht das ganze Zeichen, sondern nur sein \textsc{synsem} auf der \textsc{subcat}.\\
+  \onslide<+->
+  \Zeile
+  \centering 
+  \raisebox{-1.5\baselineskip}{\textit{hd-arg-phr}$\Rightarrow$}\scalebox{1}{%
+    \begin{avm}
+      \[ 
+      synsem|loc|cat|subcat        & \@1 $\oplus$ \@3 \\
+      hd-dtr|synsem|loc|cat|subcat & \@1 $\oplus$ \<\@2\> $\oplus$ \@3 \\
+      \alert{nhd-dtr|synsem}       & \@2 \\
+    \]
+    \end{avm}
+  }
+\end{frame}
+
+\begin{frame}
+  {Spur für die Vorfeldbesetzung}
+  \onslide<+->
+  \onslide<+->
+  Egal, ob Argumente oder Adjunkte extrahiert werden \ldots\\
+  \onslide<+->
+  \Zeile
+  \centering 
+  \scalebox{1}{%
+    \begin{avm}
+      \[ \asort{word}
+        phon & \<\> \\
+        synsem & \[
+          loc & \@1 \\
+          nonloc|slash & \<\@1\> \\
+        \]
+      \]
+    \end{avm}
+  }\\
+  \onslide<+->
+  \Zeile
+  \raggedright
+  Ähnlich wie bei \textsc{dsl}:\\
+  \Halbzeile
+  \begin{itemize}[<+->]
+    \item Phonologisch ist die \alert{Spur\slash Gap} leer.
+    \item Ihr \textsc{synsem|loc}-Wert \mybox1 kommt vom \alert{Filler}.
+    \item Die Gap wird auf der \alert{\textsc{synsem|nonloc|slash}-Liste} registriert.
+    \item Anders als \textsc{dsl} ist \textsc{slash} \alert{nicht lokal\slash kein \textsc{head}-Merkmal}.\\
+      Sonst könnte nicht über Phrasengrenzen hinaus bewegt werden!
+  \end{itemize}
+\end{frame}
+
+\newcommand{\AvmHa}{%
+  \scalebox{0.4}{\gruen{%
+    \begin{avm}
+      \[
+        phon & \<\> \\
+        snynsem & \[
+          loc & \gruen{\@1} \[ cat|head & \@2 \[ dsl & \gruen{\@1} \]\] \\
+          nonloc & \[slash & \<\> \] \\
+        \] \\
+      \]
+    \end{avm}
+  }}
+}
+
+\newcommand{\AvmHb}{%
+  \scalebox{0.4}{\orongsch{%
+    \begin{avm}
+      \[
+        phon & \<\> \\
+        synsem & \rot{\@5} \[
+          loc & \orongsch{\@3} \\
+          nonloc|slash & \<\orongsch{\@3}\> \\
+        \]
+      \]
+    \end{avm}
+  }}
+}
+
+\newcommand{\AvmHc}{%
+  \scalebox{0.4}{%
+    \begin{avm}
+      \[ \asort{hd-arg-phr} 
+        phon & \<\> \\
+        synsem & \@4 \[
+          loc|cat|head & \@2  \[ dsl & \gruen{\@1} \] \\
+          nonloc|slash & \<\orongsch{\@3}\> \\
+        \]
+      \]
+    \end{avm}
+  }
+}
+
+\newcommand{\AvmHd}{%
+  \scalebox{0.4}{%
+    \begin{avm}
+      \[ \asort{v1-lex-rule}
+        phon & \phon{hustet} \\
+        synsem & \[ loc|cat & \[
+          head & \@6 \[ \asort{verb} initial & $+$ \] \\
+          subcat & \<
+          \@4 \[loc|cat|head|dsl & \gruen{\@1} \]
+          \> \\
+        \] \\
+        nonloc|slash & \<\> \\
+        \] \\
+        lex-dtr & \[synsem|loc & \gruen{\@1} \[
+            cat & \[
+              head & \[ \asort{verb} initial & $-$ \] \\
+              subcat & \<\rot{\@5 NP\Up{\sl Nom}}\> \\
+            \] \\
+          \]\\
+        \]
+      \]
+    \end{avm}
+  }
+}
+
+\newcommand{\AvmHe}{%
+  \scalebox{0.4}{%
+    \begin{avm}
+      \[ 
+        phon & \phon{Matthias} \\
+        synsem & \rot{\@5} \[
+          loc & \orongsch{\@3} \\
+        \] \\
+      \]
+    \end{avm}
+  }
+}
+
+\newcommand{\AvmHf}{%
+  \scalebox{0.4}{%
+    \begin{avm}
+      \[ \asort{hd-filler-phr}
+        phon & \phon{Matthias, hustet} \\
+        synsem & \[
+          loc|cat & \[
+            head & \@6 \[ \alert{dsl} & \alert{none} \] \\
+            \alert{subcat} & \alert{\<\>} 
+          \]\\
+          nonloc & \[ \alert{slash} & \alert{\<\>} \] \\
+        \]
+      \]
+    \end{avm}
+  }
+}
+
+\newcommand{\AvmHg}{%
+  \scalebox{0.4}{%
+    \begin{avm}
+      \[ \asort{hd-arg-phr}
+        phon & \phon{hustet} \\
+        synsem & \[
+          loc|cat & \[
+            head & \@6 \\
+            subcat & \<\>
+          \]\\
+          nonloc & \[ slash & \<\orongsch{\@3}\> \] \\
+        \]
+      \]
+    \end{avm}
+  }
+}
+
+\begin{frame}
+  {Verb- und Vorfeldbewegung | \textit{Matthias hustet.}}
+  \onslide<+->
+  \onslide<+->
+  \centering
+  \vspace{-1.75\baselineskip}
+  \begin{forest}
+    [\AvmHf
+      [\AvmHe, edge label={node[midway,below,font=\tiny]{\textsc{nhd-dtr}}}]
+      [\AvmHg, edge label={node[midway,below,font=\tiny]{\textsc{hd-dtr}}}
+        [\AvmHd, edge label={node[midway,below,font=\tiny]{\textsc{hd-dtr}}}]
+        [\AvmHc, edge label={node[midway,below,font=\tiny]{\textsc{nhd-dtr}}}
+          [\AvmHb, edge label={node[midway,below,font=\tiny]{\textsc{nhd-dtr}}}]
+          [\AvmHa, edge label={node[midway,below,font=\tiny]{\textsc{hd-dtr}}}]
+        ]
+      ]
+    ]
+  \end{forest}
+\end{frame}
+
+\begin{frame}
+  {Filler-Gap-Konstruktionen in HPSG}
+  \onslide<+->
+  \onslide<+->
+  \alert{Filler-Gap-Konstruktionen} modellieren ungebundene Dependenzen.\\
+  \Zeile
+  \begin{itemize}[<+->]
+    \item Die Spur führt einen zu ihrem \textsc{loc} identischen \alert{\textsc{nonloc|slash}} ein \alert{(Gap)}.
+    \item Alle Listen auf \textsc{nonloc} von Köpfen und Nicht-Köpfen werden weitergegeben.
+    \item An eine abgeschlossene Clause-Struktur werden \alert{Filler} quasi adjungiert.
+    \item Jede Kombination mit einem Filler reduziert die entsprechende \textsc{nonloc}-Liste.
+    \item Über die Token-Identität mit dem \textsc{loc}-Wert der Gap pumpt der Filler \\
+      alle relevanten Informationen an die Spur-Position.
+      \Halbzeile
+    \item \rot{Fehlt:} Mechanismus, der die \textsc{synsem|nonloc}-Listen aufsammelt.
+    \item \rot{Fehlt:} Schema für die \textsc{head-filler-phrase}.
+  \end{itemize}
+\end{frame}
 
 \section{Extraktion ohne Spur}
 
