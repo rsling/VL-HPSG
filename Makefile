@@ -57,7 +57,7 @@ $(OUTDIR)/%$(SLIDESUFF)$(PROJECT)$(SUFFSUFF): main.tex $(SOURCEDIR)%.tex $(OUTDI
 
 # Phony stuff.
 
-.PHONY: handout01 slides01 handout02 slides02 handout03 slides03 handout04 slides04 handout05 slides05 handout06 slides06 handout07 slides07 handout08 slides08 allhandouts allslides all clean realclean edit
+.PHONY: handout01 slides01 handout02 slides02 handout03 slides03 handout04 slides04 handout05 slides05 handout06 slides06 handout07 slides07 handout08 slides08 handout09 slides09 handout10 slides10 allhandouts allslides all clean realclean edit
 
 handout01: $(OUTDIR)/01.+Phrasenstruktur+und+Phrasenstrukturgrammatik$(HANDOUTSUFF)$(PROJECT)$(SUFFSUFF)
 handout02: $(OUTDIR)/02.+Merkmalstrukturen+und+Merkmalbeschreibungen$(HANDOUTSUFF)$(PROJECT)$(SUFFSUFF)
@@ -67,8 +67,10 @@ handout05: $(OUTDIR)/05.+Adjunktion+und+Spezifikation$(HANDOUTSUFF)$(PROJECT)$(S
 handout06: $(OUTDIR)/06.+Lexikon+und+Lexikonregeln$(HANDOUTSUFF)$(PROJECT)$(SUFFSUFF)
 handout07: $(OUTDIR)/07.+Konstituentenreihenfolge+und+Verbbewegung$(HANDOUTSUFF)$(PROJECT)$(SUFFSUFF)
 handout08: $(OUTDIR)/08.+Nichtlokale+Abhängigkeiten$(HANDOUTSUFF)$(PROJECT)$(SUFFSUFF)
+handout09: $(OUTDIR)/09.+Quantorenspeicher$(HANDOUTSUFF)$(PROJECT)$(SUFFSUFF)
+handout10: $(OUTDIR)/10.+Unterspezifikation$(HANDOUTSUFF)$(PROJECT)$(SUFFSUFF)
 
-allhandouts: handout01 handout02 handout03 handout04 handout05 handout06 handout07 handout08
+allhandouts: handout01 handout02 handout03 handout04 handout05 handout06 handout07 handout08 handout09 handout10
 
 slides01: $(OUTDIR)/01.+Phrasenstruktur+und+Phrasenstrukturgrammatik$(SLIDESUFF)$(PROJECT)$(SUFFSUFF)
 slides02: $(OUTDIR)/02.+Merkmalstrukturen+und+Merkmalbeschreibungen$(SLIDESUFF)$(PROJECT)$(SUFFSUFF)
@@ -78,8 +80,10 @@ slides05: $(OUTDIR)/05.+Adjunktion+und+Spezifikation$(SLIDESUFF)$(PROJECT)$(SUFF
 slides06: $(OUTDIR)/06.+Lexikon+und+Lexikonregeln$(SLIDESUFF)$(PROJECT)$(SUFFSUFF)
 slides07: $(OUTDIR)/07.+Konstituentenreihenfolge+und+Verbbewegung$(SLIDESUFF)$(PROJECT)$(SUFFSUFF)
 slides08: $(OUTDIR)/08.+Nichtlokale+Abhängigkeiten$(SLIDESUFF)$(PROJECT)$(SUFFSUFF)
+slides09: $(OUTDIR)/09.+Quantorenspeicher$(SLIDESUFF)$(PROJECT)$(SUFFSUFF)
+slides10: $(OUTDIR)/10.+Unterspezifikation$(SLIDESUFF)$(PROJECT)$(SUFFSUFF)
 
-allslides: slides01 slides02 slides03 slides04 slides05 slides06 slides07 slides08
+allslides: slides01 slides02 slides03 slides04 slides05 slides06 slides07 slides08 slides09 slides10
 
 complete: $(OUTDIR)/$(PROJECT)$(HANDOUTSUFF)$(FULL)$(SUFFSUFF)
 
