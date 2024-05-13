@@ -28,6 +28,8 @@
   }
 \end{frame}
 
+
+
 \begin{frame}
   {Satzsyntax, und zwar auch noch deutsche!}
   \onslide<+->
@@ -35,7 +37,13 @@
   Über Konstituentenstellung müssen wir sowieso noch reden!\\
   \Zeile
   \begin{itemize}[<+->]
-    \item .
+    \item Wie lizenziert man die freie Konstituentenstellung im Mittelfeld?
+    \item Wie stellt man sicher, dass Köpfe entweder initial oder final in ihrer Phrase stehen?
+    \item Wie kommt das Verb in die "`linke Satzklammer"'?
+      \Halbzeile
+    \item Im Gegensatz zu Stefan finde ich seine Analyse für Verbbewegung\\
+      total gut zu verstehen.
+    \item \grau{Ich lasse allerdings auch einiges von seiner Argumentation weg.}
   \end{itemize}
   \Zeile
   \onslide<+->
@@ -45,14 +53,324 @@
 
 \begin{frame}
   {Scrambling}
+  \onslide<+->
+  \onslide<+->
+  Das Verb steht immer \alert{rechts}. Der Rest macht, was er darf.\\
+  \onslide<+->
+  \Viertelzeile
+  \begin{exe}
+    \ex[ ]{während Otje [den Artikel] \alert{liest}}
+    \ex[ ]{während [den Artikel] Otje \alert{liest}}
+    \ex[ ]{während Otje [den Artikel] schnell \alert{liest}}
+    \ex[ ]{während Otje schnell [den Artikel] \alert{liest}}
+    \ex[ ]{während [den Artikel] Otje schnell \alert{liest}}
+    \ex[ ]{während [den Artikel] schnell Otje \alert{liest}}
+    \ex[ ]{während schnell Otje [den Artikel] \alert{liest}}
+    \ex[ ]{während schnell [den Artikel] Otje \alert{liest}}
+    \Viertelzeile
+    \onslide<+->
+    \ex[*]{während Otje \rot{liest} [den Artikel]}
+    \ex[*]{während [den Artikel] \rot{liest} Otje}
+    \ex[*]{während \rot{liest} Otje [den Artikel]}
+    \ex[*]{während \rot{liest} [den Artikel] Otje}
+  \end{exe}
 \end{frame}
 
 \begin{frame}
-  {Linearisierungsregeln}
+  {Verbbewegung}
+  \onslide<+->
+  \onslide<+->
+  Sie kennen es aus CP\slash IP-Ansätzen. \grau{Darüber ist man sich auch einig.}\\
+  \onslide<+->
+  \Halbzeile
+  \begin{exe}
+    \ex[ ]{\gruen{Liest\Sub{1}} [Otje den Artikel \gruen{t\Sub{1}}]?}
+    \ex[ ]{\orongsch{Otje\Sub{2}} \gruen{liest\Sub{1}} [\orongsch{t\Sub{2}} den Artikel \gruen{t\Sub{1}}].}
+    \ex[ ]{\orongsch{Den Artikel\Sub{2}} \gruen{liest\Sub{1}} [Otje \orongsch{t\Sub{2}} \gruen{t\Sub{1}}].}
+    \ex[ ]{\orongsch{Was\Sub{2}} \gruen{glaubst\Sub{1}} [du [dass Otje \orongsch{t\Sub{2}} gelesen hat] \gruen{t\Sub{1}}]?}
+  \end{exe}
+\end{frame}
+
+\begin{frame}
+  {Binäre Strukturen in der VP}
+  \onslide<+->
+  \onslide<+->
+  Das für mich wichtigste Argument für binäre Verzweigung in der VP.\\
+  \onslide<+->
+  \Halbzeile
+  \begin{exe}
+    \ex[ ]{während [Otje [morgen [den Artikel [schnell [lesen [müssen wird]]]]]]}
+    \Halbzeile
+    \ex[ ]{\gruen{Wird} [Otje [morgen [den Artikel [schnell [lesen [müssen \gruen{t\Sub{1}}]]]]]]?}
+    \ex[ ]{\orongsch{[Lesen [müssen \gruen{t\Sub{1}}]]} \gruen{wird} [Otje [morgen [den Artikel [schnell \orongsch{t\Sub{2}}]]]].}
+    \ex[ ]{\orongsch{[Schnell [lesen [müssen \gruen{t\Sub{1}}]]]} \gruen{wird} [Otje [morgen [den Artikel \orongsch{t\Sub{2}}]]].}
+    \ex[ ]{\orongsch{[Den Artikel [schnell [lesen [müssen \gruen{t\Sub{1}}]]]]} \gruen{wird} [Otje [morgen \orongsch{t\Sub{2}}]].}
+    \ex[ ]{\orongsch{[Morgen [den Artikel [schnell [lesen [müssen \gruen{t\Sub{1}}]]]]]} \gruen{wird} [Otje \orongsch{t\Sub{2}}].}
+  \end{exe}
+  \onslide<+->
+  \Zeile
+  So haben wir jeweils eine \alert{Konstituente}, die ins Vorfeld bewegt werden kann.
+\end{frame}
+
+\section{Konstituententellung in HPSG}
+
+\begin{frame}
+  {Freie Reihenfolge bei der Komplementation}
+  \onslide<+->
+  \onslide<+->
+  Argumente können in beliebiger Reihenfolge saturiert werden.\\
+  \onslide<+->
+  \Zeile
+  \centering 
+  \raisebox{-1.5\baselineskip}{\textit{head-argument-phrase}$\Rightarrow$}%
+  \scalebox{0.8}{\begin{avm}
+    \[
+      loc|cat|subcat & \@1\only<4->{\alert{$\oplus$\<\@2\>}} \\
+      \alt<3|handout:0>{%
+        hd-dtr|loc|cat|subcat & \@1$\oplus$\<\@2\>}{%
+          \alert{hd-dtr|loc|cat|subcat} & \alert{\@1$\oplus$\<\@2\>$\oplus$\@3}} \\
+      nhd-dtr & \@2 \\
+    \]
+  \end{avm}}\\
+  \onslide<+->
+  \onslide<+->
+  \Zeile
+  \raggedright
+  Statt des letzten Arguments irgendeins (\mybox{2}) abbinden:\\
+  \Halbzeile
+  \begin{itemize}[<+->]\footnotesize
+    \item Sowohl \mybox{1} als auch \mybox{3} können leer sein.
+    \item Wenn \mybox{1} leer: erstes Argument abbinden
+    \item Wenn \mybox{3} leer: letztes Argument abbinden (= alte Version)
+    \item Wenn \mybox1 und \mybox3 leer: intransitives Verb
+    \item \grau{Der neue Pfad über \textsc{loc} wird unten motiviert.}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  {Mögliche Struktur | Subjekt zuerst abgebunden}
+  \onslide<+->
+  \onslide<+->
+  \centering 
+  \scalebox{0.55}{%
+    \begin{avm}
+      \[ \asort{hd-arg-phr} 
+        phon & \phon{den,Artikel,Otje,liest} \\
+        loc|cat & \[
+          head & \@1 \\
+          subcat & \<\> \\
+        \] \\
+        nhd-dtr & \@3 \[
+          phon & \phon{den,Artikel} \\
+          loc|cat & \[
+            head & \textit{\sl noun} \\
+            subcat & \<\> \\
+          \]
+        \] \\
+        hd-dtr & \[ \asort{hd-arg-phr} 
+          phon & \phon{Otje,liest} \\
+            loc|cat & \[
+              head & \@1 \\
+              subcat & \<\@3\> \\
+            \] \\
+            nhd-dtr & \@2 \[ \asort{word} 
+              phon & \phon{Otje} \\
+              loc|cat & \[
+                head & \textit{\sl noun} \\
+                subcat & \<\> \\
+              \]
+            \] \\
+            hd-dtr & \[ \asort{word} 
+              phon & \phon{liest} \\
+              loc|cat & \[
+                head & \@1 \\
+                subcat & \<\@2 NP\Up{\sl Nom}, \@3 NP\Up{\sl Acc}\> \\
+              \]
+            \]
+        \]
+      \]
+    \end{avm}
+  }
 \end{frame}
 
 \begin{frame}
   {Links- und Rechtsköpfigkeit}
+  \onslide<+->
+  \onslide<+->
+  Reihenfolge der Argumentabbindung: nur \alert{Dominanz}\\
+  \onslide<+->
+  \Viertelzeile
+  Abfolge der Konstituenten in Struktur: \alert{Präzedenz}\\
+  \grau{\footnotesize Links- und Rechtsköpfigkeit sind nicht modellierbar durch Dominanz!}\\
+  \Zeile
+  \onslide<+->
+  So sollte es sein:\\
+  \Halbzeile
+  \centering 
+  \onslide<+->
+  \scalebox{0.8}{%
+    \begin{avm}
+    \[ \asort{head-arg-phr}
+      phon & \alert{\@1 $\oplus$ \@2} \\
+      hd-dtr|phon & \@1 \phon{in} \\
+      nhd-dtr|phon & \@2 \phon{dem,Buch} \\
+    \]
+    \end{avm}
+  }\onslide<+->\hspace{2em}%
+  \scalebox{0.8}{%
+    \begin{avm}
+    \[ \asort{head-arg-phr} 
+      phon & \gruen{\@2 $\oplus$ \@1} \\
+      hd-dtr|phon & \@1 \phon{liest} \\
+      nhd-dtr|phon & \@2 \phon{das,Buch} \\
+    \]
+    \end{avm}
+  }
+\end{frame}
+
+\begin{frame}
+  {Übergenerierung}
+  \onslide<+->
+  \onslide<+->
+  Achtung | Wir erlauben bisher \rot{zu viele Strukturen}, nicht zu wenige! \\
+  \Zeile
+  \centering 
+  \onslide<+->
+  \scalebox{0.8}{%
+    \begin{avm}
+    \[ \asort{head-arg-phr}
+      phon & \alert{\phon{in,dem,Buch}} \\
+      hd-dtr|phon & \@1 \phon{in} \\
+      nhd-dtr|phon & \@2 \phon{dem,Buch} \\
+    \]
+    \end{avm}
+  }\onslide<+->\hspace{2em}%
+  \scalebox{0.8}{%
+    \begin{avm}
+    \[ \asort{head-arg-phr}
+      phon & \rot{\phon{dem,Buch,in}} \\
+      hd-dtr|phon & \@1 \phon{in} \\
+      nhd-dtr|phon & \@2 \phon{dem,Buch} \\
+    \]
+    \end{avm}
+  }
+\end{frame}
+
+\begin{frame}
+  {Linearisierungsregeln | Präzedenz}
+  \onslide<+->
+  \onslide<+->
+  Köpfe wissen selbst, ob sie \alert{initial} oder \alert{final} stehen müssen.\\
+  \Zeile
+  \onslide<+->
+  \centering 
+  \begin{minipage}{0.45\textwidth}
+    \centering 
+    \scalebox{0.7}{
+      \begin{avm}
+      \[
+        phon & \phon{in} \\
+        loc|cat & \[
+          head & \[ \asort{prep} \alert{initital} & \alert{$+$} \] \\
+          subcat & \<NP\Up{\sl Dat}\> \\
+        \]
+      \]
+      \end{avm}
+    }\\
+    \Zeile
+
+    \onslide<+->
+    \Viertelzeile
+    \scalebox{0.7}{
+      \begin{avm}
+      \[
+        phon & \phon{hustet} \\
+        loc|cat & \[
+          head & \[ \asort{verb} \alert{initital} & \alert{$-$} \] \\
+          subcat & \<NP\Up{\sl Nom}\> \\
+        \]
+      \]
+      \end{avm}
+    }
+  \end{minipage}\onslide<+->\hspace{2em}%
+  \begin{minipage}{0.45\textwidth}
+    Linearisierungsregeln legen fest,\\
+    wie \textsc{phon} konkateniert wird.\\
+    \Halbzeile
+    \begin{itemize}[<+->]
+      \item Mit $<$ wird festegelegt,\\
+        welches \textsc{phon} zuerst kommt.
+        \Halbzeile
+      \item Head[\textsc{init\ $+$}]$<$Argument
+      \item Argument$<$Head[\textsc{init\ $-$}]
+      \Halbzeile
+      \item Adjunct[\textsc{pre-mod\ $+$}]$<$Head
+      \item Head$<$Adjunct[\textsc{pre-mod\ $-$}]
+        \Halbzeile
+      \item Specifier$<$Head
+    \end{itemize}
+  \end{minipage}
+\end{frame}
+
+
+\begin{frame}
+  {Verben stehen also unabhängig von der Dominanzfolge VP-final}
+  \onslide<+->
+  \onslide<+->
+  \centering 
+  \begin{minipage}{0.45\textwidth}
+    \centering 
+    \scalebox{0.55}{%
+      \begin{avm}
+        \[ \asort{hd-arg-phr} 
+          phon & \alert{\@6 $\oplus$ \@5 $\oplus$ \@4} \\
+          loc|cat & \[
+            head & \@1 \\
+            subcat & \<\> \\
+          \] \\
+          nhd-dtr & \@3 \[
+            phon & \alert{\@6 \phon{den,Artikel}} \\
+            loc|cat & \[
+              head & \textit{\sl noun} \\
+              subcat & \<\> \\
+            \]
+          \] \\
+          hd-dtr & \[ \asort{hd-arg-phr} 
+            phon & \alert{\@5 $\oplus$\ \@4} \\
+              loc|cat & \[
+                head & \@1 \\
+                subcat & \<\@3\> \\
+              \] \\
+              nhd-dtr & \@2 \[ \asort{word} 
+                phon & \alert{\@5 \phon{Otje}} \\
+                loc|cat & \[
+                  head & \textit{\sl noun} \\
+                  subcat & \<\> \\
+                \]
+              \] \\
+              hd-dtr & \[ \asort{word} 
+                phon & \alert{\@4 \phon{liest}} \\
+                loc|cat & \[
+                  head & \@1 \[ \asort{verb} \alert{initial} & \alert{$-$} \]\\
+                  subcat & \<\@2 NP\Up{\sl Nom}, \@3 NP\Up{\sl Acc}\> \\
+                \]
+              \]
+          \]
+        \]
+      \end{avm}
+    }
+  \end{minipage}\hspace{1em}\onslide<+->%
+  \begin{minipage}{0.45\textwidth}
+    Ohne Linearisierungsregeln möglich:\\
+    \onslide<+->
+    \Zeile
+    \begin{exe}
+      \ex[*]{während liest Otje den Artikel}
+      \ex[*]{während liest den Artikel Otje}
+      \ex[*]{während Otje liest den Artikel}
+      \ex[*]{während den Artikel liest Otje}
+    \end{exe}
+  \end{minipage}
 \end{frame}
 
 \section{Verbbewegung}
@@ -228,15 +546,15 @@
       {\draw [<->, bend left=70, gruen, thick] (t1.south) to (besucht.south);}
       {\draw [<->, bend left=70, trueblue, thick] (t2.south) to (Matthias.south);}
     \end{forest}}
-  \end{minipage}\hspace{1em}\begin{minipage}{0.6\textwidth}
+  \end{minipage}\hspace{1em}\onslide<+->\begin{minipage}{0.6\textwidth}
     Probleme\\
     \Halbzeile
     \begin{itemize}[<+->]\small
       \item Koindizierte bewegte Elemente und Spuren müssen eine Kette (\textit{chain}) bilden.
       \item Dazu muss der Formalismus sie einander zuordnen.
       \item Aus Sicht des bewegten Elements muss \rot{die gesamte c"=Kommando"=Domäne durchsucht werden}.
-      \item Der Baum kann beliebig komplex sein, es gibt kein einfaches Rezept für die Suche (in der Art von: \textit{aufwärts, dann abwärts: rechts, rechts, links}).
-      \item \rot{Bäume} und \rot{Baumdurchsuchungen} machen solche Theorien unnötig komplex.
+      \item Der Baum kann beliebig komplex sein, es gibt \rot{kein einfaches Rezept für die Suche} (in der Art von: \textit{aufwärts, dann abwärts: rechts, rechts, links}).
+      \item \rot{Bäume} und \rot{Baumdurchsuchungen} machen solche Theorien unnötig komplex und komputational nachteilig.
     \end{itemize}
   \end{minipage}
 \end{frame}
@@ -296,7 +614,7 @@
         \item Ihr Kopfmerkmal \textsc{Doubleslash} bzw.\ \alert{\textsc{dsl} ist strukturgeteilt mit ihrem \textsc{loc}}.
         \item Mit \textsc{dsl} kodiert sie, was fehlt (also das lexikalische Verb selbst).
         \item Sie ist \textsc{initial $-$} wie normale Verben.
-        \item Als Kopfmerkmal wird \textsc{head|dsl} in Kopf-Strukturen weitergegeben.
+        \item Als Kopfmerkmal wird \textsc{loc|cat|head|dsl} in Kopf-Strukturen (VP) weitergegeben.
       \end{itemize}
       \Viertelzeile
     \item Einen Lexikoneintrag per \alert{Lexikonregel für das bewegte Verb}
@@ -430,21 +748,22 @@
   \end{avm}\\
   \onslide<+->
   \Zeile
-  \textsc{nonloc} brauchen wir nächste Woche.\\
+  \alert{\textsc{nonloc}} brauchen wir nächste Woche.\\
   \onslide<+->
-  \textsc{synsem} brauchen wir bei der Lektüre von \citet{ps2}.
+  \alert{\textsc{synsem}} brauchen wir bei der Lektüre von \citet{ps2}.
 \end{frame}
 
 \begin{frame}
   {Lexikonregel für Verben in Nicht-Letzt-Stellung}
   \onslide<+->
   \onslide<+->
-  Bildet eine Verb wie \textit{hustet}, das eine VP verlangt, in der es selbst "`fehlt"'.\\
+  Die Regel bildet eine Verb wie \textit{hustet}, das eine VP verlangt, in der es selbst "`fehlt"' (\textsc{dsl}).\\
   \onslide<+->
   \Zeile
   \centering 
   \begin{avm}
-    \[ loc|cat & \[
+    \[ \asort{v1-lex-rule} 
+      loc|cat & \[
       head & \[ \asort{verb}
         initial & $+$ \\
       \] \\
