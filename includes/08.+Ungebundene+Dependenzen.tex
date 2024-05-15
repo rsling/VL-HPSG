@@ -36,6 +36,7 @@
   \onslide<+->
   \Halbzeile
   Andere Bewegungen gehen (potenziell) über Phrasen- und Clause-Grenzen hinweg.\\
+  \onslide<+->
   \Viertelzeile
   \begin{exe}
     \ex[ ]{[Doro hat Matthias [das Buch \orongsch{t\Sub{1}}] gegeben], \orongsch{[das er suchte]\Sub{1}}.}
@@ -315,7 +316,186 @@
   \end{itemize}
 \end{frame}
 
+\begin{frame}
+  {Aufsammeln von Informationen über Gaps}
+  \onslide<+->
+  \onslide<+->
+  \alert{Nonlocal Feature Principle} \grau{\citep[162]{ps2}}\\
+  \Zeile
+  \centering 
+  \onslide<+->
+  \Large Der Wert jedes \textsc{nonlocal}-Merkmals einer Phrase ist die Vereinigung der entsprechenden \textsc{nonlocal}-Werte der Töchter.\\
+  \onslide<+->
+  \Zeile
+  \footnotesize
+  \grau{Eigentlich komplexer, weil das \textsc{nonlocal}-Merkmal in \citet{ps2} komplexer ist.}
+\end{frame}
+
+\begin{frame}
+  {Schema für \textit{head-filler-phrase}}
+  \onslide<+->
+  \onslide<+->
+  Filler kombinieren mit \gruen{Sätzen}, die ihre \orongsch{Gap} enthalten. Aus Fillern wird \alert{nie extrahiert}.\\
+  \onslide<+->
+  \Doppelzeile
+  \centering 
+  \raisebox{-5\baselineskip}{\textit{head-filler-phrase}$\Rightarrow$}%
+  \begin{avm}
+    \[ 
+      synsem & \[ nonloc|slash & \<\> \] \\
+      head-dtr & \[ synsem & \[
+        \gruen{loc|cat} & \gruen{\[
+          head & \[
+            vform & fin \\
+            initial & $+$ \\
+          \] \\
+          subcat & \<\> \\
+        \]} \\
+        nonloc & \[ \orongsch{slash} & \orongsch{\<\@1\>} \] \\
+      \]
+      \]\\
+      nhd-dtr  & \[
+        synsem & \[
+          \orongsch{loc} & \orongsch{\@1} \\
+          \alert{nonloc|slash} & \alert{\<\>} \\
+        \]
+      \]\\
+    \]
+  \end{avm}
+\end{frame}
+
+\begin{frame}
+  {Typhierarchie für \textit{sign}}
+  \onslide<+->
+  \onslide<+->
+  Das sind die Zeichentypen unserer Grammatik.\\
+  \grau{\footnotesize Erinnerung | \textit{signs} modellieren tatsächliche sprachliche Zeichen.}\\
+  \onslide<+->
+  \centering 
+  \Viertelzeile
+  \scalebox{0.75}{\begin{forest}
+    type hierarchy,
+    for tree={
+      calign=fixed angles,
+      calign angle=50,
+      align=center
+    }
+    [sign
+      [word]
+      [{phrase\\\alert{\footnotesize Nonlocal Feature Principle}}
+        [{non-headed-phrase\\\ }]
+        [{headed-phrase\\\alert{\footnotesize Head Feature Principle}}
+          [{head-non-adjunct-phrase\\\alert{\footnotesize Semantics Principle A}}
+            [{head-argument-phrase\\\gruen{\footnotesize Schema}\\\alert{\footnotesize Subcategorisation Principle A}\\\ }]
+            [{head-filler-phrase\\\gruen{\footnotesize Schema}\\\ }]]
+          [{head-non-argument-phrase\\\alert{\footnotesize Subcategorisation Principle B}\\\alert{\footnotesize Specifier Principle}}
+            [,identify=!r2212]
+            [{head-adjunct-phrase\\\gruen{\footnotesize Schema}\\\alert{\footnotesize Semantics Principle B}}]
+          ]
+        ]
+      ]
+    ]
+  \end{forest}}
+\end{frame}
+
+
 \section{Extraktion ohne Spur}
+
+% \begin{frame}
+%   {Spuren}
+%   \onslide<+->
+%   \onslide<+->
+%   Es gibt verschiedene Möglichkeiten, Fernabhängigkeiten zu modellieren.\\
+%   \Zeile
+%   \begin{itemize}[<+->]
+%     \item \alert{Spuren} | Wort mit leerem \textsc{phon}-Wert
+%     \item \alert{Unäre Regel} | "`Verschiebt"' Eintrag von \textsc{subcat} auf \textsc{slash}.
+%     \item \alert{Lexikonregel} | Wie unäre Regel, nur im Lexikon
+%     \item \alert{Unterspezifizierte} Lexikoneinträge und \alert{relationale Beschänkungen}
+%   \end{itemize}
+% \end{frame}
+
+\begin{frame}
+  {Alternativen | Unäre Regel}
+  \onslide<+->
+  \onslide<+->
+  Unäre Regel, die einen Eintrag von \textsc{subcat} zu \textsc{slash} "`verschiebt"'.\\
+  \Zeile
+  \centering
+  \onslide<+->
+  \raisebox{-3\baselineskip}{\textit{\footnotesize hd-comp-slash-phr}$\Rightarrow$}%
+  \scalebox{0.8}{%
+  \begin{avm}
+    \[
+      synysem & \[
+        loc|cat|subcat & \@1 \\
+        nonloc|slash & \<\@4\>$\oplus$\@5 \\
+      \] \\
+    head-dtr & \[
+      synsem & \[
+        loc|cat|subcat & \@1$\oplus$\<\[
+          synsem & \[
+            loc & \@4 \\
+            nonloc|slash & \@4 \\
+          \] \\
+        \]\> \\
+        nonloc|slash & \@5 \\
+      \] \\
+    \] \\
+    \]
+  \end{avm}
+  }
+\end{frame}
+
+\begin{frame}
+  {Alternativen | Lexikonregel}
+  \onslide<+->
+  \onslide<+->
+  Ganz ähnlich wie die unäre Regel \ldots\\
+  \Zeile
+  \onslide<+->
+  \centering 
+  \scalebox{0.7}{%
+    \begin{avm}
+      \[
+        \asort{slash-lex-rule}
+        synsem & \[
+          loc|cat|subcat & \@1$\oplus$\@3 \\
+          nonloc|slash & \<\@4\> \\
+        \] \\
+        lex-dtr & \[
+          synsem & \[
+            loc|cat & \[
+              head|mod & none \\
+              subcat & \@1$\oplus$\<\[
+                synsem & \[
+                  loc & \@4 \\
+                  nonloc|slash & \<\@4\>
+                \]
+              \]\>$\oplus$\@3
+            \] \\
+            nonloc & \[ slash & \<\> \] \\
+          \]
+        \]
+      \]
+    \end{avm}
+  }
+\end{frame}
+
+\begin{frame}
+  {Alternativen | Unterspezifikation}
+  \onslide<+->
+  \onslide<+->
+  Das \alert{2000er-System}! \grau{\citep{GSag2000a-u,BMS2001a}}\\
+  \grau{\footnotesize Das Werk von Bouma, Malouf \& Sag umgangssprachlich auch "`BouMS"' \ldots}\\
+  \Zeile
+  \begin{itemize}[<+->]
+    \item Ähnliche Idee wie bei der einfachen lexikalischen Regel
+    \item Parallel zur \textsc{subcat} (\textsc{arg-st}) eine Liste \textsc{deps}, auf der auch Adjunkte stehen
+    \item Ein Teil von \textsc{deps} wird geslasht (\textsc{local}=\textsc{slash}) und von \textsc{deps} entfernt
+    \item Auf \textsc{nonloc|slash} dann Komplemente und Adjunkte möglich
+  \end{itemize}
+\end{frame}
 
 \section{Nächste Woche}
 
