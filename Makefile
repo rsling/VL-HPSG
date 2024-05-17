@@ -66,7 +66,7 @@ handout04: $(OUTDIR)/04.+Verbsemantik+und+Linking$(HANDOUTSUFF)$(PROJECT)$(SUFFS
 handout05: $(OUTDIR)/05.+Adjunktion+und+Spezifikation$(HANDOUTSUFF)$(PROJECT)$(SUFFSUFF)
 handout06: $(OUTDIR)/06.+Lexikon+und+Lexikonregeln$(HANDOUTSUFF)$(PROJECT)$(SUFFSUFF)
 handout07: $(OUTDIR)/07.+Konstituentenreihenfolge+und+Verbbewegung$(HANDOUTSUFF)$(PROJECT)$(SUFFSUFF)
-handout08: $(OUTDIR)/08.+Ungebundene+Dependenzen$(HANDOUTSUFF)$(PROJECT)$(SUFFSUFF)
+handout08: $(OUTDIR)/08.+Unbegrenzte+Dependenzen$(HANDOUTSUFF)$(PROJECT)$(SUFFSUFF)
 handout09: $(OUTDIR)/09.+Quantorenspeicher$(HANDOUTSUFF)$(PROJECT)$(SUFFSUFF)
 handout10: $(OUTDIR)/10.+Unterspezifikation$(HANDOUTSUFF)$(PROJECT)$(SUFFSUFF)
 
@@ -79,7 +79,7 @@ slides04: $(OUTDIR)/04.+Verbsemantik+und+Linking$(SLIDESUFF)$(PROJECT)$(SUFFSUFF
 slides05: $(OUTDIR)/05.+Adjunktion+und+Spezifikation$(SLIDESUFF)$(PROJECT)$(SUFFSUFF)
 slides06: $(OUTDIR)/06.+Lexikon+und+Lexikonregeln$(SLIDESUFF)$(PROJECT)$(SUFFSUFF)
 slides07: $(OUTDIR)/07.+Konstituentenreihenfolge+und+Verbbewegung$(SLIDESUFF)$(PROJECT)$(SUFFSUFF)
-slides08: $(OUTDIR)/08.+Ungebundene+Dependenzen$(SLIDESUFF)$(PROJECT)$(SUFFSUFF)
+slides08: $(OUTDIR)/08.+Unbegrenzte+Dependenzen$(SLIDESUFF)$(PROJECT)$(SUFFSUFF)
 slides09: $(OUTDIR)/09.+Quantorenspeicher$(SLIDESUFF)$(PROJECT)$(SUFFSUFF)
 slides10: $(OUTDIR)/10.+Unterspezifikation$(SLIDESUFF)$(PROJECT)$(SUFFSUFF)
 
