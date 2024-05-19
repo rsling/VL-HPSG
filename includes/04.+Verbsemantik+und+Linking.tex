@@ -20,7 +20,8 @@
   \Halbzeile
   Einführung Valenz und Rollen auch: \citet{Schaefer2018a}\\
   \Halbzeile
-  Situationssemantik: \citet{ps, GSag2000a-u,BP83a,CMP90,Devlin92}}
+  \footnotesize Situationssemantik: \citet{ps, GSag2000a-u}\\
+    \citet{BP83a,CMP90,Devlin92}}
 \end{frame}
 
 \section{Valenz, semantische Rollen und Situationen}
@@ -308,28 +309,32 @@
   \onslide<+->
   \Zeile
   \centering 
-  \scalebox{0.8}{%
+  \scalebox{0.7}{%
     \begin{avm}
       \[ \asort{word} 
         \alert{phon} & list \\
-        \rot{local} & \[ 
-          \gruen{cat} & \[ head & head \\
-            subcat & list \] \\
-            \orongsch{cont} & cont
-        \] \\
-        \rot{nonlocal} & \[ slash & list \]
+        \rot{synsem} & \[
+          \rot{local} & \[ 
+            \gruen{cat} & \[ head & head \\
+              subcat & list \] \\
+              \orongsch{cont} & cont
+          \] \\
+          \rot{nonlocal} & \[ slash & list \]
+        \]
       \]
     \end{avm}
-  }\onslide<+->\hspace{2em}\scalebox{0.8}{%
+  }\onslide<+->\hspace{2em}\scalebox{0.7}{%
     \begin{avm}
       \[ \asort{headed-phrase} 
         \alert{phon} & list \\
-        \rot{local} & \[ 
-          \gruen{cat} & \[ head & head \\
-            subcat & list \] \\
-            \orongsch{cont} & cont
+        \rot{synsem} & \[
+          \rot{local} & \[ 
+            \gruen{cat} & \[ head & head \\
+              subcat & list \] \\
+              \orongsch{cont} & cont
+          \] \\
+          \rot{nonlocal} & \[ slash & list \] \\
         \] \\
-        \rot{nonlocal} & \[ slash & list \] \\
         hd-dtr & sign \\
         nhd-dtr & sign \\
       \]
@@ -337,7 +342,7 @@
   }\\
   \Zeile
   \onslide<+->
-  \rot{Die Unterscheidung in \textsc{local} und \textsc{nonlocal} jetzt schon einzuführen,\\
+  \rot{Die Knoten \textsc{synsem}, \textsc{local} und \textsc{nonlocal} jetzt schon einzuführen,\\
   wäre nicht zielführend. Wir brauchen sie erst für einen Typ von Bewegung.}\\
   \grau{\footnotesize Außerdem gibt es bei Bedarf auch Geometrien mit noch mehr Struktur.}
 \end{frame}
