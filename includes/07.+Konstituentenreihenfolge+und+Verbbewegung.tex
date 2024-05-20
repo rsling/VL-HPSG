@@ -80,7 +80,8 @@
   {Verbbewegung}
   \onslide<+->
   \onslide<+->
-  Sie kennen es aus CP\slash IP-Ansätzen. \grau{Darüber ist man sich auch weitgehend einig.}\\
+  Sie kennen es aus CP\slash IP-Ansätzen in der GB-Theorie.\\
+  \grau{Über die Adäquatheit der Grundidee ist man sich auch weitgehend einig.}\\
   \onslide<+->
   \Halbzeile
   \begin{exe}
@@ -617,7 +618,7 @@
         \item Als Kopfmerkmal wird \textsc{loc|cat|head|dsl} in Kopf-Strukturen (VP) weitergegeben.
       \end{itemize}
       \Viertelzeile
-    \item Einen Lexikoneintrag per \alert{Lexikonregel für das bewegte Verb}
+    \item Einen Lexikoneintrag (via \alert{Lexikonregel) für das bewegte Verb}
       \begin{itemize}[<+->]
         \item Sein \textsc{phon} entspricht dem seiner \textsc{lex-dtr} (normales Verb).
         \item Er ist \textsc{initial $+$}, weil er links von der VP steht.
@@ -662,7 +663,7 @@
     \[ \asort{v1-lex-rule} 
       phon & \phon{hustet} \\
       loc|cat & \[
-        head|initial & $+$ \\
+        head & \@6 \[ \asort{verb} initial & $+$ \] \\
         subcat & \<
           \@4 \[
             loc|cat & \[
@@ -698,6 +699,10 @@
   \scalebox{0.5}{\begin{avm}
     \[ \asort{hd-arg-phr}
       phon & \phon{hustet,Matthias}$\oplus$\<\> \\
+      loc|cat & \[
+        head & \@6 \\
+        subcat & \<\> \\
+      \] \\
     \]
   \end{avm}}
 }
@@ -708,6 +713,7 @@
   \onslide<+->
   \alert{V1-Satz} | \textit{Hustet Matthias?} \\
   \onslide<+->
+  \vspace{-2\baselineskip}
   \centering
   \begin{forest}
     [\AvmGf
@@ -811,7 +817,7 @@
       phon & \<\> \\
       loc & \@1 \[
         cat|head & \@5 \[dsl & \@1 \] \\
-        cont & \@7 \\
+        \alert{cont} & \alert{\@7} \\
     \]
     \]
   \end{avm}}
@@ -823,9 +829,9 @@
       phon & \phon{besucht} \\
         loc & \@1 \[cat & \[
           head|initial & $-$ \\
-          subcat & \<\@2 NP\UpSub{\sl Nom}{\@{10}}, \@6 NP\UpSub{\sl Acc}{\@{11}}\>
+          subcat & \<\@2 NP\UpSub{\sl Nom}{\alert{\@{10}}}, \@6 NP\UpSub{\sl Acc}{\alert{\@{11}}}\>
         \] \\
-        cont & \@7 \[ restr & \< \[ \asort{visit-rel} agent & \@{10} \\ other & \@{11} \] \> \] \\
+        \alert{cont} & \alert{\@7 \[ restr & \< \[ \asort{visit-rel} agent & \@{10} \\ other & \@{11} \] \> \]} \\
       \]
     \]
   \end{avm}}
@@ -835,8 +841,8 @@
   \scalebox{0.44}{\begin{avm}
     \[ \asort{v1-lex-rule} 
       phon & \phon{besucht} \\
-      loc|cat & \[
-        head|initial & $+$ \\
+      loc & \[ cat & \[
+        head & \@8 \[ \asort{verb} initial & $+$ \] \\
         subcat & \<
           \@4 \[
             loc|cat & \[
@@ -846,6 +852,8 @@
           \]
         \>\\
       \]\\
+      \alert{cont} & \alert{\@7} \\
+      \] \\
       lex-dtr & \@3 \\
     \]
   \end{avm}}
@@ -855,7 +863,7 @@
   \scalebox{0.44}{\begin{avm}
     \@2 \[ \asort{word} 
       phon & \phon{Matthias} \\
-      loc|cont|ind & \@{10} \\
+      loc|\alert{cont|ind} & \alert{\@{10}} \\
     \]
   \end{avm}}
 }
@@ -864,7 +872,7 @@
   \scalebox{0.44}{\begin{avm}
     \@6 \[ \asort{word} 
       phon & \phon{Doro} \\
-      loc|cont|ind & \@{11} \\
+      loc|\alert{cont|ind} & \alert{\@{11}} \\
     \]
   \end{avm}}
 }
@@ -878,7 +886,7 @@
                head & \@5 \[dsl & \@1 \] \\
                subcat & \<\> \\
              \] \\
-             cont & \@7 \\
+             \alert{cont} & \alert{\@7} \\
            \]\\
     \]
   \end{avm}}
@@ -893,7 +901,7 @@
                head & \@5 \[dsl & \@1 \] \\
                subcat & \<\@2\>
              \] \\
-             cont & \@7 \\
+             \alert{cont} & \alert{\@7} \\
            \] \\
     \]
   \end{avm}}
@@ -903,7 +911,11 @@
   \scalebox{0.44}{\begin{avm}
     \[ \asort{hd-arg-phr}
       phon & \phon{besucht,Matthias,Doro}$\oplus$\<\> \\
-      cont & \@7 \\
+      loc|cat & \[
+        head & \@8 \\
+        subcat & \<\> \\
+      \] \\
+      \alert{cont} & \alert{\@7} \\
     \]
   \end{avm}}
 }
@@ -915,6 +927,7 @@
   \centering
   \vspace{-1.75\baselineskip}
   \begin{forest}
+    for tree = {l=0, inner sep=0}
     [\AvmGSemf
       [\AvmGSemc
         [\AvmGSemb]
@@ -936,16 +949,12 @@
 
 \begin{frame}
   {Vorbereitung}
-  \onslide<+->
-  \onslide<+->
   \centering 
   \large
   Nächste Woche reden wir über Fernabhängigkeiten wie Vorfeldbesetzung.\\
-  \onslide<+->
   \Zeile
   \rot{Sie sollten dringend vorher aus dem HPSG-Buch\\
   von Kapitel 10 die Seiten 163--171 lesen!}\\
-  \onslide<+->
   \Viertelzeile
   Das sind \gruen{9} Seiten.\\
 \end{frame}
