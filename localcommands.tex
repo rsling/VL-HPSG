@@ -128,73 +128,6 @@
 \newcommand{\ORv}{\Bewegtes{5}}
 \newcommand{\goesto}{→~}
 
-% Beamer ==============================================================
-
-\usetheme[hideothersubsections]{Boadilla}
-
-% \ifdefined\HANDOUT
-  \usecolortheme{whale}
-% \else
-%   \usecolortheme{magpie}
-% \fi
-
-\renewcommand<>{\rot}[1]{%
-  \alt#2{\beameroriginal{\rot}{#1}}{#1}%
-}
-\renewcommand<>{\blau}[1]{%
-  \alt#2{\beameroriginal{\blau}{#1}}{#1}%
-}
-\renewcommand<>{\orongsch}[1]{%
-  \alt#2{\beameroriginal{\orongsch}{#1}}{#1}%
-}
-\renewcommand<>{\gruen}[1]{%
-  \alt#2{\beameroriginal{\gruen}{#1}}{#1}%
-}
-\renewcommand<>{\whyte}[1]{%
-  \alt#2{\beameroriginal{\whyte}{#1}}{#1}%
-}
-
-\setbeamercolor{alerted text}{fg=trueblue}
-
-\newcounter{lastpagemainpart}
-
-\resetcounteronoverlays{exx}
-
-\AtBeginSection[]{
-  \begingroup
-  \setbeamertemplate{navigation symbols}{}
-  \begin{frame}[noframenumbering,plain]
-  \vfill
-  \centering
-  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
-    \usebeamerfont{title}\insertsectionhead\par%
-  \end{beamercolorbox}
-  \vfill
-  \end{frame}
-  \endgroup
-}
-
-\setbeamertemplate{itemize item}[circle]
-\setbeamertemplate{enumerate item}[square]
-
-
-\makeatother
-\setbeamertemplate{footline}
-{
-  \leavevmode%
-  \hbox{%
-  \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
-    \usebeamerfont{author in head/foot}\insertshortauthor
-  \end{beamercolorbox}%
-  \begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
-    \usebeamerfont{title in head/foot}\insertshorttitle\hspace*{3em}
-    \insertframenumber{} / \inserttotalframenumber\hspace*{1ex}
-  \end{beamercolorbox}}%
-  \vskip0pt%
-}
-\makeatletter
-\setbeamertemplate{navigation symbols}{}
-
 
 % Tikz ================================================================
 
@@ -366,14 +299,6 @@
 }
 
 
-\setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{section in toc}[circle]
-\setbeamertemplate{subsection in toc}[square]
-\setbeamertemplate{subsubsection in toc}[triangle]
-
-\setbeamerfont{section in toc}{size=\tiny}
-\setbeamerfont{subsection in toc}{size=\tiny}
-\setbeamerfont{subsubsection in toc}{size=\tiny}
 
 \avmfont{\sc}
 \avmsortfont{\it}

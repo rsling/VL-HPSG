@@ -1,0 +1,178 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[margin=2cm]{geometry}
+
+\include{localpackages.tex}
+\include{localcommands.tex}
+
+\author{Roland Schäfer}
+\title{HPSG | Kombinatorischer Teil der Grammatik}
+\date{\today | Noch nicht verifiziert!}
+
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX,Numbers=OldStyle, Scale=MatchLowercase}
+\setmainfont{Linux Libertine O}
+\setsansfont{Linux Biolinum O}
+
+\avmfont{\sc}
+\avmsortfont{\it}
+\avmvalfont{\it}
+
+\pagestyle{empty}
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{empty}
+
+\section*{Vorbemerkung}
+
+\noindent Hier finden Sie die Schemata und Prinzipien unserer Grammatik bis zur Vorfeldbesetzung mit der finalen Merkmalsgeometrie inkl.\ \textsc{synsem}.
+Sie sollten verstehen, warum wir die Merkmalsgeometrie im Laufe des Semesters erweitert haben, und wie es zu diesen endgültigen Formulierungen kommt.
+
+\section{Für die Kombinatorik relevante Typen}
+
+\begin{center}
+  \scalebox{1}{\begin{forest}
+    type hierarchy,
+    for tree={
+      calign=fixed angles,
+      calign angle=50,
+      align=center
+    }
+    [sign
+      [word]
+      [{phrase\\\blau{\footnotesize Nonlocal Feature Principle}}
+        [{non-headed-phrase\\\ }]
+        [{headed-phrase\\\blau{\footnotesize Head Feature Principle}}
+          [{head-non-adjunct-phrase\\\blau{\footnotesize Semantics Principle A}}
+            [{head-argument-phrase\\\gruen{\footnotesize Schema}\\\blau{\footnotesize Subcategorisation Principle A}\\\ }]
+            [{head-filler-phrase\\\gruen{\footnotesize Schema}\\\ }]]
+          [{head-non-argument-phrase\\\blau{\footnotesize Subcategorisation Principle B}\\\blau{\footnotesize Specifier Principle}}
+            [,identify=!r2212]
+            [{head-adjunct-phrase\\\gruen{\footnotesize Schema}\\\blau{\footnotesize Semantics Principle B}}]
+          ]
+        ]
+      ]
+    ]
+  \end{forest}}
+\end{center}
+
+\section{Schemata}
+
+\subsection{Kopf-Argument-Schema}
+
+\raisebox{-1.5\baselineskip}{\textit{hd-arg-phr}$\Rightarrow$}\scalebox{1}{%
+  \begin{avm}
+    \[ 
+    synsem|loc|cat|subcat        & \@1 $\oplus$ \@3 \\
+    hd-dtr|synsem|loc|cat|subcat & \@1 $\oplus$ \<\@2\> $\oplus$ \@3 \\
+    nhd-dtr|synsem       & \@2 \\
+  \]
+  \end{avm}
+}
+
+\subsection{Kopf-Adjunkt-Schema}
+
+\raisebox{-1.25\baselineskip}{\textit{head-adjunct-phrase} $\Rightarrow$} \scalebox{1}{%
+  \begin{avm}
+    \[ head-dtr|synsem & \@1 \\
+      non-hd-dtr & \< \[ synsem|loc|cat & \[ head|mod & \@1 \\
+        subcat & \<\>
+      \]
+    \]\> 
+    \]
+  \end{avm}
+}
+
+\subsection{Kopf-Füller-Schema}
+
+\raisebox{-5\baselineskip}{\textit{head-filler-phrase}$\Rightarrow$}%
+\begin{avm}
+  \[ 
+    synsem & \[ nonloc|slash & \<\> \] \\
+    head-dtr & \[ synsem & \[
+      loc|cat & \[
+        head & \[
+          vform & fin \\
+          initial & $+$ \\
+        \] \\
+        subcat & \<\> \\
+      \] \\
+      nonloc & \[ slash & \<\@1\> \] \\
+    \]
+    \]\\
+    nhd-dtr  & \[
+      synsem & \[
+        loc & \@1 \\
+        nonloc|slash & \<\> \\
+      \]
+    \]\\
+  \]
+\end{avm}
+
+\section{Prinzipien}
+
+\subsection{Head Feature Principle}
+
+\scalebox{1}{\raisebox{-0.5\baselineskip}{\textit{headed-phrase}\ $\Rightarrow$\ }%
+\begin{avm}
+  \[ synsem|loc|cat|head & \@1 \\
+     hd-dtr|synsem|loc|cat|head & \@1 \\
+   \]
+ \end{avm}}
+
+\subsection{Subcategorisation Prinziple}
+
+\subsubsection{Part A}
+
+\raisebox{-1.5\baselineskip}{\textit{head-argument-phrase} $\Rightarrow$} \scalebox{1}{%
+  \begin{avm}
+    \[ synsem|loc|cat|subcat & \@1 $\oplus$ \@3 \\
+      hd-dtr|sysnem|loc|cat|subcat & \@1 $\oplus$ \<\@2\> $\oplus$ \@3 \\
+      nhd-dtr|synsem & \@2 \\
+    \]
+\end{avm}}
+
+\subsubsection{Part B}
+
+\raisebox{-0.75\baselineskip}{\textit{head-non-argument-phrase} $\Rightarrow$} \scalebox{1}{%
+  \begin{avm}
+    \[ synsem|loc|cat|subcat & \@1 \\
+      hd-dtr|synsem|loc|cat|subcat & \@1 \\
+    \]
+\end{avm}}
+
+\subsection{Semantics Principle}
+
+\subsubsection{Part A}
+
+\raisebox{-0.75\baselineskip}{\textit{head-non-adjunct-phrase} $\Rightarrow$} \scalebox{1}{%
+\begin{avm}
+  \[ synsem|loc|cont & \@1 \\
+     hd-dtr|synsem|loc|cont & \@1
+  \] 
+\end{avm}}
+
+\subsubsection{Part B}
+
+\raisebox{-0.75\baselineskip}{\textit{head-adjunct-phrase} $\Rightarrow$} \scalebox{1}{%
+  \begin{avm}
+    \[ cont & \@1 \\
+       non-hd-dtr|synsem|loc|cont & \@1
+    \] 
+\end{avm}}
+
+\subsection{Specifier Principle}
+
+Falls eine Nicht-Kopf-Tochter in einer Kopf-Struktur einen Wert für \textsc{spec} anders als \textit{none} hat, ist dieser token-identisch zum \textsc{synsem}-Wert Kopftochter.
+
+\subsection{Nonlocal Feature Principle}
+
+Der Wert jedes \textsc{nonlocal}-Merkmals einer Phrase ist die Vereinigung des korrespondierenden \textsc{nonlocal}-Werte der Töchter.
+
+\end{document}
+
