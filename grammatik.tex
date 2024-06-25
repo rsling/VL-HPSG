@@ -7,7 +7,7 @@
 
 \author{Roland Schäfer}
 \title{HPSG | Kombinatorischer Teil der Grammatik}
-\date{\today | Noch nicht verifiziert!}
+\date{\today}
 
 \usepackage{fontspec}
 \defaultfontfeatures{Ligatures=TeX,Numbers=OldStyle, Scale=MatchLowercase}
@@ -79,11 +79,11 @@ Sie sollten verstehen, warum wir die Merkmalsgeometrie im Laufe des Semesters er
 
 \raisebox{-1.25\baselineskip}{\textit{head-adjunct-phrase} $\Rightarrow$} \scalebox{1}{%
   \begin{avm}
-    \[ head-dtr|synsem & \@1 \\
-      non-hd-dtr & \< \[ synsem|loc|cat & \[ head|mod & \@1 \\
+    \[ head-dtr & \[ synsem & \@1 \] \\
+      nhd-dtr &  \[ synsem|loc|cat & \[ head|mod & \@1 \\
         subcat & \<\>
       \]
-    \]\> 
+    \] 
     \]
   \end{avm}
 }
@@ -162,7 +162,7 @@ Sie sollten verstehen, warum wir die Merkmalsgeometrie im Laufe des Semesters er
 \raisebox{-0.75\baselineskip}{\textit{head-adjunct-phrase} $\Rightarrow$} \scalebox{1}{%
   \begin{avm}
     \[ cont & \@1 \\
-       non-hd-dtr|synsem|loc|cont & \@1
+       nhd-dtr|synsem|loc|cont & \@1
     \] 
 \end{avm}}
 
