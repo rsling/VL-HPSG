@@ -26,7 +26,7 @@
 
 \thispagestyle{empty}
 
-Ohne Semantik.
+Ohne Semantik:
 
 \begin{center}
   \scalebox{0.4}{%
@@ -237,10 +237,10 @@ Ohne Semantik.
 
 \newpage
 
-Mit Semantik, unvollständig!
+Mit Semantik:
 
 \begin{center}
-  \scalebox{0.3}{%
+  \scalebox{0.29}{%
     \begin{avm}
       \[ \asort{hd-filler-phr}
         phon & \phon{Otjes,unordentlicher,Schreibtisch,nervt,$\emptyset$,Carlos,ungemein,$\emptyset$} \\
@@ -250,7 +250,7 @@ Mit Semantik, unvollständig!
               head & \@{24} \\
               subcat & \<\> \\
             \] \\
-            cont & \@{32} \\
+            cont & \@{37} \\
           \] \\
           nonloc & \[ slash & \<\>\] \\
         \] \\
@@ -263,7 +263,7 @@ Mit Semantik, unvollständig!
                 head & \@{24} \\
                 subcat & \<\> \\
               \] \\
-              cont & \@{32} \\
+              cont & \@{37} \\
             \]\\
             nonloc & \[ slash & \<\@6\> \]\\
           \]\\
@@ -278,7 +278,7 @@ Mit Semantik, unvollständig!
                   \] \\
                   subcat & \<\@{15}\> \\
                 \] \\
-                cont & \@{32} \\
+                cont & \@{37} \\
               \] \\
             \]\\
             lex-dtr & \[
@@ -315,9 +315,11 @@ Mit Semantik, unvollständig!
                   head & \@{22} \\
                   subcat & \<\>\\
                 \] \\
-              \]\\
+                cont & \@{37} \\
+              \] \\
               nonloc & \[ slash & \<\@6\> \] \\
-            \]\\
+            \] \\
+            qstore & \{\} \\
             hd-dtr & \[ \asort{hd-arg-phr}
               phon & \phon{Carlos,ungemein,$\emptyset$} \\
               snysem & \[
@@ -326,9 +328,11 @@ Mit Semantik, unvollständig!
                     head & \@{22} \\
                     subcat & \<\@9\> \\
                   \] \\
+                  cont & \@{37} \\
                 \]\\
                 nonloc & \[ slash & \<\> \] \\
-              \]\\
+              \] \\
+              qstore & \{\} \\
               hd-dtr & \[ \asort{hd-adj-phr}
                 phon & \phon{ungemein,$\emptyset$} \\
                 synsem & \[
@@ -337,9 +341,11 @@ Mit Semantik, unvollständig!
                       head & \@{22} \\
                       subcat & \@{23} \\
                     \] \\
+                    cont & \@{37} \\
                   \] \\
                   nonloc & \[ slash & \<\> \] \\
                 \] \\
+                qstore & \{\} \\
                 hd-dtr & \[
                   phon & \<\> \\
                   synsem & \@{10} \[
@@ -351,6 +357,7 @@ Mit Semantik, unvollständig!
                       \] \\
                     \] \\
                   \] \\
+                  qstore & \{\} \\
                 \]\\
                 nhd-dtr & \[ \asort{word}
                   phon & \phon{ungemein} \\
@@ -362,8 +369,15 @@ Mit Semantik, unvollständig!
                         \] \\
                         subcat & \<\> \\ 
                       \] \\
+                      cont & \@{37} \[
+                        quants & \<\> \\
+                        nuc|restr & \<\[ \asort{intense-psoa-rel}
+                          psoa-arg & \@{32} \\
+                        \]\> \\
+                      \]\\
                     \] \\
                   \] \\
+                  qstore & \{\} \\
                 \] \\
               \] \\
               nhd-dtr & \[ \asort{word}
@@ -387,9 +401,10 @@ Mit Semantik, unvollständig!
                 loc & \@6 \\
                 nonloc & \[ slash & \<\@6\> \] \\
               \] \\
-            \]\\
-          \]\\
-        \]\\
+              qstore & \{\} \\
+            \] \\
+          \] \\
+        \] \\
         nhd-dtr & \[ \asort{hd-arg-phr}
           phon & \phon{Otjes,unordentlicher,Schreibtisch} \\
           sysnem & \@9 \[
@@ -398,9 +413,11 @@ Mit Semantik, unvollständig!
                 head & \@{19} \\
                 subcat & \<\> \\
               \] \\
+              cont & \@{35} \\
             \]\\
             nonloc & \[ slash & \<\> \]\\
-          \]\\
+          \] \\
+          qstore & \{\} \\
           hd-dtr & \[ \asort{hd-adj-phrase}
             phon & \phon{unordentlicher,Schreibtisch} \\
             synsem &\@{20} \[
