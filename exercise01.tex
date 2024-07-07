@@ -1,0 +1,234 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[margin=2cm]{geometry}
+
+\include{localpackages.tex}
+\include{localcommands.tex}
+
+\usepackage{rotating}
+
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX,Numbers=OldStyle,Scale=MatchLowercase}
+\setmainfont[SmallCapsFont={Linux Libertine C}]{Linux Libertine}
+%\setsansfont[SmallCapsFont={Linux Biolinum C}]{Linux Biolinum}
+
+\author{Roland Schäfer}
+\title{HPSG | Musterlösung 1 | Ohne Semantik}
+\date{\today}
+
+\pagestyle{empty}
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+%\maketitle
+
+\thispagestyle{empty}
+
+%\newpage
+
+\begin{center}
+  \scalebox{0.43}{%
+    \begin{avm}
+      \[ \asort{hd-filler-phr}
+        phon & \phon{Otjes,unordentlicher,Schreibtisch,nervt,$\emptyset$,Carlos,ungemein,$\emptyset$} \\
+        synsem & \[
+          loc & \[
+            cat & \[
+              head & \@{24} \\
+              subcat & \<\> \\
+            \]
+          \] \\
+          nonloc & \[ slash & \<\>\] \\
+        \]\\
+        hd-dtr & \[ \asort{hd-arg-phr}
+          phon & \phon{nervt,$\emptyset$,Carlos,ungemein,$\emptyset$} \\
+          synsem & \[
+            loc & \[
+              cat & \[
+                head & \@{24} \\
+                subcat & \<\> \\
+              \] \\
+            \]\\
+            nonloc & \[ slash & \<\@6\> \]\\
+          \]\\
+          hd-dtr & \[ \asort{v1-lex-rule}
+            phon & \phon{nervt} \\
+            synsem & \[
+              loc|cat & \[
+                head & \@{24} \[ \asort{verb}
+                  initial & $+$
+                \] \\
+                subcat & \<\@{15}\> \\
+              \] \\
+            \]\\
+            lex-dtr & \[
+              phon & \phon{nervt} \\
+              synsem & \[
+                loc & \@1 \[ cat & \[
+                  head & \[ \asort{verb}
+                    initial & $-$ \\
+                    dsl & \textit{none} \\
+                  \] \\
+                  subcat & \@{23} \<\@9, \@5\> \\
+                \]\] \\
+                nonloc & \[ slash & \<\> \]\\
+              \]
+            \]\\
+          \]\\
+          nhd-dtr & \[ \asort{hd-arg-phr}
+            phon & \phon{$\emptyset$,Carlos,ungemein,$\emptyset$} \\
+            synsem & \@{15} \[
+              loc & \[
+                cat & \[
+                  head & \@{22} \\
+                  subcat & \<\>\\
+                \] \\
+              \]\\
+              nonloc & \[ slash & \<\@6\> \] \\
+            \]\\
+            hd-dtr & \[ \asort{hd-arg-phr}
+              phon & \phon{Carlos,ungemein,$\emptyset$} \\
+              snysem & \[
+                loc & \[
+                  cat & \[
+                    head & \@{22} \\
+                    subcat & \<\@9\> \\
+                  \] \\
+                \]\\
+                nonloc & \[ slash & \<\> \] \\
+              \]\\
+              hd-dtr & \[ \asort{hd-adj-phr}
+                phon & \phon{ungemein,$\emptyset$} \\
+                synsem & \[
+                  loc & \[
+                    cat & \[
+                      head & \@{22} \\
+                      subcat & \@{23} \\
+                    \] \\
+                  \] \\
+                  nonloc & \[ slash & \<\> \] \\
+                \] \\
+                hd-dtr & \[
+                  phon & \<\> \\
+                  synsem & \@{10} \[
+                    loc & \@1 \[
+                      cat\[
+                        head & \@{22} \[ \asort{verb}
+                          dsl & \@1 \\
+                        \] \\
+                      \] \\
+                    \] \\
+                  \] \\
+                \]\\
+                nhd-dtr & \[ \asort{word}
+                  phon & \phon{ungemein} \\
+                  synsem & \[ 
+                    loc & \[
+                      cat & \[
+                        head & \[ \asort{adverbial-adj}
+                          mod & \@{10} \\
+                        \] \\
+                        subcat & \<\> \\ 
+                      \] \\
+                    \] \\
+                  \] \\
+                \] \\
+              \] \\
+              nhd-dtr & \[ \asort{word}
+                phon & \phon{Carlos} \\
+                synsem & \@5 \[
+                  loc & \[
+                    cat & \[
+                      head & \[ \asort{noun}
+                        cas & acc \\
+                      \]\\
+                      subcat & \<\> \\
+                    \] \\
+                  \] \\
+                  nonloc & \[ slash & \<\> \] \\
+                \] \\
+              \] \\
+            \]\\
+            nhd-dtr & \[ \asort{word}
+              phon & \<\> \\
+              sysnem & \[
+                loc & \@6 \\
+                nonloc & \[ slash & \<\@6\> \] \\
+              \] \\
+            \]\\
+          \]\\
+        \]\\
+        nhd-dtr & \[ \asort{hd-arg-phr}
+          phon & \phon{Otjes,unordentlicher,Schreibtisch} \\
+          sysnem & \@9 \[
+            loc & \@6 \\
+            nonloc & \[ slash & \<\> \]\\
+          \]\\
+          hd-dtr & \[ \asort{hd-adj-phrase}
+            phon & \phon{unordentlicher,Schreibtisch} \\
+            synsem &\@{20} \[
+              loc & \[
+                cat & \[
+                  head & \@{19} \\
+                  subcat & \@{18} \\
+                \] \\
+              \] \\
+              nonloc & \[ slash & \<\> \] \\
+            \] \\
+            hd-dtr & \[ \asort{word}
+              phon & \phon{Schreibtisch} \\
+              synsem & \@{16} \[
+                loc & \[
+                  cat & \[
+                    head & \@{19} \[ \asort{noun}
+                      cas & \@{21}
+                    \]\\
+                    subcat & \@{18} \<\@{17}\> \\
+                  \] \\
+                \] \\
+                nonloc & \[ slash & \<\> \] \\
+              \] \\
+            \]\\
+            nhd-dtr & \[ \asort{word}
+              phon & \phon{unordentlicher} \\
+              synsem & \[
+                loc & \[
+                  cat & \[
+                    head & \[ \asort{attr-adj}
+                      cas & \@{21} nom \\
+                      mod & \@{16} \\
+                    \]\\
+                    subcat & \<\> \\
+                  \] \\
+                \] \\
+                nonloc & \[ slash & \<\> \] \\
+              \] \\
+            \]\\
+          \]\\
+          nhd-dtr & \[ \asort{prop-noun-gen-lex-rule}
+            phon & \phon{Otjes} \\
+            synsem & \@{17} \[
+              loc & \[
+                cat & \[
+                  head & \[ \asort{noun}
+                    cas & gen \\
+                    spr & \@{20} \\
+                  \]\\
+                  subcat & \<\> \\
+                \] \\
+              \] \\
+              nonloc & \[ slash & \<\> \] \\
+            \] \\
+            lex-dtr & \[ \asort{trivial-lex-entry-pls-ignore} \] \\
+          \] \\
+        \]\\
+      \]
+    \end{avm}
+  }
+\end{center}
+
+
+\end{document}
+
